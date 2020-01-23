@@ -13,8 +13,6 @@
 		C950832623C2666C0037BF46 /* ReConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950832523C2666C0037BF46 /* ReConfirmViewController.swift */; };
 		C950835423C4FF140037BF46 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950835323C4FF140037BF46 /* HomeViewController.swift */; };
 		C950835623C502770037BF46 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950835523C502770037BF46 /* SearchUserViewController.swift */; };
-		C950835823C505AE0037BF46 /* NotFound.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950835723C505AE0037BF46 /* NotFound.swift */; };
-		C950835A23C505E10037BF46 /* NotFound.xib in Resources */ = {isa = PBXBuildFile; fileRef = C950835923C505E10037BF46 /* NotFound.xib */; };
 		C970C4E923BF967E00D0A069 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C4E823BF967E00D0A069 /* AppDelegate.swift */; };
 		C970C4EB23BF967F00D0A069 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C4EA23BF967F00D0A069 /* SceneDelegate.swift */; };
 		C970C4F023BF967F00D0A069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C970C4EE23BF967F00D0A069 /* Main.storyboard */; };
@@ -35,8 +33,6 @@
 		C950832523C2666C0037BF46 /* ReConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConfirmViewController.swift; sourceTree = "<group>"; };
 		C950835323C4FF140037BF46 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C950835523C502770037BF46 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
-		C950835723C505AE0037BF46 /* NotFound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotFound.swift; sourceTree = "<group>"; };
-		C950835923C505E10037BF46 /* NotFound.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotFound.xib; sourceTree = "<group>"; };
 		C970C4E523BF967E00D0A069 /* Shared.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shared.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C970C4E823BF967E00D0A069 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C970C4EA23BF967F00D0A069 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,19 +104,12 @@
 				C970C4E823BF967E00D0A069 /* AppDelegate.swift */,
 				C970C4EA23BF967F00D0A069 /* SceneDelegate.swift */,
 				C9B0756023DA598E00E68753 /* GoogleService-Info.plist */,
-				C950835723C505AE0037BF46 /* NotFound.swift */,
 				C970C4FE23BFC75F00D0A069 /* extension.swift */,
-				C970C50523BFD05900D0A069 /* UserAuthViewController.swift */,
-				C970C4FC23BFC3F600D0A069 /* NameInputViewController.swift */,
-				C950832123C2570F0037BF46 /* ConfirmViewController.swift */,
-				C950835923C505E10037BF46 /* NotFound.xib */,
-				C970C50F23C10BEF00D0A069 /* MainUIViewController.swift */,
-				C950835323C4FF140037BF46 /* HomeViewController.swift */,
-				C950835523C502770037BF46 /* SearchUserViewController.swift */,
-				C950832323C264D40037BF46 /* ReAuthViewController.swift */,
-				C950832523C2666C0037BF46 /* ReConfirmViewController.swift */,
+				C9B0756423DA5C6000E68753 /* SharedHome */,
+				C9B0756223DA5BBA00E68753 /* SharedAuth */,
 				C970C4EE23BF967F00D0A069 /* Main.storyboard */,
 				C970C4F123BF968000D0A069 /* Assets.xcassets */,
+				C950835523C502770037BF46 /* SearchUserViewController.swift */,
 				C970C4F323BF968000D0A069 /* LaunchScreen.storyboard */,
 				C970C4F623BF968000D0A069 /* Info.plist */,
 			);
@@ -133,6 +122,27 @@
 				C970C50023BFC84600D0A069 /* model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C9B0756223DA5BBA00E68753 /* SharedAuth */ = {
+			isa = PBXGroup;
+			children = (
+				C970C50523BFD05900D0A069 /* UserAuthViewController.swift */,
+				C970C4FC23BFC3F600D0A069 /* NameInputViewController.swift */,
+				C950832123C2570F0037BF46 /* ConfirmViewController.swift */,
+				C950832323C264D40037BF46 /* ReAuthViewController.swift */,
+				C950832523C2666C0037BF46 /* ReConfirmViewController.swift */,
+			);
+			path = SharedAuth;
+			sourceTree = "<group>";
+		};
+		C9B0756423DA5C6000E68753 /* SharedHome */ = {
+			isa = PBXGroup;
+			children = (
+				C970C50F23C10BEF00D0A069 /* MainUIViewController.swift */,
+				C950835323C4FF140037BF46 /* HomeViewController.swift */,
+			);
+			path = SharedHome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,7 +205,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C950835A23C505E10037BF46 /* NotFound.xib in Resources */,
 				C970C4F523BF968000D0A069 /* LaunchScreen.storyboard in Resources */,
 				C970C4F223BF968000D0A069 /* Assets.xcassets in Resources */,
 				C970C4F023BF967F00D0A069 /* Main.storyboard in Resources */,
@@ -255,7 +264,6 @@
 				C970C51023C10BEF00D0A069 /* MainUIViewController.swift in Sources */,
 				C970C50123BFC84600D0A069 /* model.swift in Sources */,
 				C950832623C2666C0037BF46 /* ReConfirmViewController.swift in Sources */,
-				C950835823C505AE0037BF46 /* NotFound.swift in Sources */,
 				C950832423C264D40037BF46 /* ReAuthViewController.swift in Sources */,
 				C970C4FF23BFC75F00D0A069 /* extension.swift in Sources */,
 				C950832223C2570F0037BF46 /* ConfirmViewController.swift in Sources */,
