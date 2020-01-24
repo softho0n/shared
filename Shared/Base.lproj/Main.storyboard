@@ -348,9 +348,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="drO-Vq-3DO">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
-                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5N-Xa-HYN">
                                 <rect key="frame" x="0.0" y="44" width="375" height="200"/>
                                 <subviews>
@@ -596,6 +593,9 @@
                                     <constraint firstAttribute="trailing" secondItem="D8u-O2-Peh" secondAttribute="trailing" constant="20" id="zAK-d9-CF3"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="drO-Vq-3DO">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
