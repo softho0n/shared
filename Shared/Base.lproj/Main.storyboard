@@ -267,6 +267,44 @@
             </objects>
             <point key="canvasLocation" x="6016" y="250"/>
         </scene>
+        <!--친구 목록-->
+        <scene sceneID="e2n-jV-gvq">
+            <objects>
+                <viewController id="KwD-F8-lc5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9mk-cU-Rsw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NE6-Ne-gNL">
+                                <rect key="frame" x="0.0" y="20" width="414" height="856"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="55" id="6RT-Cf-gh9" customClass="UserInfoTableViewCell" customModule="Shared" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6RT-Cf-gh9" id="U64-eO-S8a">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="NE6-Ne-gNL" firstAttribute="leading" secondItem="Avl-5d-DOU" secondAttribute="leading" id="1tK-SM-xo5"/>
+                            <constraint firstAttribute="bottom" secondItem="NE6-Ne-gNL" secondAttribute="bottom" constant="20" symbolic="YES" id="8Tl-1K-AgH"/>
+                            <constraint firstItem="NE6-Ne-gNL" firstAttribute="trailing" secondItem="Avl-5d-DOU" secondAttribute="trailing" id="Kxm-ir-UAs"/>
+                            <constraint firstItem="NE6-Ne-gNL" firstAttribute="top" secondItem="9mk-cU-Rsw" secondAttribute="top" constant="20" symbolic="YES" id="kzX-Zk-Ieu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Avl-5d-DOU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="친구 목록" id="TVP-N1-AnK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r49-2F-Hw4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4240.579710144928" y="-604.01785714285711"/>
+        </scene>
         <!--MY-->
         <scene sceneID="IbN-ke-SDC">
             <objects>
@@ -361,16 +399,16 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLs-OB-DQN">
                                                 <rect key="frame" x="262.5" y="0.0" width="111.5" height="86"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="알림 전송" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byz-bc-8Fs">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="계좌 등록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byz-bc-8Fs">
                                                         <rect key="frame" x="0.0" y="47.5" width="111.5" height="38.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nY2-7J-vQo">
                                                         <rect key="frame" x="0.0" y="0.0" width="111.5" height="86"/>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notification" translatesAutoresizingMaskIntoConstraints="NO" id="JbU-sT-iIt">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="JbU-sT-iIt">
                                                         <rect key="frame" x="0.0" y="0.0" width="111.5" height="42.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -684,6 +722,9 @@
                             </barButtonItem>
                             <barButtonItem title="Item" image="person.2.fill" catalog="system" id="kik-8O-9bB">
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <connections>
+                                    <segue destination="KwD-F8-lc5" kind="push" id="Wv4-Ns-4xV"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
@@ -795,10 +836,10 @@
         <image name="arrow.left" catalog="system" width="64" height="48"/>
         <image name="arrow.right" catalog="system" width="64" height="48"/>
         <image name="arrow.right.square.fill" catalog="system" width="64" height="56"/>
+        <image name="card" width="42.666667938232422" height="42.666667938232422"/>
         <image name="divide" width="42.666667938232422" height="42.666667938232422"/>
         <image name="job-seeker" width="42.666667938232422" height="42.666667938232422"/>
         <image name="not-found" width="85.333335876464844" height="85.333335876464844"/>
-        <image name="notification" width="42.666667938232422" height="42.666667938232422"/>
         <image name="person.2.fill" catalog="system" width="64" height="40"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
         <image name="text.justify" catalog="system" width="64" height="50"/>
