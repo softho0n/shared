@@ -45,9 +45,13 @@ class ConfirmViewController: UIViewController {
         ref = Database.database().reference()
         
         if let uid = Auth.auth().currentUser?.uid {
-            let storedData = ["userName" : name ?? "Novalue", "userPhoneNumber" : phoneNumber ?? "Novalue", "signInDate" : formatter.string(from: date!) ] as [String : Any]
-            ref?.child("Users").child(uid).setValue(storedData)
-            print("데이터베이스에 저장 성공! 어떤 값이 저장되었냐면 \(storedData)")
+            let metaData = ["userName" : name ?? "Novalue", "userPhoneNumber" : phoneNumber ?? "Novalue", "signInDate" : formatter.string(from: date!) ] as [String : Any]
+            let sharedMoney = ["balance" : 0] as [String : Int]
+            
+            ref?.child("Users").child(uid).setValue(metaData)
+            ref?.child("SharedMoney").child(uid).setValue(sharedMoney)
+            
+            print("데이터베이스에 저장 성공! 어떤 값이 저장되었냐면 \(metaData)")
         } else {
             fatalError()
         }

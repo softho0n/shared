@@ -470,10 +470,6 @@
                                             <constraint firstAttribute="height" constant="1" id="5so-AN-3yg"/>
                                         </constraints>
                                     </view>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="drO-Vq-3DO">
-                                        <rect key="frame" x="0.0" y="-263" width="414" height="725"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </activityIndicatorView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="kGi-Hv-yHP" firstAttribute="leading" secondItem="t5N-Xa-HYN" secondAttribute="leading" constant="20" id="1dX-r1-WB2"/>
@@ -561,14 +557,21 @@
                                     <constraint firstItem="ATl-6i-o1A" firstAttribute="top" secondItem="uqB-BI-aHI" secondAttribute="bottom" constant="7.5" id="mrE-Q9-pp7"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="drO-Vq-3DO">
+                                <rect key="frame" x="0.0" y="20" width="414" height="793"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="drO-Vq-3DO" firstAttribute="leading" secondItem="jBS-HZ-mFo" secondAttribute="leading" id="0a1-rl-Ois"/>
                             <constraint firstItem="t5N-Xa-HYN" firstAttribute="trailing" secondItem="jBS-HZ-mFo" secondAttribute="trailing" id="7Ez-Zo-0mo"/>
                             <constraint firstItem="USO-f8-Kwd" firstAttribute="top" secondItem="t5N-Xa-HYN" secondAttribute="bottom" id="C0Y-be-gb0"/>
                             <constraint firstItem="USO-f8-Kwd" firstAttribute="trailing" secondItem="jBS-HZ-mFo" secondAttribute="trailing" id="I1B-aK-XYi"/>
                             <constraint firstItem="t5N-Xa-HYN" firstAttribute="leading" secondItem="jBS-HZ-mFo" secondAttribute="leading" id="Z0w-O9-MFS"/>
                             <constraint firstItem="USO-f8-Kwd" firstAttribute="bottom" secondItem="jBS-HZ-mFo" secondAttribute="bottom" id="ZKg-ed-3Io"/>
+                            <constraint firstItem="drO-Vq-3DO" firstAttribute="top" secondItem="mkQ-g2-fWf" secondAttribute="top" constant="20" symbolic="YES" id="ZjC-Th-E4L"/>
+                            <constraint firstItem="jBS-HZ-mFo" firstAttribute="bottom" secondItem="drO-Vq-3DO" secondAttribute="bottom" id="n0r-6T-5vx"/>
+                            <constraint firstItem="drO-Vq-3DO" firstAttribute="trailing" secondItem="jBS-HZ-mFo" secondAttribute="trailing" id="ngp-fe-UpL"/>
                             <constraint firstItem="t5N-Xa-HYN" firstAttribute="top" secondItem="jBS-HZ-mFo" secondAttribute="top" id="pEp-XI-I4R"/>
                             <constraint firstItem="USO-f8-Kwd" firstAttribute="leading" secondItem="jBS-HZ-mFo" secondAttribute="leading" id="zLZ-Vg-igl"/>
                         </constraints>
