@@ -251,10 +251,10 @@
             </objects>
             <point key="canvasLocation" x="2579.7101449275365" y="890.625"/>
         </scene>
-        <!--View Controller-->
+        <!--Send View Controller-->
         <scene sceneID="TOO-Bl-qP0">
             <objects>
-                <viewController id="6YL-g2-xd8" sceneMemberID="viewController">
+                <viewController id="6YL-g2-xd8" customClass="SendViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Bs-nF-5cU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -265,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyN-cR-aX8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6016" y="250"/>
+            <point key="canvasLocation" x="6001" y="298"/>
         </scene>
         <!--친구 목록-->
         <scene sceneID="e2n-jV-gvq">
@@ -680,7 +680,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDd-Be-zLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5994.202898550725" y="-1073.4375"/>
+            <point key="canvasLocation" x="6002" y="-1091"/>
         </scene>
         <!--친구 찾기-->
         <scene sceneID="M2g-gH-7sS">
@@ -931,7 +931,7 @@
                     <connections>
                         <segue destination="gZh-fb-X85" kind="relationship" relationship="viewControllers" id="U24-RV-YRk"/>
                         <segue destination="6EX-cj-j0Y" kind="relationship" relationship="viewControllers" id="bnK-57-hRa"/>
-                        <segue destination="cAr-Ik-a0u" kind="relationship" relationship="viewControllers" id="h1h-Uc-mQu"/>
+                        <segue destination="PjY-8Y-V8C" kind="relationship" relationship="viewControllers" id="h1h-Uc-mQu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G01-l6-nfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1009,7 +1009,7 @@
             </objects>
             <point key="canvasLocation" x="5106" y="250"/>
         </scene>
-        <!--받기-->
+        <!--View Controller-->
         <scene sceneID="OPT-PZ-g9Y">
             <objects>
                 <viewController id="cAr-Ik-a0u" sceneMemberID="viewController">
@@ -1019,11 +1019,30 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="vSO-WV-6JY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="받기" image="arrow.left" catalog="system" id="LgP-Mk-zTe"/>
+                    <navigationItem key="navigationItem" id="bxZ-tL-DJe"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zj0-6E-j8m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5106" y="1213"/>
+            <point key="canvasLocation" x="6044" y="1212.1439280359821"/>
+        </scene>
+        <!--받기-->
+        <scene sceneID="EIF-ar-ZM5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PjY-8Y-V8C" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="받기" image="arrow.left" catalog="system" id="LgP-Mk-zTe"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S2j-UM-4dc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cAr-Ik-a0u" kind="relationship" relationship="rootViewController" id="zPr-Ot-vQq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pAf-Du-EJu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5104.8000000000002" y="1212.1439280359821"/>
         </scene>
     </scenes>
     <resources>

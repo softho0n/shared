@@ -28,6 +28,7 @@
 		C9B0756923DA75DD00E68753 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756823DA75DD00E68753 /* FriendListViewController.swift */; };
 		C9B0756C23DA926F00E68753 /* RegisterAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756B23DA926F00E68753 /* RegisterAccountViewController.swift */; };
 		C9B0756E23DA9EFB00E68753 /* AccountListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756D23DA9EFB00E68753 /* AccountListViewController.swift */; };
+		C9B0757223DAD07C00E68753 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757123DAD07C00E68753 /* SendViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		C9B0756823DA75DD00E68753 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		C9B0756B23DA926F00E68753 /* RegisterAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountViewController.swift; sourceTree = "<group>"; };
 		C9B0756D23DA9EFB00E68753 /* AccountListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListViewController.swift; sourceTree = "<group>"; };
+		C9B0757123DAD07C00E68753 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		D2A79BE81EB46556241264AC /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		DB6B5F24FA5AA0445617B139 /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +116,8 @@
 				C970C4EA23BF967F00D0A069 /* SceneDelegate.swift */,
 				C9B0756023DA598E00E68753 /* GoogleService-Info.plist */,
 				C970C4FE23BFC75F00D0A069 /* extension.swift */,
+				C9B0756F23DAD01900E68753 /* SharedSend */,
+				C9B0757023DAD02600E68753 /* SharedReceive */,
 				C9B0756A23DA924600E68753 /* SharedAccountManage */,
 				C9B0756723DA75A500E68753 /* SharedFriendList&Search */,
 				C9B0756423DA5C6000E68753 /* SharedHome */,
@@ -171,6 +175,21 @@
 				C9B0756B23DA926F00E68753 /* RegisterAccountViewController.swift */,
 			);
 			path = SharedAccountManage;
+			sourceTree = "<group>";
+		};
+		C9B0756F23DAD01900E68753 /* SharedSend */ = {
+			isa = PBXGroup;
+			children = (
+				C9B0757123DAD07C00E68753 /* SendViewController.swift */,
+			);
+			path = SharedSend;
+			sourceTree = "<group>";
+		};
+		C9B0757023DAD02600E68753 /* SharedReceive */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SharedReceive;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +323,7 @@
 				C970C50623BFD05900D0A069 /* UserAuthViewController.swift in Sources */,
 				C950835623C502770037BF46 /* SearchUserViewController.swift in Sources */,
 				C970C4EB23BF967F00D0A069 /* SceneDelegate.swift in Sources */,
+				C9B0757223DAD07C00E68753 /* SendViewController.swift in Sources */,
 				C970C4FD23BFC3F600D0A069 /* NameInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
