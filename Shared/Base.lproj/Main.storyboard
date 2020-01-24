@@ -1009,10 +1009,10 @@
             </objects>
             <point key="canvasLocation" x="5106" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Receive View Controller-->
         <scene sceneID="OPT-PZ-g9Y">
             <objects>
-                <viewController id="cAr-Ik-a0u" sceneMemberID="viewController">
+                <viewController id="cAr-Ik-a0u" customClass="ReceiveViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ggp-er-BQA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
