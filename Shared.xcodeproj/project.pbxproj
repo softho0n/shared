@@ -29,6 +29,7 @@
 		C9B0756C23DA926F00E68753 /* RegisterAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756B23DA926F00E68753 /* RegisterAccountViewController.swift */; };
 		C9B0756E23DA9EFB00E68753 /* AccountListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756D23DA9EFB00E68753 /* AccountListViewController.swift */; };
 		C9B0757223DAD07C00E68753 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757123DAD07C00E68753 /* SendViewController.swift */; };
+		C9B0757423DAD10900E68753 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757323DAD10900E68753 /* ReceiveViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		C9B0756B23DA926F00E68753 /* RegisterAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountViewController.swift; sourceTree = "<group>"; };
 		C9B0756D23DA9EFB00E68753 /* AccountListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListViewController.swift; sourceTree = "<group>"; };
 		C9B0757123DAD07C00E68753 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
+		C9B0757323DAD10900E68753 /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
 		D2A79BE81EB46556241264AC /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		DB6B5F24FA5AA0445617B139 /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +190,7 @@
 		C9B0757023DAD02600E68753 /* SharedReceive */ = {
 			isa = PBXGroup;
 			children = (
+				C9B0757323DAD10900E68753 /* ReceiveViewController.swift */,
 			);
 			path = SharedReceive;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				C970C4FF23BFC75F00D0A069 /* extension.swift in Sources */,
 				C950832223C2570F0037BF46 /* ConfirmViewController.swift in Sources */,
 				C970C4E923BF967E00D0A069 /* AppDelegate.swift in Sources */,
+				C9B0757423DAD10900E68753 /* ReceiveViewController.swift in Sources */,
 				C950835423C4FF140037BF46 /* HomeViewController.swift in Sources */,
 				C9B0756623DA6F2500E68753 /* UserInfoTableViewCell.swift in Sources */,
 				C970C50623BFD05900D0A069 /* UserAuthViewController.swift in Sources */,

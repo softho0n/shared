@@ -65,7 +65,6 @@ class SearchUserViewController: UIViewController {
         
         DispatchQueue.global().sync {
             loader.startAnimating()
-    
             if let userPhoneNumber = self.userPhoneNumberField.text {
                 ref.child("Users").observeSingleEvent(of: .value) { (snapshot) in
                     let values = snapshot.value
