@@ -14,7 +14,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SHH-rf-eL0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="u0S-7a-1Kb">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -441,6 +441,9 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nY2-7J-vQo">
                                                         <rect key="frame" x="0.0" y="0.0" width="111.5" height="86"/>
+                                                        <connections>
+                                                            <segue destination="qWB-3Q-Vja" kind="push" id="AgY-s5-abc"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="JbU-sT-iIt">
                                                         <rect key="frame" x="0.0" y="0.0" width="111.5" height="42.5"/>
@@ -588,6 +591,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KlP-P3-aE4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5105.7971014492759" y="-398.4375"/>
+        </scene>
+        <!--계좌 등록-->
+        <scene sceneID="4xk-3t-dfK">
+            <objects>
+                <viewController id="qWB-3Q-Vja" customClass="RegisterAccountViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oLe-4V-8VB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="KRl-f7-IjF"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="계좌 등록" id="7oY-2K-HAW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KDd-Be-zLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5995" y="-1073"/>
         </scene>
         <!--친구 찾기-->
         <scene sceneID="M2g-gH-7sS">

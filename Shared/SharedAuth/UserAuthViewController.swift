@@ -9,10 +9,10 @@
 import UIKit
 import FirebaseAuth
 
+
 class UserAuthViewController: UIViewController {
 
     var name: String?
-    
     @IBOutlet var userNameLabel: UILabel!
     @IBOutlet var userPhoneNumberField: UITextField!
     @IBOutlet var userAuthLabel: UILabel!
@@ -29,6 +29,7 @@ class UserAuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         userPhoneNumberField.keyboardType = .phonePad
         userAuthField.keyboardType = .numberPad
         addToolbarToVerifyPhoneNumber(userPhoneNumberField, "보내기")
@@ -102,6 +103,7 @@ class UserAuthViewController: UIViewController {
     
     @objc func done() {
         self.view.endEditing(true)
+
         userAuthLabel.isHidden = false
         userAuthField.isHidden = false
         
@@ -122,7 +124,6 @@ class UserAuthViewController: UIViewController {
             
             Auth.auth().signIn(with: credential) { (authResult, error) in
                 if let error = error {
-                    //self.alert(message: "로그인이 실패했는뎁?!")
                     self.rejectedAlert(message: "인증에 실패하셨네요.")
                     print(#function + " 에서 에러가 발생했네요... 😢")
                 }
