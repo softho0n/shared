@@ -118,12 +118,19 @@ class SearchUserViewController: UIViewController {
     func alreadyExistUser() {
         if let uid = Auth.auth().currentUser?.uid {
             ref.child("Friends").child(uid).observeSingleEvent(of: .value) { (snapshot) in
-                let values = snapshot.value
-                let userDictionary = values as! [String : [String : Any]]
-                for index in userDictionary {
-                    if index.value["userPhoneNumber"] as! String == self.storedData["userPhoneNumber"] as! String {
-                        self.alreadyExists = true
-                        break
+                if snapshot.hasChildren() == false
+                {
+                    
+                }
+                else
+                {
+                    let values = snapshot.value
+                    let userDictionary = values as! [String : [String : Any]]
+                    for index in userDictionary {
+                        if index.value["userPhoneNumber"] as! String == self.storedData["userPhoneNumber"] as! String {
+                            self.alreadyExists = true
+                            break
+                        }
                     }
                 }
             }
