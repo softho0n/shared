@@ -270,7 +270,7 @@
         <!--친구 목록-->
         <scene sceneID="e2n-jV-gvq">
             <objects>
-                <viewController id="KwD-F8-lc5" sceneMemberID="viewController">
+                <viewController id="KwD-F8-lc5" customClass="FriendListViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9mk-cU-Rsw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -285,6 +285,40 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6RT-Cf-gh9" id="U64-eO-S8a">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoH-iG-itp">
+                                                    <rect key="frame" x="20" y="17" width="72" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvV-OT-Jrp">
+                                                    <rect key="frame" x="100" y="32" width="294" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAh-33-Hvt">
+                                                    <rect key="frame" x="100" y="11" width="294" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IvV-OT-Jrp" firstAttribute="top" secondItem="KAh-33-Hvt" secondAttribute="bottom" constant="3" id="6US-U6-5Rj"/>
+                                                <constraint firstAttribute="trailing" secondItem="IvV-OT-Jrp" secondAttribute="trailing" constant="20" id="9Ne-2m-1Rf"/>
+                                                <constraint firstItem="IvV-OT-Jrp" firstAttribute="leading" secondItem="RoH-iG-itp" secondAttribute="trailing" constant="8" id="DWc-kZ-LuF"/>
+                                                <constraint firstItem="RoH-iG-itp" firstAttribute="leading" secondItem="U64-eO-S8a" secondAttribute="leadingMargin" id="Eq1-lk-sJx"/>
+                                                <constraint firstItem="KAh-33-Hvt" firstAttribute="trailing" secondItem="U64-eO-S8a" secondAttribute="trailingMargin" id="HvP-84-PUw"/>
+                                                <constraint firstItem="IvV-OT-Jrp" firstAttribute="top" secondItem="KAh-33-Hvt" secondAttribute="bottom" constant="3" id="Myq-12-YI2"/>
+                                                <constraint firstItem="KAh-33-Hvt" firstAttribute="top" secondItem="U64-eO-S8a" secondAttribute="topMargin" id="Q6w-Xr-2st"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="RoH-iG-itp" secondAttribute="bottom" constant="6" id="XpE-pe-GAj"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="RoH-iG-itp" secondAttribute="trailing" constant="302" id="czz-Fp-YJo"/>
+                                                <constraint firstItem="RoH-iG-itp" firstAttribute="top" secondItem="U64-eO-S8a" secondAttribute="topMargin" constant="6" id="dTj-Bt-CIs"/>
+                                                <constraint firstAttribute="bottom" secondItem="IvV-OT-Jrp" secondAttribute="bottom" constant="5" id="lk7-ng-DHR"/>
+                                                <constraint firstItem="KAh-33-Hvt" firstAttribute="leading" secondItem="RoH-iG-itp" secondAttribute="trailing" constant="8" id="u0U-hk-X3P"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>

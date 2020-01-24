@@ -10,6 +10,10 @@ import UIKit
 
 class UserInfoTableViewCell: UITableViewCell {
 
+    @IBOutlet var userNameLabel: UILabel!
+    @IBOutlet var userPhoneNumberLabel: UILabel!
+    @IBOutlet var signInDateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
