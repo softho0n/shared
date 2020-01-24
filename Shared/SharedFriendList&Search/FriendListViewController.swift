@@ -12,6 +12,8 @@ import FirebaseDatabase
 import FirebaseAuth
 
 class FriendListViewController: UIViewController {
+    
+    var ref: DatabaseReference!
     @IBOutlet var loader: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
     
@@ -26,56 +28,36 @@ class FriendListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        getdata()
-
-        // Do any additional setup after loading the view.
+        ref = Database.database().reference()
+        getDate()
     }
     
-    func getdata()
+    func getDate()
     {
-        let myUid = Auth.auth().currentUser?.uid
-        DispatchQueue.global().sync {
-            self.loader.startAnimating()
-            Database.database().reference().child("Friends").child(myUid!).observeSingleEvent(of: .value, with: {(snapshot) in
-            
-            for items in snapshot.children
-            {
-                let tempo = items as! DataSnapshot
-                let value = tempo.value
-                let valuetempo = value as! [String : Any]
-                let userName = valuetempo["userName"] as! String
-                let userPhoneNum = valuetempo["userPhoneNumber"] as! String
-                let userDate = valuetempo["signInDate"] as! String
-                self.myFiendList.append(myFriendInfoStruct(userName: userName, userPhoneNum: userPhoneNum , userDate: userDate))
-                
+        if let uid = Auth.auth().currentUser?.uid {
+            DispatchQueue.global().sync {
+                self.loader.startAnimating()
+                ref.child("Friends").child(uid).observeSingleEvent(of: .value, with: {(snapshot) in
+                    for item in snapshot.children {
+                        let value = (item as! DataSnapshot).value
+                        let dictionary = value as! [String : Any]
+                        if let userName = dictionary["userName"] as? String, let userPhoneNumber = dictionary["userPhoneNumber"] as? String, let signInDate = dictionary["signInDate"] as? String {
+                            self.myFiendList.append(myFriendInfoStruct(userName: userName, userPhoneNum: userPhoneNumber , userDate: signInDate))
+                        }
+                    }
+                    self.loader.stopAnimating()
+                    self.tableView.reloadData()
+                })
             }
-            print(self.myFiendList)
-            self.loader.stopAnimating()
-            self.tableView.reloadData()
-        })
-            
-            
+        }
     }
 }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
 extension FriendListViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(self.myFiendList.count)
         return myFiendList.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userInfoCell", for: indexPath) as! UserInfoTableViewCell
         
@@ -84,6 +66,4 @@ extension FriendListViewController : UITableViewDelegate, UITableViewDataSource{
         cell.signInDateLabel.text = myFiendList[indexPath.row].userDate
         return cell
     }
-    
-    
 }
