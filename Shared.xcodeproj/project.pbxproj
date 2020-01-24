@@ -24,6 +24,7 @@
 		C970C50623BFD05900D0A069 /* UserAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C50523BFD05900D0A069 /* UserAuthViewController.swift */; };
 		C970C51023C10BEF00D0A069 /* MainUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C50F23C10BEF00D0A069 /* MainUIViewController.swift */; };
 		C9B0756123DA598E00E68753 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9B0756023DA598E00E68753 /* GoogleService-Info.plist */; };
+		C9B0756623DA6F2500E68753 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756523DA6F2500E68753 /* UserInfoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		C970C50523BFD05900D0A069 /* UserAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthViewController.swift; sourceTree = "<group>"; };
 		C970C50F23C10BEF00D0A069 /* MainUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIViewController.swift; sourceTree = "<group>"; };
 		C9B0756023DA598E00E68753 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C9B0756523DA6F2500E68753 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		D2A79BE81EB46556241264AC /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		DB6B5F24FA5AA0445617B139 /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +110,7 @@
 				C9B0756423DA5C6000E68753 /* SharedHome */,
 				C9B0756223DA5BBA00E68753 /* SharedAuth */,
 				C970C4EE23BF967F00D0A069 /* Main.storyboard */,
+				C9B0756523DA6F2500E68753 /* UserInfoTableViewCell.swift */,
 				C970C4F123BF968000D0A069 /* Assets.xcassets */,
 				C950835523C502770037BF46 /* SearchUserViewController.swift */,
 				C970C4F323BF968000D0A069 /* LaunchScreen.storyboard */,
@@ -269,6 +272,7 @@
 				C950832223C2570F0037BF46 /* ConfirmViewController.swift in Sources */,
 				C970C4E923BF967E00D0A069 /* AppDelegate.swift in Sources */,
 				C950835423C4FF140037BF46 /* HomeViewController.swift in Sources */,
+				C9B0756623DA6F2500E68753 /* UserInfoTableViewCell.swift in Sources */,
 				C970C50623BFD05900D0A069 /* UserAuthViewController.swift in Sources */,
 				C950835623C502770037BF46 /* SearchUserViewController.swift in Sources */,
 				C970C4EB23BF967F00D0A069 /* SceneDelegate.swift in Sources */,
