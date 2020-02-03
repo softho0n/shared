@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09632F75F3D9EB29F075F27D /* Pods_Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4263E24129B4A9BFD0B618F6 /* Pods_Shared.framework */; };
+		C93B5EC723DBDA190010F6AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C93B5EC623DBDA190010F6AF /* GoogleService-Info.plist */; };
 		C950832223C2570F0037BF46 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950832123C2570F0037BF46 /* ConfirmViewController.swift */; };
 		C950832423C264D40037BF46 /* ReAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950832323C264D40037BF46 /* ReAuthViewController.swift */; };
 		C950832623C2666C0037BF46 /* ReConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950832523C2666C0037BF46 /* ReConfirmViewController.swift */; };
@@ -23,17 +24,18 @@
 		C970C50123BFC84600D0A069 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C50023BFC84600D0A069 /* model.swift */; };
 		C970C50623BFD05900D0A069 /* UserAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C50523BFD05900D0A069 /* UserAuthViewController.swift */; };
 		C970C51023C10BEF00D0A069 /* MainUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C50F23C10BEF00D0A069 /* MainUIViewController.swift */; };
+		C9AA1DFD23E81A3C00540DA7 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AA1DFC23E81A3C00540DA7 /* MenuTableViewController.swift */; };
 		C9B0756623DA6F2500E68753 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756523DA6F2500E68753 /* UserInfoTableViewCell.swift */; };
 		C9B0756923DA75DD00E68753 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756823DA75DD00E68753 /* FriendListViewController.swift */; };
 		C9B0756C23DA926F00E68753 /* RegisterAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756B23DA926F00E68753 /* RegisterAccountViewController.swift */; };
 		C9B0756E23DA9EFB00E68753 /* AccountListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756D23DA9EFB00E68753 /* AccountListViewController.swift */; };
 		C9B0757223DAD07C00E68753 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757123DAD07C00E68753 /* SendViewController.swift */; };
 		C9B0757423DAD10900E68753 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757323DAD10900E68753 /* ReceiveViewController.swift */; };
-		C9D093BF23DB782100FE4090 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9D093BE23DB782100FE4090 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4263E24129B4A9BFD0B618F6 /* Pods_Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C93B5EC623DBDA190010F6AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C950832123C2570F0037BF46 /* ConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		C950832323C264D40037BF46 /* ReAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReAuthViewController.swift; sourceTree = "<group>"; };
 		C950832523C2666C0037BF46 /* ReConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConfirmViewController.swift; sourceTree = "<group>"; };
@@ -51,13 +53,13 @@
 		C970C50023BFC84600D0A069 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		C970C50523BFD05900D0A069 /* UserAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthViewController.swift; sourceTree = "<group>"; };
 		C970C50F23C10BEF00D0A069 /* MainUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIViewController.swift; sourceTree = "<group>"; };
+		C9AA1DFC23E81A3C00540DA7 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		C9B0756523DA6F2500E68753 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		C9B0756823DA75DD00E68753 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		C9B0756B23DA926F00E68753 /* RegisterAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountViewController.swift; sourceTree = "<group>"; };
 		C9B0756D23DA9EFB00E68753 /* AccountListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListViewController.swift; sourceTree = "<group>"; };
 		C9B0757123DAD07C00E68753 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		C9B0757323DAD10900E68753 /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
-		C9D093BE23DB782100FE4090 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2A79BE81EB46556241264AC /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		DB6B5F24FA5AA0445617B139 /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,12 +114,13 @@
 		C970C4E723BF967E00D0A069 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				C9AA1DFB23E81A1E00540DA7 /* Menu */,
 				C970C4F123BF968000D0A069 /* Assets.xcassets */,
 				C970C50223BFC85E00D0A069 /* Model */,
 				C970C4E823BF967E00D0A069 /* AppDelegate.swift */,
 				C970C4EA23BF967F00D0A069 /* SceneDelegate.swift */,
 				C970C4FE23BFC75F00D0A069 /* extension.swift */,
-				C9D093BE23DB782100FE4090 /* GoogleService-Info.plist */,
+				C93B5EC623DBDA190010F6AF /* GoogleService-Info.plist */,
 				C9B0756F23DAD01900E68753 /* SharedSend */,
 				C9B0757023DAD02600E68753 /* SharedReceive */,
 				C9B0756A23DA924600E68753 /* SharedAccountManage */,
@@ -137,6 +140,14 @@
 				C970C50023BFC84600D0A069 /* model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C9AA1DFB23E81A1E00540DA7 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				C9AA1DFC23E81A3C00540DA7 /* MenuTableViewController.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		C9B0756223DA5BBA00E68753 /* SharedAuth */ = {
@@ -256,7 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C970C4F523BF968000D0A069 /* LaunchScreen.storyboard in Resources */,
-				C9D093BF23DB782100FE4090 /* GoogleService-Info.plist in Resources */,
+				C93B5EC723DBDA190010F6AF /* GoogleService-Info.plist in Resources */,
 				C970C4F223BF968000D0A069 /* Assets.xcassets in Resources */,
 				C970C4F023BF967F00D0A069 /* Main.storyboard in Resources */,
 			);
@@ -314,6 +325,7 @@
 				C970C51023C10BEF00D0A069 /* MainUIViewController.swift in Sources */,
 				C970C50123BFC84600D0A069 /* model.swift in Sources */,
 				C9B0756E23DA9EFB00E68753 /* AccountListViewController.swift in Sources */,
+				C9AA1DFD23E81A3C00540DA7 /* MenuTableViewController.swift in Sources */,
 				C950832623C2666C0037BF46 /* ReConfirmViewController.swift in Sources */,
 				C950832423C264D40037BF46 /* ReAuthViewController.swift in Sources */,
 				C9B0756923DA75DD00E68753 /* FriendListViewController.swift in Sources */,

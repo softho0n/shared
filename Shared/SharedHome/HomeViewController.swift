@@ -35,6 +35,7 @@ class HomeViewController: UIViewController {
                     self.userInfo = snapshot.value as? [String : Any]
                     if let name = self.userInfo["userName"] as! String?{
                         self.userNameLabel.text = name + "님,"
+                        myName = name
                         self.loader.stopAnimating()
                         self.loader.backgroundColor = UIColor.clear
                     }

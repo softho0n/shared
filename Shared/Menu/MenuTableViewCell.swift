@@ -1,23 +1,17 @@
 //
-//  UserInfoTableViewCell.swift
+//  MenuTableViewCell.swift
 //  Shared
 //
-//  Created by Seunghun Shin on 2020/01/24.
+//  Created by softhoon on 2020/02/03.
 //  Copyright © 2020 SeunghunShin. All rights reserved.
 //
 
 import UIKit
 
-class UserInfoTableViewCell: UITableViewCell {
+class MenuTableViewCell: UITableViewCell {
 
-    @IBOutlet var userNameLabel: UILabel!
-    @IBOutlet var userPhoneNumberLabel: UILabel!
-    @IBOutlet var signInDateLabel: UILabel!
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        userNameLabel.adjustsFontSizeToFitWidth = true
         // Initialization code
     }
 

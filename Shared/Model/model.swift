@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User {
+ class User {
     var name: String
     var phoneNumber: String
     var madeDate: Date
@@ -19,3 +19,4 @@ class User {
         madeDate = Date()
     }
 }
+public var myName : String?
