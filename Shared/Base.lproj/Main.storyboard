@@ -1063,7 +1063,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <inset key="separatorInset" minX="37" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="separatorInset" minX="50" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="4mQ-fM-1Ay">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -1099,7 +1099,7 @@
                             </constraints>
                         </view>
                         <sections>
-                            <tableViewSection id="3Q9-bZ-g7y">
+                            <tableViewSection id="kJj-ua-8Ua">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="3" indentationWidth="20" rowHeight="50" id="lNJ-H2-lGe">
                                         <rect key="frame" x="0.0" y="128" width="375" height="50"/>

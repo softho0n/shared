@@ -29,6 +29,8 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
         myPhoto.layer.cornerRadius = myPhoto.frame.height/2
         nameLabel.text = "\(myName!)님"
+        tableView.cellLayoutMarginsFollowReadableWidth = false
+        tableView.tableFooterView = UIView()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
