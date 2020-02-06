@@ -20,3 +20,5 @@ import Foundation
     }
 }
 public var myName : String?
+let banklist : [String] = ["씨티", "IBK기업", "KDB산업", "KB국민" , "NH농협", "신한", "외환" , "우리" , "SC제일"]
+let bankimagelist : [String] = ["citi", "IBK", "KDB", "kookmin", "nonghyub", "shinhan", "whyhan","woori", "zeil"]

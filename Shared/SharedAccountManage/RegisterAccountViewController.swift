@@ -9,12 +9,18 @@
 import UIKit
 
 class RegisterAccountViewController: UIViewController {
-
+    @IBOutlet var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        collectionView.collectionViewLayout = layout
+    
 
         // Do any additional setup after loading the view.
     }
+    
+   
     
 
     /*
@@ -27,4 +33,28 @@ class RegisterAccountViewController: UIViewController {
     }
     */
 
+}
+
+
+
+extension RegisterAccountViewController : UICollectionViewDataSource{
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header =  collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! RegisterAccountCollectionReusableView
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return banklist.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! RegisterAccountCollectionViewCell
+        cell.bankLabel.text = banklist[indexPath.item]
+        cell.bankImage.image = UIImage(named: bankimagelist[indexPath.item])
+        return cell
+    }
+    
+    
+    
 }

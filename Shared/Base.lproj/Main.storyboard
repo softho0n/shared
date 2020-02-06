@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -696,17 +697,164 @@
         <scene sceneID="4xk-3t-dfK">
             <objects>
                 <viewController id="qWB-3Q-Vja" customClass="RegisterAccountViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oLe-4V-8VB">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="oLe-4V-8VB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="v8J-XV-Bhr">
+                                <rect key="frame" x="31" y="132" width="312" height="515"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="312" id="IMA-Fq-CRw"/>
+                                    <constraint firstAttribute="height" constant="515" id="Xa8-Ow-hBZ"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Qip-6X-h8s">
+                                    <size key="itemSize" width="103" height="75"/>
+                                    <size key="estimatedItemSize" width="90" height="80"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="gao-zr-z5I" customClass="RegisterAccountCollectionViewCell" customModule="Shared" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="96" height="82"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nbG-6M-N0c">
+                                            <rect key="frame" x="0.0" y="0.0" width="96" height="82"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1XW-Zp-DsQ">
+                                                    <rect key="frame" x="28" y="8" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="qYa-qH-q58"/>
+                                                        <constraint firstAttribute="height" constant="40" id="sNT-tv-cQG"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJU-Ac-R1X">
+                                                    <rect key="frame" x="8" y="56" width="80" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="H4R-Ww-i7T"/>
+                                                        <constraint firstAttribute="width" constant="80" id="Hhp-Vk-K2n"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="LJU-Ac-R1X" secondAttribute="trailing" constant="8" id="1RE-O0-Izx"/>
+                                                <constraint firstItem="LJU-Ac-R1X" firstAttribute="leading" secondItem="nbG-6M-N0c" secondAttribute="leading" constant="8" id="Bel-oa-owv"/>
+                                                <constraint firstItem="1XW-Zp-DsQ" firstAttribute="leading" secondItem="nbG-6M-N0c" secondAttribute="leading" constant="28" id="NmD-hc-gxz"/>
+                                                <constraint firstItem="LJU-Ac-R1X" firstAttribute="top" secondItem="1XW-Zp-DsQ" secondAttribute="bottom" constant="8" id="RQO-Xz-hex"/>
+                                                <constraint firstAttribute="bottom" secondItem="LJU-Ac-R1X" secondAttribute="bottom" constant="5" id="Wps-jj-dsB"/>
+                                                <constraint firstItem="1XW-Zp-DsQ" firstAttribute="top" secondItem="nbG-6M-N0c" secondAttribute="top" constant="8" id="XBN-xv-Nw5"/>
+                                                <constraint firstAttribute="trailing" secondItem="1XW-Zp-DsQ" secondAttribute="trailing" constant="28" id="c1s-zy-qdm"/>
+                                                <constraint firstItem="LJU-Ac-R1X" firstAttribute="top" secondItem="1XW-Zp-DsQ" secondAttribute="bottom" constant="8" id="u78-X2-6eL"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <connections>
+                                            <outlet property="bankImage" destination="1XW-Zp-DsQ" id="vmd-je-arL"/>
+                                            <outlet property="bankLabel" destination="LJU-Ac-R1X" id="EXK-a0-kTo"/>
+                                            <segue destination="XOX-AH-BAB" kind="show" id="mri-vh-qtD"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1Xl-sh-N0V">
+                                        <rect key="frame" x="101" y="51" width="103" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dd4-Dy-Fqk">
+                                            <rect key="frame" x="0.0" y="0.0" width="103" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Rv8-PO-dNE">
+                                        <rect key="frame" x="209" y="51" width="103" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vH6-4R-eFx">
+                                            <rect key="frame" x="0.0" y="0.0" width="103" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="header" id="sAs-Oj-5zP" customClass="RegisterAccountCollectionReusableView" customModule="Shared" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="312" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="은행 선택" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3S8-qG-JfO">
+                                            <rect key="frame" x="0.0" y="14.5" width="66" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="3Qh-LL-jri"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="6Nn-Kj-gka"/>
+                                                <constraint firstAttribute="width" constant="66" id="Q5i-Sr-1sF"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="3S8-qG-JfO" firstAttribute="top" secondItem="sAs-Oj-5zP" secondAttribute="top" constant="14.5" id="0qi-0H-xLd"/>
+                                        <constraint firstItem="3S8-qG-JfO" firstAttribute="leading" secondItem="sAs-Oj-5zP" secondAttribute="leading" id="SKJ-s6-BuL"/>
+                                        <constraint firstItem="3S8-qG-JfO" firstAttribute="centerY" secondItem="sAs-Oj-5zP" secondAttribute="centerY" id="fPp-ix-7SZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="3S8-qG-JfO" secondAttribute="bottom" constant="14.5" id="k0f-7j-zVi"/>
+                                        <constraint firstAttribute="trailing" secondItem="3S8-qG-JfO" secondAttribute="trailing" constant="246" id="m9N-nE-TTF"/>
+                                    </constraints>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="qWB-3Q-Vja" id="CDm-KF-Opo"/>
+                                    <outlet property="delegate" destination="qWB-3Q-Vja" id="Tte-wb-nkK"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연결할 은행을 선택해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIF-F8-Ppt">
+                                <rect key="frame" x="31" y="76" width="271" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="271" id="EaB-vQ-rdg"/>
+                                    <constraint firstAttribute="height" constant="30" id="law-aQ-9fs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="v8J-XV-Bhr" firstAttribute="top" secondItem="uIF-F8-Ppt" secondAttribute="bottom" constant="28" id="0vQ-IT-SLx"/>
+                            <constraint firstItem="KRl-f7-IjF" firstAttribute="trailing" secondItem="v8J-XV-Bhr" secondAttribute="trailing" constant="32" id="7nQ-Q5-jdg"/>
+                            <constraint firstItem="uIF-F8-Ppt" firstAttribute="top" secondItem="KRl-f7-IjF" secondAttribute="top" constant="76" id="7rV-Sw-NlO"/>
+                            <constraint firstItem="uIF-F8-Ppt" firstAttribute="leading" secondItem="KRl-f7-IjF" secondAttribute="leading" constant="31" id="KSt-6S-Fft"/>
+                            <constraint firstItem="v8J-XV-Bhr" firstAttribute="top" secondItem="uIF-F8-Ppt" secondAttribute="bottom" constant="26" id="UV7-DV-iCY"/>
+                            <constraint firstItem="v8J-XV-Bhr" firstAttribute="top" secondItem="uIF-F8-Ppt" secondAttribute="bottom" constant="28" id="hin-xF-23w"/>
+                            <constraint firstItem="KRl-f7-IjF" firstAttribute="trailing" secondItem="uIF-F8-Ppt" secondAttribute="trailing" constant="88" id="i4f-bg-r1t"/>
+                            <constraint firstItem="v8J-XV-Bhr" firstAttribute="bottom" secondItem="KRl-f7-IjF" secondAttribute="bottom" id="iU9-x5-qcP"/>
+                            <constraint firstItem="KRl-f7-IjF" firstAttribute="trailing" secondItem="uIF-F8-Ppt" secondAttribute="trailing" constant="73" id="itG-3y-utH"/>
+                            <constraint firstItem="v8J-XV-Bhr" firstAttribute="leading" secondItem="KRl-f7-IjF" secondAttribute="leading" constant="31" id="uo7-bh-c6l"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KRl-f7-IjF"/>
                     </view>
                     <navigationItem key="navigationItem" title="계좌 등록" id="7oY-2K-HAW"/>
+                    <connections>
+                        <outlet property="collectionView" destination="v8J-XV-Bhr" id="Voh-8k-gmF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDd-Be-zLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6002" y="-1091"/>
+            <point key="canvasLocation" x="6000.8000000000002" y="-1091.6041979010495"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PwO-P6-dC8">
+            <objects>
+                <viewController id="XOX-AH-BAB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YKw-2R-io9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="RWa-US-PiI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KOF-OO-X7W"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PAp-Zu-qp8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6956" y="-1092"/>
         </scene>
         <!--친구 찾기-->
         <scene sceneID="M2g-gH-7sS">
@@ -1148,7 +1296,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="logOutButton:" destination="q1X-HV-esg" eventType="touchUpInside" id="r3c-Wu-5Qb"/>
-                                                        <segue destination="57i-ib-vnf" kind="push" id="YsI-VI-Cl2"/>
+                                                        <segue destination="57i-ib-vnf" kind="push" id="72Z-0G-wva"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1240,6 +1388,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fEh-nL-dyu"/>
-        <segue reference="YsI-VI-Cl2"/>
+        <segue reference="72Z-0G-wva"/>
     </inferredMetricsTieBreakers>
 </document>
