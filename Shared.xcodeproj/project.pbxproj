@@ -34,6 +34,7 @@
 		C9B0757223DAD07C00E68753 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757123DAD07C00E68753 /* SendViewController.swift */; };
 		C9B0757423DAD10900E68753 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757323DAD10900E68753 /* ReceiveViewController.swift */; };
 		C9D90D1123EC62AC008C16C0 /* AccountnumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1023EC62AC008C16C0 /* AccountnumberViewController.swift */; };
+		C9D90D1523EC7D52008C16C0 /* BMHANNA_11yrs_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9D90D1423EC7D52008C16C0 /* BMHANNA_11yrs_otf.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		C9B0757123DAD07C00E68753 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		C9B0757323DAD10900E68753 /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
 		C9D90D1023EC62AC008C16C0 /* AccountnumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountnumberViewController.swift; sourceTree = "<group>"; };
+		C9D90D1423EC7D52008C16C0 /* BMHANNA_11yrs_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = BMHANNA_11yrs_otf.otf; path = ../../../../../Downloads/BMHANNA_11yrs_otf.otf; sourceTree = "<group>"; };
 		D2A79BE81EB46556241264AC /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		DB6B5F24FA5AA0445617B139 /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 		C970C4E723BF967E00D0A069 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				C9D90D1223EC7CF5008C16C0 /* Font */,
 				C9AA1DFB23E81A1E00540DA7 /* Menu */,
 				C970C4F123BF968000D0A069 /* Assets.xcassets */,
 				C970C50223BFC85E00D0A069 /* Model */,
@@ -215,6 +218,14 @@
 			path = SharedReceive;
 			sourceTree = "<group>";
 		};
+		C9D90D1223EC7CF5008C16C0 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C9D90D1423EC7D52008C16C0 /* BMHANNA_11yrs_otf.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -275,6 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D90D1523EC7D52008C16C0 /* BMHANNA_11yrs_otf.otf in Resources */,
 				C970C4F523BF968000D0A069 /* LaunchScreen.storyboard in Resources */,
 				C93B5EC723DBDA190010F6AF /* GoogleService-Info.plist in Resources */,
 				C970C4F223BF968000D0A069 /* Assets.xcassets in Resources */,

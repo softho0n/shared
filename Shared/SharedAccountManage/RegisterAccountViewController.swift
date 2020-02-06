@@ -11,14 +11,25 @@ import UIKit
 class RegisterAccountViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell){
+            if let vc = segue.destination as? AccountnumberViewController{
+                vc.bankName = banklist[indexPath.item ]
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        collectionView.collectionViewLayout = layout
+        collectionView.allowsSelection = true
+        collectionView.allowsMultipleSelection = false
     
 
         // Do any additional setup after loading the view.
     }
+    
+    
     
    
     
@@ -34,7 +45,6 @@ class RegisterAccountViewController: UIViewController {
     */
 
 }
-
 
 
 extension RegisterAccountViewController : UICollectionViewDataSource{

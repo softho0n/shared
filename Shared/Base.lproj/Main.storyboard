@@ -8,6 +8,11 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="BMHANNA_11yrs_otf.otf">
+            <string>BMHANNA11yrsoldOTF</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="6R3-sr-c3i">
@@ -756,7 +761,7 @@
                                         <connections>
                                             <outlet property="bankImage" destination="1XW-Zp-DsQ" id="vmd-je-arL"/>
                                             <outlet property="bankLabel" destination="LJU-Ac-R1X" id="EXK-a0-kTo"/>
-                                            <segue destination="XOX-AH-BAB" kind="show" id="mri-vh-qtD"/>
+                                            <segue destination="XOX-AH-BAB" kind="show" id="e5i-6e-U9B"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1Xl-sh-N0V">
@@ -840,21 +845,82 @@
             </objects>
             <point key="canvasLocation" x="6000.8000000000002" y="-1091.6041979010495"/>
         </scene>
-        <!--View Controller-->
+        <!--계좌번호입력-->
         <scene sceneID="PwO-P6-dC8">
             <objects>
-                <viewController id="XOX-AH-BAB" sceneMemberID="viewController">
+                <viewController title="계좌번호입력" id="XOX-AH-BAB" customClass="AccountnumberViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YKw-2R-io9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gup-zG-i0t">
+                                <rect key="frame" x="31" y="74" width="271" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="1234-567-123456" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FHB-2p-yt3">
+                                <rect key="frame" x="31" y="205" width="335" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editingStart:" destination="XOX-AH-BAB" eventType="editingDidBegin" id="mF5-1K-hVk"/>
+                                    <outlet property="delegate" destination="XOX-AH-BAB" id="CRC-SN-BW3"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xn9-Le-fr3">
+                                <rect key="frame" x="0.0" y="597" width="375" height="50"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ss8-dw-mxp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BMHANNA11yrsoldOTF" family="BM HANNA 11yrs old OTF" pointSize="25"/>
+                                <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="계좌 연결하기">
+                                    <color key="titleColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계좌 번호를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hQ-bo-Hfa">
+                                <rect key="frame" x="31" y="112" width="271" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" id="4pr-0K-NfF"/>
+                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="top" secondItem="FHB-2p-yt3" secondAttribute="bottom" constant="368" id="7OK-Id-9nK"/>
+                            <constraint firstItem="RWa-US-PiI" firstAttribute="trailing" secondItem="Gup-zG-i0t" secondAttribute="trailing" constant="73" id="7kr-iB-U1j"/>
+                            <constraint firstItem="5hQ-bo-Hfa" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" constant="31" id="9IF-Af-GnE"/>
+                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="top" secondItem="FHB-2p-yt3" secondAttribute="bottom" constant="368" id="KPg-Pt-Qjv"/>
+                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="trailing" secondItem="RWa-US-PiI" secondAttribute="trailing" id="Mex-1f-TAv"/>
+                            <constraint firstItem="RWa-US-PiI" firstAttribute="trailing" secondItem="FHB-2p-yt3" secondAttribute="trailing" constant="9" id="Mt7-uz-vM0"/>
+                            <constraint firstItem="FHB-2p-yt3" firstAttribute="top" secondItem="5hQ-bo-Hfa" secondAttribute="bottom" constant="63" id="NbQ-BG-ZVa"/>
+                            <constraint firstItem="5hQ-bo-Hfa" firstAttribute="top" secondItem="Gup-zG-i0t" secondAttribute="bottom" constant="8" id="UQP-4g-K7E"/>
+                            <constraint firstItem="RWa-US-PiI" firstAttribute="trailing" secondItem="5hQ-bo-Hfa" secondAttribute="trailing" constant="73" id="Zon-VH-1Gy"/>
+                            <constraint firstItem="5hQ-bo-Hfa" firstAttribute="top" secondItem="Gup-zG-i0t" secondAttribute="bottom" constant="8" id="dYK-9E-8Bl"/>
+                            <constraint firstItem="Gup-zG-i0t" firstAttribute="top" secondItem="RWa-US-PiI" secondAttribute="top" constant="74" id="eLY-li-LcV"/>
+                            <constraint firstItem="Gup-zG-i0t" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" constant="31" id="egn-3d-njE"/>
+                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="top" secondItem="FHB-2p-yt3" secondAttribute="bottom" constant="368" id="ief-Vp-NBj"/>
+                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="bottom" secondItem="RWa-US-PiI" secondAttribute="bottom" id="jde-oP-NWZ"/>
+                            <constraint firstItem="FHB-2p-yt3" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" constant="31" id="kUQ-zA-cjL"/>
+                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="trailing" secondItem="RWa-US-PiI" secondAttribute="trailing" id="l5j-Rv-Zdg"/>
+                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" id="nfn-ge-5r4"/>
+                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="bottom" secondItem="RWa-US-PiI" secondAttribute="bottom" id="pbZ-3P-Ck9"/>
+                            <constraint firstItem="FHB-2p-yt3" firstAttribute="top" secondItem="5hQ-bo-Hfa" secondAttribute="bottom" constant="63" id="rsk-ZC-l5u"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RWa-US-PiI"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KOF-OO-X7W"/>
+                    <connections>
+                        <outlet property="AccNumberField" destination="FHB-2p-yt3" id="wpg-8x-yTS"/>
+                        <outlet property="bankLabel" destination="Gup-zG-i0t" id="e34-lg-Qbg"/>
+                        <outlet property="clickButton" destination="Xn9-Le-fr3" id="WZM-eZ-uoa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAp-Zu-qp8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6956" y="-1092"/>
+            <point key="canvasLocation" x="6956" y="-1092.5037481259371"/>
         </scene>
         <!--친구 찾기-->
         <scene sceneID="M2g-gH-7sS">
