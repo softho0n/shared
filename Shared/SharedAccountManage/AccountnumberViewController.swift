@@ -17,7 +17,7 @@ class AccountnumberViewController: UIViewController {
     var bankName : String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bankLabel.text = "\(bankName!) 은행"
+        self.bankLabel.text = "\(bankName!)은행"
         AccNumberField.keyboardType = .numberPad
         clickButton.isHidden = true
 
