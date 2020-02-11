@@ -20,7 +20,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SHH-rf-eL0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="u0S-7a-1Kb">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -629,17 +629,43 @@
                                             <constraint firstItem="YeB-Cp-g2g" firstAttribute="leading" secondItem="DFb-K6-ib2" secondAttribute="leading" constant="8" id="wnS-SK-3r9"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWt-Dl-Zn3">
+                                        <rect key="frame" x="20" y="163.5" width="374" height="323.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ys-Wk-mGb">
+                                                <rect key="frame" x="131" y="147" width="112" height="30"/>
+                                                <state key="normal" title="출금 계좌 등록하기"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="출금 계좌가 등록되지 않았어요 :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2he-CZ-ApW">
+                                                <rect key="frame" x="59" y="115" width="257" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="4ys-Wk-mGb" firstAttribute="centerX" secondItem="VWt-Dl-Zn3" secondAttribute="centerX" id="FHs-e8-DLt"/>
+                                            <constraint firstItem="4ys-Wk-mGb" firstAttribute="top" secondItem="2he-CZ-ApW" secondAttribute="bottom" constant="8" id="Xmh-pt-M4L"/>
+                                            <constraint firstItem="4ys-Wk-mGb" firstAttribute="centerY" secondItem="VWt-Dl-Zn3" secondAttribute="centerY" id="aEc-6Q-BSk"/>
+                                            <constraint firstAttribute="trailing" secondItem="2he-CZ-ApW" secondAttribute="trailing" constant="58" id="hNH-mX-NUI"/>
+                                            <constraint firstItem="2he-CZ-ApW" firstAttribute="leading" secondItem="VWt-Dl-Zn3" secondAttribute="leading" constant="59" id="yl3-JN-GnK"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="rfs-Ld-6bt" firstAttribute="leading" secondItem="USO-f8-Kwd" secondAttribute="leading" constant="20" id="5nT-IO-kZC"/>
                                     <constraint firstAttribute="trailing" secondItem="Zs8-zK-OA2" secondAttribute="trailing" constant="20" id="7P4-vV-0Za"/>
                                     <constraint firstItem="Zs8-zK-OA2" firstAttribute="leading" secondItem="USO-f8-Kwd" secondAttribute="leading" constant="20" id="KAN-fg-dDs"/>
+                                    <constraint firstAttribute="bottom" secondItem="VWt-Dl-Zn3" secondAttribute="bottom" constant="8" id="SCk-K4-mVH"/>
                                     <constraint firstItem="uqB-BI-aHI" firstAttribute="leading" secondItem="USO-f8-Kwd" secondAttribute="leading" constant="20" id="TSV-9s-ViB"/>
                                     <constraint firstItem="DFb-K6-ib2" firstAttribute="top" secondItem="rfs-Ld-6bt" secondAttribute="bottom" constant="7.5" id="VOH-w3-cei"/>
+                                    <constraint firstItem="VWt-Dl-Zn3" firstAttribute="leading" secondItem="USO-f8-Kwd" secondAttribute="leading" constant="20" id="X6h-SG-XkN"/>
                                     <constraint firstAttribute="bottom" secondItem="DFb-K6-ib2" secondAttribute="bottom" constant="8" id="XIU-Ob-fTb"/>
                                     <constraint firstAttribute="trailing" secondItem="J9k-u1-6fW" secondAttribute="trailing" constant="20" id="Xo8-XT-XP0"/>
                                     <constraint firstItem="J9k-u1-6fW" firstAttribute="top" secondItem="USO-f8-Kwd" secondAttribute="top" constant="8" id="ZMf-p1-x8S"/>
                                     <constraint firstAttribute="trailing" secondItem="uqB-BI-aHI" secondAttribute="trailing" constant="20" id="d2S-Rm-a0B"/>
+                                    <constraint firstItem="VWt-Dl-Zn3" firstAttribute="top" secondItem="rfs-Ld-6bt" secondAttribute="top" constant="7.5" id="fsd-zb-l2n"/>
                                     <constraint firstItem="J9k-u1-6fW" firstAttribute="leading" secondItem="USO-f8-Kwd" secondAttribute="leading" constant="20" id="gUd-py-GxB"/>
                                     <constraint firstItem="uqB-BI-aHI" firstAttribute="top" secondItem="Zs8-zK-OA2" secondAttribute="bottom" constant="10" id="gqG-M6-Qea"/>
                                     <constraint firstItem="ATl-6i-o1A" firstAttribute="leading" secondItem="USO-f8-Kwd" secondAttribute="leading" constant="20" id="i3Y-0B-Kvy"/>
@@ -647,6 +673,7 @@
                                     <constraint firstAttribute="trailing" secondItem="DFb-K6-ib2" secondAttribute="trailing" constant="20" id="jg9-3G-wp2"/>
                                     <constraint firstItem="ATl-6i-o1A" firstAttribute="top" secondItem="uqB-BI-aHI" secondAttribute="bottom" constant="7.5" id="mrE-Q9-pp7"/>
                                     <constraint firstItem="DFb-K6-ib2" firstAttribute="leading" secondItem="USO-f8-Kwd" secondAttribute="leading" constant="20" id="nHY-5i-xUw"/>
+                                    <constraint firstAttribute="trailing" secondItem="VWt-Dl-Zn3" secondAttribute="trailing" constant="20" id="rv1-7T-mWX"/>
                                     <constraint firstItem="rfs-Ld-6bt" firstAttribute="top" secondItem="ATl-6i-o1A" secondAttribute="bottom" constant="12" id="ten-6o-wOK"/>
                                 </constraints>
                             </view>
@@ -675,6 +702,8 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="loader" destination="drO-Vq-3DO" id="4RF-cM-M59"/>
+                        <outlet property="setAccountView" destination="VWt-Dl-Zn3" id="doe-h7-0EQ"/>
+                        <outlet property="signitureInfoView" destination="DFb-K6-ib2" id="7ho-4h-50a"/>
                         <outlet property="userNameLabel" destination="Qkh-lX-pzn" id="ABr-YF-v3o"/>
                     </connections>
                 </viewController>
@@ -1069,6 +1098,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LCp-cs-u7j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6002.898550724638" y="-403.125"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="o11-rW-uet">
+            <objects>
+                <viewController id="Aom-EN-iut" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uhk-DY-VuX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gn-N4-mA1">
+                                <rect key="frame" x="20" y="509" width="374" height="296"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="출금 계좌가 등록되지 않았어요 :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elx-1v-CrL">
+                                        <rect key="frame" x="59" y="94" width="257" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRp-CL-sid">
+                                        <rect key="frame" x="131" y="133" width="112" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="출금 계좌 등록하기"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Bi-2L-AcU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YRB-H5-QWr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6955" y="-403"/>
         </scene>
         <!--환영합니다!-->
         <scene sceneID="agr-YH-xTO">
