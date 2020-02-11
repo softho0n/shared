@@ -11,11 +11,10 @@ import UIKit
 class RegisterAccountViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell){
             if let vc = segue.destination as? AccountnumberViewController{
-                vc.bankName = banklist[indexPath.item ]
+                vc.bankName = banklist[indexPath.item]
             }
         }
     }
@@ -24,31 +23,11 @@ class RegisterAccountViewController: UIViewController {
         super.viewDidLoad()
         collectionView.allowsSelection = true
         collectionView.allowsMultipleSelection = false
-    
-
-        // Do any additional setup after loading the view.
     }
-    
-    
-    
-   
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
 extension RegisterAccountViewController : UICollectionViewDataSource{
-    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header =  collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath) as! RegisterAccountCollectionReusableView
         return header
@@ -64,7 +43,4 @@ extension RegisterAccountViewController : UICollectionViewDataSource{
         cell.bankImage.image = UIImage(named: bankimagelist[indexPath.item])
         return cell
     }
-    
-    
-    
 }
