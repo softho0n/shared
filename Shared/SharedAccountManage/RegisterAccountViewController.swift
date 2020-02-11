@@ -13,7 +13,7 @@ class RegisterAccountViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell){
-            if let vc = segue.destination as? AccountnumberViewController{
+            if let vc = segue.destination as? AccountNumberViewController{
                 vc.bankName = banklist[indexPath.item]
             }
         }
