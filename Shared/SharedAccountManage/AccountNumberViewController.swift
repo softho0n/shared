@@ -7,38 +7,32 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class AccountNumberViewController: UIViewController {
     @IBOutlet var bankLabel: UILabel!
     @IBOutlet var AccNumberField: UITextField!
     @IBOutlet var clickButton: UIButton!
-    
-    
+    var ref: DatabaseReference!
     var bankName : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bankLabel.text = "\(bankName!)은행"
         AccNumberField.keyboardType = .numberPad
         clickButton.isHidden = true
-
-        // Do any additional setup after loading the view.
+        ref = Database.database().reference()
     }
     
     @IBAction func editingStart(_ sender: Any) {
         clickButton.isHidden = false
     }
     
-    
-
-    
-    /*
-     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func interlocking(_ sender: Any) {
+        if let uid = Auth.auth().currentUser?.uid, let bankName = bankLabel.text, let account = AccNumberField.text {
+            ref?.child("Accounts/\(uid)").updateChildValues([bankName: account])
+        }
+        
     }
-    */
-
 }
