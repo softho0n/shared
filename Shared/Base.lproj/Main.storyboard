@@ -837,19 +837,37 @@
         <!--계좌번호입력-->
         <scene sceneID="PwO-P6-dC8">
             <objects>
-                <viewController title="계좌번호입력" id="XOX-AH-BAB" customClass="AccountnumberViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="계좌번호입력" id="XOX-AH-BAB" customClass="AccountNumberViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YKw-2R-io9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gup-zG-i0t">
-                                <rect key="frame" x="31" y="74" width="271" height="30"/>
+                                <rect key="frame" x="20" y="40" width="335" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xn9-Le-fr3">
+                                <rect key="frame" x="0.0" y="597" width="375" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ss8-dw-mxp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BMHANNA11yrsoldOTF" family="BM HANNA 11yrs old OTF" pointSize="25"/>
+                                <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="계좌 연결하기">
+                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계좌 번호를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hQ-bo-Hfa">
+                                <rect key="frame" x="20" y="78" width="335" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="1234-567-123456" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FHB-2p-yt3">
-                                <rect key="frame" x="31" y="205" width="335" height="24"/>
+                                <rect key="frame" x="20" y="153" width="335" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -857,47 +875,27 @@
                                     <outlet property="delegate" destination="XOX-AH-BAB" id="CRC-SN-BW3"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xn9-Le-fr3">
-                                <rect key="frame" x="0.0" y="597" width="375" height="50"/>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Ss8-dw-mxp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="BMHANNA11yrsoldOTF" family="BM HANNA 11yrs old OTF" pointSize="25"/>
-                                <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="계좌 연결하기">
-                                    <color key="titleColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계좌 번호를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hQ-bo-Hfa">
-                                <rect key="frame" x="31" y="112" width="271" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Xn9-Le-fr3" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" id="4pr-0K-NfF"/>
-                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="top" secondItem="FHB-2p-yt3" secondAttribute="bottom" constant="368" id="7OK-Id-9nK"/>
-                            <constraint firstItem="RWa-US-PiI" firstAttribute="trailing" secondItem="Gup-zG-i0t" secondAttribute="trailing" constant="73" id="7kr-iB-U1j"/>
-                            <constraint firstItem="5hQ-bo-Hfa" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" constant="31" id="9IF-Af-GnE"/>
-                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="top" secondItem="FHB-2p-yt3" secondAttribute="bottom" constant="368" id="KPg-Pt-Qjv"/>
+                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="bottom" secondItem="RWa-US-PiI" secondAttribute="bottom" id="89y-Bw-VPt"/>
+                            <constraint firstItem="5hQ-bo-Hfa" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" constant="20" id="C1S-Cq-ZU9"/>
+                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="trailing" secondItem="RWa-US-PiI" secondAttribute="trailing" id="KWC-JH-jg9"/>
                             <constraint firstItem="Xn9-Le-fr3" firstAttribute="trailing" secondItem="RWa-US-PiI" secondAttribute="trailing" id="Mex-1f-TAv"/>
-                            <constraint firstItem="RWa-US-PiI" firstAttribute="trailing" secondItem="FHB-2p-yt3" secondAttribute="trailing" constant="9" id="Mt7-uz-vM0"/>
-                            <constraint firstItem="FHB-2p-yt3" firstAttribute="top" secondItem="5hQ-bo-Hfa" secondAttribute="bottom" constant="63" id="NbQ-BG-ZVa"/>
-                            <constraint firstItem="5hQ-bo-Hfa" firstAttribute="top" secondItem="Gup-zG-i0t" secondAttribute="bottom" constant="8" id="UQP-4g-K7E"/>
-                            <constraint firstItem="RWa-US-PiI" firstAttribute="trailing" secondItem="5hQ-bo-Hfa" secondAttribute="trailing" constant="73" id="Zon-VH-1Gy"/>
-                            <constraint firstItem="5hQ-bo-Hfa" firstAttribute="top" secondItem="Gup-zG-i0t" secondAttribute="bottom" constant="8" id="dYK-9E-8Bl"/>
-                            <constraint firstItem="Gup-zG-i0t" firstAttribute="top" secondItem="RWa-US-PiI" secondAttribute="top" constant="74" id="eLY-li-LcV"/>
-                            <constraint firstItem="Gup-zG-i0t" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" constant="31" id="egn-3d-njE"/>
-                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="top" secondItem="FHB-2p-yt3" secondAttribute="bottom" constant="368" id="ief-Vp-NBj"/>
+                            <constraint firstItem="5hQ-bo-Hfa" firstAttribute="top" secondItem="Gup-zG-i0t" secondAttribute="bottom" constant="8" id="Mhu-vJ-EbI"/>
+                            <constraint firstItem="FHB-2p-yt3" firstAttribute="top" secondItem="5hQ-bo-Hfa" secondAttribute="bottom" constant="45" id="O1K-Db-KgJ"/>
+                            <constraint firstItem="RWa-US-PiI" firstAttribute="trailing" secondItem="Gup-zG-i0t" secondAttribute="trailing" constant="20" id="QTC-6w-xVx"/>
+                            <constraint firstItem="RWa-US-PiI" firstAttribute="trailing" secondItem="5hQ-bo-Hfa" secondAttribute="trailing" constant="20" id="Qyo-JX-hEt"/>
+                            <constraint firstItem="Gup-zG-i0t" firstAttribute="top" secondItem="RWa-US-PiI" secondAttribute="top" constant="40" id="ZUh-1f-A2y"/>
+                            <constraint firstItem="Xn9-Le-fr3" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" id="azf-cG-A04"/>
+                            <constraint firstItem="Gup-zG-i0t" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" constant="20" id="cPj-Vu-8CB"/>
                             <constraint firstItem="Xn9-Le-fr3" firstAttribute="bottom" secondItem="RWa-US-PiI" secondAttribute="bottom" id="jde-oP-NWZ"/>
-                            <constraint firstItem="FHB-2p-yt3" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" constant="31" id="kUQ-zA-cjL"/>
+                            <constraint firstItem="FHB-2p-yt3" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" constant="20" id="kqi-PF-DEB"/>
                             <constraint firstItem="Xn9-Le-fr3" firstAttribute="trailing" secondItem="RWa-US-PiI" secondAttribute="trailing" id="l5j-Rv-Zdg"/>
                             <constraint firstItem="Xn9-Le-fr3" firstAttribute="leading" secondItem="RWa-US-PiI" secondAttribute="leading" id="nfn-ge-5r4"/>
                             <constraint firstItem="Xn9-Le-fr3" firstAttribute="bottom" secondItem="RWa-US-PiI" secondAttribute="bottom" id="pbZ-3P-Ck9"/>
-                            <constraint firstItem="FHB-2p-yt3" firstAttribute="top" secondItem="5hQ-bo-Hfa" secondAttribute="bottom" constant="63" id="rsk-ZC-l5u"/>
+                            <constraint firstItem="RWa-US-PiI" firstAttribute="trailing" secondItem="FHB-2p-yt3" secondAttribute="trailing" constant="20" id="yT8-9L-Vwv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RWa-US-PiI"/>
                     </view>
