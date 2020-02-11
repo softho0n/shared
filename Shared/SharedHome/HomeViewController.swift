@@ -17,6 +17,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet var loader: UIActivityIndicatorView!
     @IBOutlet var userNameLabel: UILabel!
+    @IBOutlet var signitureInfoView: UIView!
+    @IBOutlet var setAccountView: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,6 +33,11 @@ class HomeViewController: UIViewController {
         DispatchQueue.global().sync {
             loader.startAnimating()
             if let uid = Auth.auth().currentUser?.uid {
+                ref.child("sig").observeSingleEvent(of: .value) { (snapshot) in
+                    if(!snapshot.exists()) {
+                        self.signitureInfoView.isHidden = true
+                    }
+                }
                 ref.child("Users").child(uid).observeSingleEvent(of: .value) { (snapshot) in
                     self.userInfo = snapshot.value as? [String : Any]
                     if let name = self.userInfo["userName"] as! String?{
