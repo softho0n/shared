@@ -27,7 +27,9 @@ class FriendListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
+        tableView.cellLayoutMarginsFollowReadableWidth = false
+        tableView.tableFooterView = UIView()
         ref = Database.database().reference()
         getDate()
     }

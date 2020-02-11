@@ -7,6 +7,7 @@ target 'Shared' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'SideMenu'
   # Pods for Shared
 
 end

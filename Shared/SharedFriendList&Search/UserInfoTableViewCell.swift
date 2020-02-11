@@ -14,8 +14,10 @@ class UserInfoTableViewCell: UITableViewCell {
     @IBOutlet var userPhoneNumberLabel: UILabel!
     @IBOutlet var signInDateLabel: UILabel!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        userNameLabel.adjustsFontSizeToFitWidth = true
         // Initialization code
     }
 
