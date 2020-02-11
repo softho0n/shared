@@ -21,6 +21,7 @@ class RegisterAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBackButton()
         collectionView.allowsSelection = true
         collectionView.allowsMultipleSelection = false
         collectionView.showsVerticalScrollIndicator = false
