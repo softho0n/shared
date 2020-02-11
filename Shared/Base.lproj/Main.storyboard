@@ -635,6 +635,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ys-Wk-mGb">
                                                 <rect key="frame" x="131" y="147" width="112" height="30"/>
                                                 <state key="normal" title="출금 계좌 등록하기"/>
+                                                <connections>
+                                                    <segue destination="1By-Uo-eV4" kind="push" id="UmW-Ks-4mD"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="출금 계좌가 등록되지 않았어요 :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2he-CZ-ApW">
                                                 <rect key="frame" x="59" y="115" width="257" height="24"/>
@@ -1508,6 +1511,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fEh-nL-dyu"/>
+        <segue reference="UmW-Ks-4mD"/>
         <segue reference="U3N-wz-U0m"/>
     </inferredMetricsTieBreakers>
 </document>
