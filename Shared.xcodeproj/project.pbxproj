@@ -33,7 +33,7 @@
 		C9B0756E23DA9EFB00E68753 /* AccountListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756D23DA9EFB00E68753 /* AccountListViewController.swift */; };
 		C9B0757223DAD07C00E68753 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757123DAD07C00E68753 /* SendViewController.swift */; };
 		C9B0757423DAD10900E68753 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757323DAD10900E68753 /* ReceiveViewController.swift */; };
-		C9D90D1123EC62AC008C16C0 /* AccountnumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1023EC62AC008C16C0 /* AccountnumberViewController.swift */; };
+		C9D90D1123EC62AC008C16C0 /* AccountNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,7 +66,7 @@
 		C9B0756D23DA9EFB00E68753 /* AccountListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListViewController.swift; sourceTree = "<group>"; };
 		C9B0757123DAD07C00E68753 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		C9B0757323DAD10900E68753 /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
-		C9D90D1023EC62AC008C16C0 /* AccountnumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountnumberViewController.swift; sourceTree = "<group>"; };
+		C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNumberViewController.swift; sourceTree = "<group>"; };
 		D2A79BE81EB46556241264AC /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		DB6B5F24FA5AA0445617B139 /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,7 +196,7 @@
 				C9B0756B23DA926F00E68753 /* RegisterAccountViewController.swift */,
 				C9288A4323EB2AAB00358759 /* RegisterAccountCollectionViewCell.swift */,
 				C9288A4523EB383A00358759 /* RegisterAccountCollectionReusableView.swift */,
-				C9D90D1023EC62AC008C16C0 /* AccountnumberViewController.swift */,
+				C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */,
 			);
 			path = SharedAccountManage;
 			sourceTree = "<group>";
@@ -360,7 +360,7 @@
 				C970C4EB23BF967F00D0A069 /* SceneDelegate.swift in Sources */,
 				C9B0757223DAD07C00E68753 /* SendViewController.swift in Sources */,
 				C970C4FD23BFC3F600D0A069 /* NameInputViewController.swift in Sources */,
-				C9D90D1123EC62AC008C16C0 /* AccountnumberViewController.swift in Sources */,
+				C9D90D1123EC62AC008C16C0 /* AccountNumberViewController.swift in Sources */,
 				C9288A4623EB383A00358759 /* RegisterAccountCollectionReusableView.swift in Sources */,
 				C9288A4423EB2AAB00358759 /* RegisterAccountCollectionViewCell.swift in Sources */,
 			);
