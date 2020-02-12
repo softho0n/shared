@@ -66,6 +66,32 @@ extension AccountListViewController: UITableViewDelegate, UITableViewDataSource 
         cell.accountNumber.text = accountList[indexPath.row].accountNumber
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(accountList[indexPath.row])
+        alertWithConfirm(bank: accountList[indexPath.row].bank, account: accountList[indexPath.row].accountNumber)
+    }
+}
+
+extension AccountListViewController {
+    func alertWithConfirm(title: String = "알림", bank: String, account: String){
+        let alert = UIAlertController(title: title, message: "\(bank) 계좌를 출금계좌로 등록합니다.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "등록하기", style: .default) { (action) in
+            if let uid = Auth.auth().currentUser?.uid{
+                self.ref?.child("Signiture/\(uid)").setValue([bank: account])
+                if #available(iOS 13.0, *) {
+                    let vc = self.storyboard?.instantiateViewController(identifier: "mainUI")
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                } else {
+                    fatalError()
+                }
+            }
+        }
+        let cancel = UIAlertAction(title: "취소", style: .destructive, handler: nil)
+        alert.addAction(action)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
 
