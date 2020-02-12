@@ -700,6 +700,9 @@
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="account" destination="DIT-Bb-6jH" id="CwO-5Q-2SN"/>
+                        <outlet property="balance" destination="sSk-0M-kTb" id="fmL-G6-sjm"/>
+                        <outlet property="bank" destination="YeB-Cp-g2g" id="K7v-1f-L2I"/>
                         <outlet property="loader" destination="drO-Vq-3DO" id="4RF-cM-M59"/>
                         <outlet property="setAccountView" destination="VWt-Dl-Zn3" id="doe-h7-0EQ"/>
                         <outlet property="signitureInfoView" destination="DFb-K6-ib2" id="7ho-4h-50a"/>
@@ -722,11 +725,11 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="accountCell" rowHeight="80" id="dI0-H7-0Wv" customClass="AccountTableViewCell" customModule="Shared" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="accountCell" rowHeight="80" id="dI0-H7-0Wv" customClass="AccountTableViewCell" customModule="Shared" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dI0-H7-0Wv" id="pzH-ly-qMs">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYF-yW-aZI">
@@ -1579,7 +1582,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fEh-nL-dyu"/>
-        <segue reference="KGQ-C1-chM"/>
+        <segue reference="AgY-s5-abc"/>
         <segue reference="UmW-Ks-4mD"/>
         <segue reference="U3N-wz-U0m"/>
     </inferredMetricsTieBreakers>
