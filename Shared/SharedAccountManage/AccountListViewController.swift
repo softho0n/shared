@@ -7,24 +7,66 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class AccountListViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    var ref: DatabaseReference!
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var loader: UIActivityIndicatorView!
+    
+    struct accountInfoStruct {
+        var bank: String!
+        var accountNumber: String!
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    var accountList = [accountInfoStruct]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupBackButton()
+        ref = Database.database().reference()
+        getDate()
     }
-    */
-
+    
+    func getDate()
+    {
+        if let uid = Auth.auth().currentUser?.uid {
+            DispatchQueue.global().sync {
+                self.loader.startAnimating()
+                ref.child("Accounts/\(uid)").observeSingleEvent(of: .value, with: {(snapshot) in
+                    for item in snapshot.children {
+                        let value = (item as! DataSnapshot).value
+                        let key = (item as! DataSnapshot).key
+                        if let account = value {
+                            self.accountList.append(accountInfoStruct(bank: key, accountNumber: account as! String))
+                        }
+                    }
+                    self.loader.stopAnimating()
+                    self.tableView.reloadData()
+                })
+            }
+        }
+    }
 }
+
+extension AccountListViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return accountList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) as! AccountTableViewCell
+        cell.bankName.text = accountList[indexPath.row].bank
+        cell.accountNumber.text = accountList[indexPath.row].accountNumber
+        return cell
+    }
+}
+
+
+
