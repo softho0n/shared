@@ -285,7 +285,7 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="856"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userInfoCell" rowHeight="80" id="6RT-Cf-gh9" customClass="UserInfoTableViewCell" customModule="Shared" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="userInfoCell" rowHeight="80" id="6RT-Cf-gh9" customClass="UserInfoTableViewCell" customModule="Shared" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6RT-Cf-gh9" id="U64-eO-S8a">
@@ -341,24 +341,20 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="bw3-xs-nQ2">
-                                <rect key="frame" x="0.0" y="355" width="414" height="195"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="25z-jJ-mNk"/>
-                                    <constraint firstAttribute="width" constant="375" id="4gd-qo-hX4"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="color" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="NE6-Ne-gNL" firstAttribute="leading" secondItem="Avl-5d-DOU" secondAttribute="leading" id="1tK-SM-xo5"/>
-                            <constraint firstItem="bw3-xs-nQ2" firstAttribute="trailing" secondItem="Avl-5d-DOU" secondAttribute="trailing" id="3Iu-z9-oSF"/>
-                            <constraint firstItem="Avl-5d-DOU" firstAttribute="bottom" secondItem="bw3-xs-nQ2" secondAttribute="bottom" constant="312" id="5Hg-wj-Nf7"/>
                             <constraint firstAttribute="bottom" secondItem="NE6-Ne-gNL" secondAttribute="bottom" constant="20" symbolic="YES" id="8Tl-1K-AgH"/>
                             <constraint firstItem="NE6-Ne-gNL" firstAttribute="trailing" secondItem="Avl-5d-DOU" secondAttribute="trailing" id="Kxm-ir-UAs"/>
-                            <constraint firstItem="bw3-xs-nQ2" firstAttribute="leading" secondItem="Avl-5d-DOU" secondAttribute="leading" id="VCj-1p-vz2"/>
+                            <constraint firstItem="bw3-xs-nQ2" firstAttribute="top" secondItem="Avl-5d-DOU" secondAttribute="top" id="feW-2I-I4f"/>
+                            <constraint firstItem="Avl-5d-DOU" firstAttribute="bottom" secondItem="bw3-xs-nQ2" secondAttribute="bottom" id="iPf-pa-40d"/>
                             <constraint firstItem="NE6-Ne-gNL" firstAttribute="top" secondItem="9mk-cU-Rsw" secondAttribute="top" constant="20" symbolic="YES" id="kzX-Zk-Ieu"/>
-                            <constraint firstItem="bw3-xs-nQ2" firstAttribute="top" secondItem="Avl-5d-DOU" secondAttribute="top" constant="267" id="wka-1Q-rTh"/>
+                            <constraint firstItem="bw3-xs-nQ2" firstAttribute="leading" secondItem="Avl-5d-DOU" secondAttribute="leading" id="stn-Dn-eNa"/>
+                            <constraint firstItem="bw3-xs-nQ2" firstAttribute="trailing" secondItem="Avl-5d-DOU" secondAttribute="trailing" id="sw8-Wa-f42"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Avl-5d-DOU"/>
                     </view>
@@ -642,7 +638,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="출금 계좌가 등록되지 않았어요 :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2he-CZ-ApW">
                                                 <rect key="frame" x="59" y="115" width="257" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -721,14 +717,84 @@
                     <view key="view" contentMode="scaleToFill" id="Ex3-1Z-jgQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="28B-AA-XLN">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="accountCell" rowHeight="80" id="dI0-H7-0Wv" customClass="AccountTableViewCell" customModule="Shared" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dI0-H7-0Wv" id="pzH-ly-qMs">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYF-yW-aZI">
+                                                    <rect key="frame" x="20" y="30" width="47.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AccountNumber" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83s-4f-gIe">
+                                                    <rect key="frame" x="75.5" y="30" width="112" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="83s-4f-gIe" firstAttribute="top" secondItem="pzH-ly-qMs" secondAttribute="topMargin" constant="19" id="9DP-bx-0bV"/>
+                                                <constraint firstItem="83s-4f-gIe" firstAttribute="leading" secondItem="JYF-yW-aZI" secondAttribute="trailing" constant="8" id="EYc-Ot-L8r"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="JYF-yW-aZI" secondAttribute="bottom" constant="18" id="KYo-J8-GS2"/>
+                                                <constraint firstItem="JYF-yW-aZI" firstAttribute="top" secondItem="pzH-ly-qMs" secondAttribute="topMargin" constant="19" id="PYT-If-uye"/>
+                                                <constraint firstItem="JYF-yW-aZI" firstAttribute="leading" secondItem="pzH-ly-qMs" secondAttribute="leadingMargin" id="ZDP-im-30L"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="83s-4f-gIe" secondAttribute="bottom" constant="18" id="eeV-oc-eH8"/>
+                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="83s-4f-gIe" secondAttribute="trailing" constant="282" id="mYP-yP-5Nx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="accountNumber" destination="83s-4f-gIe" id="7GP-OB-YfK"/>
+                                            <outlet property="bankName" destination="JYF-yW-aZI" id="kvV-WO-OQb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1By-Uo-eV4" id="9vY-Fk-DuZ"/>
+                                    <outlet property="delegate" destination="1By-Uo-eV4" id="TzM-hK-Ci6"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="iIX-up-F2c">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="28B-AA-XLN" firstAttribute="top" secondItem="y7n-WC-Rog" secondAttribute="top" id="2bq-Ra-ir5"/>
+                            <constraint firstItem="y7n-WC-Rog" firstAttribute="bottom" secondItem="28B-AA-XLN" secondAttribute="bottom" id="CPk-d0-x5V"/>
+                            <constraint firstItem="y7n-WC-Rog" firstAttribute="trailing" secondItem="iIX-up-F2c" secondAttribute="trailing" id="G8L-O9-2gl"/>
+                            <constraint firstItem="iIX-up-F2c" firstAttribute="leading" secondItem="y7n-WC-Rog" secondAttribute="leading" id="Wki-Zw-iWT"/>
+                            <constraint firstItem="iIX-up-F2c" firstAttribute="top" secondItem="y7n-WC-Rog" secondAttribute="top" id="dLc-aA-RLy"/>
+                            <constraint firstItem="y7n-WC-Rog" firstAttribute="trailing" secondItem="28B-AA-XLN" secondAttribute="trailing" id="gzl-6J-399"/>
+                            <constraint firstItem="y7n-WC-Rog" firstAttribute="bottom" secondItem="iIX-up-F2c" secondAttribute="bottom" id="jRY-bM-U7O"/>
+                            <constraint firstItem="28B-AA-XLN" firstAttribute="leading" secondItem="y7n-WC-Rog" secondAttribute="leading" id="rd6-cD-wQy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="y7n-WC-Rog"/>
                     </view>
-                    <navigationItem key="navigationItem" title="내 계좌 목록" id="jsl-p1-V4d"/>
+                    <navigationItem key="navigationItem" title="내 계좌 목록" id="jsl-p1-V4d">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="7xa-3Y-237">
+                            <connections>
+                                <segue destination="qWB-3Q-Vja" kind="push" id="KGQ-C1-chM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="loader" destination="iIX-up-F2c" id="J2J-GK-8HC"/>
+                        <outlet property="tableView" destination="28B-AA-XLN" id="2I2-WY-pFt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctL-Ja-UA7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5091" y="-1090"/>
+            <point key="canvasLocation" x="5165" y="-1092"/>
         </scene>
         <!--계좌 등록-->
         <scene sceneID="4xk-3t-dfK">
@@ -934,6 +1000,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RWa-US-PiI"/>
                     </view>
+                    <navigationItem key="navigationItem" id="PI4-3j-FEb"/>
                     <connections>
                         <outlet property="AccNumberField" destination="FHB-2p-yt3" id="wpg-8x-yTS"/>
                         <outlet property="bankLabel" destination="Gup-zG-i0t" id="e34-lg-Qbg"/>
@@ -1507,10 +1574,12 @@
         <image name="not-found" width="85.333335876464844" height="85.333335876464844"/>
         <image name="person.2.fill" catalog="system" width="64" height="40"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
         <image name="text.justify" catalog="system" width="64" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fEh-nL-dyu"/>
+        <segue reference="KGQ-C1-chM"/>
         <segue reference="UmW-Ks-4mD"/>
         <segue reference="U3N-wz-U0m"/>
     </inferredMetricsTieBreakers>
