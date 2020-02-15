@@ -271,7 +271,101 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyN-cR-aX8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6001" y="298"/>
+            <point key="canvasLocation" x="6000" y="250"/>
+        </scene>
+        <!--그룹 생성하기-->
+        <scene sceneID="wgg-Fd-Szc">
+            <objects>
+                <viewController id="5aU-0b-5MM" customClass="MakingGroupViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fEl-af-1Xb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="더치페이 그룹을 생성해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnF-q3-yCM">
+                                <rect key="frame" x="20" y="118" width="374" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iEO-hx-9uo">
+                                <rect key="frame" x="0.0" y="156" width="414" height="676"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userInfoCell" rowHeight="80" id="ZOY-wf-pPo" customClass="UserInfoTableViewCell" customModule="Shared" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZOY-wf-pPo" id="d3F-Wc-0DU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="5aU-0b-5MM" id="16w-47-DwJ"/>
+                                    <outlet property="delegate" destination="5aU-0b-5MM" id="8fC-w7-mSh"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiL-dh-aWb">
+                                <rect key="frame" x="0.0" y="840" width="414" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="다음으로"/>
+                                <connections>
+                                    <action selector="makeGroupBtn:" destination="5aU-0b-5MM" eventType="touchUpInside" id="mZ8-cq-KXG"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="aGI-KU-pxs">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ked-3y-Fqm">
+                                <rect key="frame" x="138" y="202" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nu-uW-23G">
+                                <rect key="frame" x="138" y="231" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKA-6S-cO0">
+                                <rect key="frame" x="20" y="217" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KiL-dh-aWb" firstAttribute="leading" secondItem="qUz-W1-Suq" secondAttribute="leading" id="DCb-ZD-e5O"/>
+                            <constraint firstItem="aGI-KU-pxs" firstAttribute="leading" secondItem="qUz-W1-Suq" secondAttribute="leading" id="DQF-aw-u6O"/>
+                            <constraint firstItem="iEO-hx-9uo" firstAttribute="trailing" secondItem="qUz-W1-Suq" secondAttribute="trailing" id="EpA-vQ-gaI"/>
+                            <constraint firstItem="KiL-dh-aWb" firstAttribute="trailing" secondItem="qUz-W1-Suq" secondAttribute="trailing" id="GPu-9A-qTw"/>
+                            <constraint firstItem="aGI-KU-pxs" firstAttribute="top" secondItem="qUz-W1-Suq" secondAttribute="top" id="KKB-jY-9Fu"/>
+                            <constraint firstItem="lnF-q3-yCM" firstAttribute="leading" secondItem="qUz-W1-Suq" secondAttribute="leading" constant="20" id="Qek-I3-ZXX"/>
+                            <constraint firstItem="qUz-W1-Suq" firstAttribute="trailing" secondItem="lnF-q3-yCM" secondAttribute="trailing" constant="20" id="QwJ-fF-fjG"/>
+                            <constraint firstItem="iEO-hx-9uo" firstAttribute="top" secondItem="lnF-q3-yCM" secondAttribute="bottom" constant="8" symbolic="YES" id="cYb-hg-P45"/>
+                            <constraint firstItem="qUz-W1-Suq" firstAttribute="bottom" secondItem="aGI-KU-pxs" secondAttribute="bottom" id="hfM-QI-D9F"/>
+                            <constraint firstAttribute="bottom" secondItem="KiL-dh-aWb" secondAttribute="bottom" constant="20" symbolic="YES" id="jNk-4E-5pn"/>
+                            <constraint firstItem="lnF-q3-yCM" firstAttribute="top" secondItem="qUz-W1-Suq" secondAttribute="top" constant="30" id="qCR-GL-NTU"/>
+                            <constraint firstItem="iEO-hx-9uo" firstAttribute="leading" secondItem="qUz-W1-Suq" secondAttribute="leading" id="v3T-Pj-WnD"/>
+                            <constraint firstItem="KiL-dh-aWb" firstAttribute="top" secondItem="iEO-hx-9uo" secondAttribute="bottom" constant="8" symbolic="YES" id="vMf-Wk-5uz"/>
+                            <constraint firstItem="qUz-W1-Suq" firstAttribute="trailing" secondItem="aGI-KU-pxs" secondAttribute="trailing" id="xug-fK-FTH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qUz-W1-Suq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="그룹 생성하기" id="lL1-rg-v07"/>
+                    <connections>
+                        <outlet property="loader" destination="aGI-KU-pxs" id="ddp-Uy-hs1"/>
+                        <outlet property="tableView" destination="iEO-hx-9uo" id="6DZ-Mi-Kry"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fs9-s4-Lvo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6955.0724637681169" y="263.16964285714283"/>
         </scene>
         <!--친구 목록-->
         <scene sceneID="e2n-jV-gvq">
@@ -439,6 +533,9 @@
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0K-wj-FxO">
                                                         <rect key="frame" x="0.0" y="0.0" width="111" height="104.5"/>
+                                                        <connections>
+                                                            <segue destination="5aU-0b-5MM" kind="push" id="LZe-FM-ptS"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="divide" translatesAutoresizingMaskIntoConstraints="NO" id="i50-6N-7jc">
                                                         <rect key="frame" x="0.0" y="0.0" width="111" height="42.5"/>
@@ -560,6 +657,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0n-NF-jnf">
                                                         <rect key="frame" x="0.0" y="0.0" width="81" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <segue destination="zca-OC-dAc" kind="push" id="A4E-6p-IaK"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -705,6 +805,7 @@
                         <outlet property="bank" destination="YeB-Cp-g2g" id="K7v-1f-L2I"/>
                         <outlet property="loader" destination="drO-Vq-3DO" id="4RF-cM-M59"/>
                         <outlet property="setAccountView" destination="VWt-Dl-Zn3" id="doe-h7-0EQ"/>
+                        <outlet property="sharedMoney" destination="uqB-BI-aHI" id="9YC-Fg-NSb"/>
                         <outlet property="signitureInfoView" destination="DFb-K6-ib2" id="7ho-4h-50a"/>
                         <outlet property="userNameLabel" destination="Qkh-lX-pzn" id="ABr-YF-v3o"/>
                     </connections>
@@ -712,6 +813,50 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KlP-P3-aE4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5104.8000000000002" y="-398.95052473763121"/>
+        </scene>
+        <!--충전하기-->
+        <scene sceneID="6vk-PT-YjY">
+            <objects>
+                <viewController id="zca-OC-dAc" customClass="chargeSharedMoneyViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dxl-D9-bFV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="충전 금액을 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KT-gF-oSA">
+                                <rect key="frame" x="20" y="133" width="374" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="10,000원" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GOT-r8-QX8">
+                                <rect key="frame" x="20" y="193" width="374" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="editingStart:" destination="XOX-AH-BAB" eventType="editingDidBegin" id="k5Y-7u-vlv"/>
+                                    <outlet property="delegate" destination="zca-OC-dAc" id="sSF-kr-6bS"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GOT-r8-QX8" firstAttribute="top" secondItem="5KT-gF-oSA" secondAttribute="bottom" constant="30" id="99I-2c-O4y"/>
+                            <constraint firstItem="vrX-54-KXD" firstAttribute="trailing" secondItem="GOT-r8-QX8" secondAttribute="trailing" constant="20" id="QVf-ja-OJ1"/>
+                            <constraint firstItem="GOT-r8-QX8" firstAttribute="leading" secondItem="vrX-54-KXD" secondAttribute="leading" constant="20" id="UZl-q7-1qh"/>
+                            <constraint firstItem="5KT-gF-oSA" firstAttribute="leading" secondItem="vrX-54-KXD" secondAttribute="leading" constant="20" id="acg-F3-XbA"/>
+                            <constraint firstItem="vrX-54-KXD" firstAttribute="trailing" secondItem="5KT-gF-oSA" secondAttribute="trailing" constant="20" id="c8z-SM-6uX"/>
+                            <constraint firstItem="5KT-gF-oSA" firstAttribute="top" secondItem="vrX-54-KXD" secondAttribute="top" constant="45" id="f7T-pU-gGM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vrX-54-KXD"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="충전하기" id="2I0-d1-hOd"/>
+                    <connections>
+                        <outlet property="chargeMoneyField" destination="GOT-r8-QX8" id="qru-gb-ek9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="siZ-ju-jzR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5163.768115942029" y="-1788.6160714285713"/>
         </scene>
         <!--내 계좌 목록-->
         <scene sceneID="eCa-pe-2OW">
@@ -1582,7 +1727,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fEh-nL-dyu"/>
-        <segue reference="AgY-s5-abc"/>
+        <segue reference="KGQ-C1-chM"/>
         <segue reference="UmW-Ks-4mD"/>
         <segue reference="U3N-wz-U0m"/>
     </inferredMetricsTieBreakers>
