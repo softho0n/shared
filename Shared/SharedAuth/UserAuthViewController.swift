@@ -57,8 +57,8 @@ class UserAuthViewController: UIViewController {
         }
     }
     
-    func addToolbarToVerifyPhoneNumber(_ textFiled : Any?, _ message : String?){
-        guard let field = textFiled as? UITextField else {
+    func addToolbarToVerifyPhoneNumber(_ textField : Any?, _ message : String?){
+        guard let field = textField as? UITextField else {
             fatalError()
         }
         
@@ -79,8 +79,8 @@ class UserAuthViewController: UIViewController {
         field.inputAccessoryView = toolbar
     }
     
-    func addToolbarToVerifyAuthCode(_ textFiled : Any?, _ message : String?){
-        guard let field = textFiled as? UITextField else {
+    func addToolbarToVerifyAuthCode(_ textField : Any?, _ message : String?){
+        guard let field = textField as? UITextField else {
             fatalError()
         }
         
