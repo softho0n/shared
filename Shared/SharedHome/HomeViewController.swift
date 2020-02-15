@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var bank: UILabel!
     @IBOutlet var account: UILabel!
     @IBOutlet var balance: UILabel!
+    @IBOutlet var sharedMoney: UILabel!
     
     @IBOutlet var loader: UIActivityIndicatorView!
     @IBOutlet var userNameLabel: UILabel!
@@ -54,6 +55,15 @@ class HomeViewController: UIViewController {
                         }
                     }
                 }
+                ref.child("SharedMoney/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+                    for item in snapshot.children {
+                        let value = (item as! DataSnapshot).value
+                        if let sM = value{
+                            let intValueofSm = sM as! Int
+                            self.sharedMoney.text = "\(intValueofSm.withComma)원"
+                        }
+                    }
+                }
                 ref.child("Users").child(uid).observeSingleEvent(of: .value) { (snapshot) in
                     self.userInfo = snapshot.value as? [String : Any]
                     if let name = self.userInfo["userName"] as! String?{
@@ -67,3 +77,4 @@ class HomeViewController: UIViewController {
         }
     }
 }
+
