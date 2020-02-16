@@ -12,7 +12,6 @@ import FirebaseAuth
 
 class MenuTableViewController: UITableViewController {
     @IBOutlet var myPhoto: UIImageView!
-    
     @IBOutlet var nameLabel: UILabel!
     @IBAction func logOutButton(_ sender: Any) {
             do{

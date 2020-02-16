@@ -15,8 +15,15 @@ class HomeViewController: UIViewController {
     var ref: DatabaseReference!
     var userInfo: [String : Any]! = nil
     
+    @IBOutlet var bank: UILabel!
+    @IBOutlet var account: UILabel!
+    @IBOutlet var balance: UILabel!
+    @IBOutlet var sharedMoney: UILabel!
+    
     @IBOutlet var loader: UIActivityIndicatorView!
     @IBOutlet var userNameLabel: UILabel!
+    @IBOutlet var signitureInfoView: UIView!
+    @IBOutlet var setAccountView: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,6 +38,32 @@ class HomeViewController: UIViewController {
         DispatchQueue.global().sync {
             loader.startAnimating()
             if let uid = Auth.auth().currentUser?.uid {
+                ref.child("Signiture/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+                    if(!snapshot.exists()) {
+                        self.signitureInfoView.isHidden = true
+                    }
+                    else {
+                        self.setAccountView.isHidden = true
+                        for item in snapshot.children {
+                            let value = (item as! DataSnapshot).value
+                            let key = (item as! DataSnapshot).key
+                            if let accountNumber = value{
+                                self.account.text = accountNumber as! String
+                                self.bank.text = key
+                                self.balance.text = "서비스 미지원"
+                            }
+                        }
+                    }
+                }
+                ref.child("SharedMoney/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+                    for item in snapshot.children {
+                        let value = (item as! DataSnapshot).value
+                        if let sM = value{
+                            let intValueofSm = sM as! Int
+                            self.sharedMoney.text = "\(intValueofSm.withComma)원"
+                        }
+                    }
+                }
                 ref.child("Users").child(uid).observeSingleEvent(of: .value) { (snapshot) in
                     self.userInfo = snapshot.value as? [String : Any]
                     if let name = self.userInfo["userName"] as! String?{
@@ -42,17 +75,6 @@ class HomeViewController: UIViewController {
                 }
             }
         }
-        // Do any additional setup after loading the view.
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+

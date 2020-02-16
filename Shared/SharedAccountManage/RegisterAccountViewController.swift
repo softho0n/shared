@@ -13,7 +13,7 @@ class RegisterAccountViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell){
-            if let vc = segue.destination as? AccountnumberViewController{
+            if let vc = segue.destination as? AccountNumberViewController{
                 vc.bankName = banklist[indexPath.item]
             }
         }
@@ -21,8 +21,10 @@ class RegisterAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBackButton()
         collectionView.allowsSelection = true
         collectionView.allowsMultipleSelection = false
+        collectionView.showsVerticalScrollIndicator = false
     }
 }
 
@@ -40,7 +42,7 @@ extension RegisterAccountViewController : UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! RegisterAccountCollectionViewCell
         cell.bankLabel.text = banklist[indexPath.item]
-        cell.bankImage.image = UIImage(named: bankimagelist[indexPath.item])
+//      cell.bankImage.image = UIImage(named: bankimagelist[indexPath.item])
         return cell
     }
 }

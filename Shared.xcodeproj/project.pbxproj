@@ -10,12 +10,16 @@
 		09632F75F3D9EB29F075F27D /* Pods_Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4263E24129B4A9BFD0B618F6 /* Pods_Shared.framework */; };
 		C9288A4423EB2AAB00358759 /* RegisterAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9288A4323EB2AAB00358759 /* RegisterAccountCollectionViewCell.swift */; };
 		C9288A4623EB383A00358759 /* RegisterAccountCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9288A4523EB383A00358759 /* RegisterAccountCollectionReusableView.swift */; };
+		C9314B9723F6641C007A458A /* MakingGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9314B9623F6641C007A458A /* MakingGroupViewController.swift */; };
+		C9314B9923F794CA007A458A /* DutchBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9314B9823F794CA007A458A /* DutchBalanceViewController.swift */; };
+		C9314B9B23F84AFE007A458A /* DutchPayConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9314B9A23F84AFE007A458A /* DutchPayConfirmViewController.swift */; };
+		C9314B9D23F85D89007A458A /* DutchInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9314B9C23F85D89007A458A /* DutchInfoTableViewCell.swift */; };
 		C950832223C2570F0037BF46 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950832123C2570F0037BF46 /* ConfirmViewController.swift */; };
 		C950832423C264D40037BF46 /* ReAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950832323C264D40037BF46 /* ReAuthViewController.swift */; };
 		C950832623C2666C0037BF46 /* ReConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950832523C2666C0037BF46 /* ReConfirmViewController.swift */; };
 		C950835423C4FF140037BF46 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950835323C4FF140037BF46 /* HomeViewController.swift */; };
 		C950835623C502770037BF46 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950835523C502770037BF46 /* SearchUserViewController.swift */; };
-		C962523B23F2DD80002265EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C962523A23F2DD80002265EB /* GoogleService-Info.plist */; };
+		C962523E23F2F3AB002265EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C962523D23F2F3AB002265EB /* GoogleService-Info.plist */; };
 		C970C4E923BF967E00D0A069 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C4E823BF967E00D0A069 /* AppDelegate.swift */; };
 		C970C4EB23BF967F00D0A069 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C4EA23BF967F00D0A069 /* SceneDelegate.swift */; };
 		C970C4F023BF967F00D0A069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C970C4EE23BF967F00D0A069 /* Main.storyboard */; };
@@ -33,20 +37,26 @@
 		C9B0756E23DA9EFB00E68753 /* AccountListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756D23DA9EFB00E68753 /* AccountListViewController.swift */; };
 		C9B0757223DAD07C00E68753 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757123DAD07C00E68753 /* SendViewController.swift */; };
 		C9B0757423DAD10900E68753 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757323DAD10900E68753 /* ReceiveViewController.swift */; };
-		C9D90D1123EC62AC008C16C0 /* AccountnumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1023EC62AC008C16C0 /* AccountnumberViewController.swift */; };
+		C9D90D1123EC62AC008C16C0 /* AccountNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */; };
+		C9E90FE123F39C9D00F840DD /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E90FE023F39C9D00F840DD /* AccountTableViewCell.swift */; };
+		C9E90FE523F3D47200F840DD /* chargeSharedMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E90FE423F3D47200F840DD /* chargeSharedMoneyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4263E24129B4A9BFD0B618F6 /* Pods_Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9288A4323EB2AAB00358759 /* RegisterAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9288A4523EB383A00358759 /* RegisterAccountCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountCollectionReusableView.swift; sourceTree = "<group>"; };
+		C9314B9623F6641C007A458A /* MakingGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakingGroupViewController.swift; sourceTree = "<group>"; };
+		C9314B9823F794CA007A458A /* DutchBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DutchBalanceViewController.swift; sourceTree = "<group>"; };
+		C9314B9A23F84AFE007A458A /* DutchPayConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DutchPayConfirmViewController.swift; sourceTree = "<group>"; };
+		C9314B9C23F85D89007A458A /* DutchInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DutchInfoTableViewCell.swift; sourceTree = "<group>"; };
 		C950832123C2570F0037BF46 /* ConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		C950832323C264D40037BF46 /* ReAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReAuthViewController.swift; sourceTree = "<group>"; };
 		C950832523C2666C0037BF46 /* ReConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConfirmViewController.swift; sourceTree = "<group>"; };
 		C950835323C4FF140037BF46 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C950835523C502770037BF46 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
-		C962523A23F2DD80002265EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C962523C23F2DFB6002265EB /* BMHANNA_11yrs_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = BMHANNA_11yrs_otf.otf; path = ../../../../../Downloads/BMHANNA_11yrs_otf.otf; sourceTree = "<group>"; };
+		C962523D23F2F3AB002265EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C970C4E523BF967E00D0A069 /* Shared.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shared.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C970C4E823BF967E00D0A069 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C970C4EA23BF967F00D0A069 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,7 +76,9 @@
 		C9B0756D23DA9EFB00E68753 /* AccountListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListViewController.swift; sourceTree = "<group>"; };
 		C9B0757123DAD07C00E68753 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		C9B0757323DAD10900E68753 /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
-		C9D90D1023EC62AC008C16C0 /* AccountnumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountnumberViewController.swift; sourceTree = "<group>"; };
+		C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNumberViewController.swift; sourceTree = "<group>"; };
+		C9E90FE023F39C9D00F840DD /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		C9E90FE423F3D47200F840DD /* chargeSharedMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chargeSharedMoneyViewController.swift; sourceTree = "<group>"; };
 		D2A79BE81EB46556241264AC /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		DB6B5F24FA5AA0445617B139 /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,15 +133,16 @@
 		C970C4E723BF967E00D0A069 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				C970C4F123BF968000D0A069 /* Assets.xcassets */,
+				C970C4E823BF967E00D0A069 /* AppDelegate.swift */,
+				C962523D23F2F3AB002265EB /* GoogleService-Info.plist */,
+				C970C4FE23BFC75F00D0A069 /* extension.swift */,
+				C9D06D5C23F6631000214041 /* SharedDutch */,
 				C9D90D1223EC7CF5008C16C0 /* Font */,
 				C9AA1DFB23E81A1E00540DA7 /* Menu */,
-				C970C4F123BF968000D0A069 /* Assets.xcassets */,
 				C970C50223BFC85E00D0A069 /* Model */,
-				C970C4E823BF967E00D0A069 /* AppDelegate.swift */,
-				C962523A23F2DD80002265EB /* GoogleService-Info.plist */,
-				C970C4EA23BF967F00D0A069 /* SceneDelegate.swift */,
-				C970C4FE23BFC75F00D0A069 /* extension.swift */,
 				C9B0756F23DAD01900E68753 /* SharedSend */,
+				C9E90FE323F3D43100F840DD /* SharedMoney */,
 				C9B0757023DAD02600E68753 /* SharedReceive */,
 				C9B0756A23DA924600E68753 /* SharedAccountManage */,
 				C9B0756723DA75A500E68753 /* SharedFriendList&Search */,
@@ -196,7 +209,8 @@
 				C9B0756B23DA926F00E68753 /* RegisterAccountViewController.swift */,
 				C9288A4323EB2AAB00358759 /* RegisterAccountCollectionViewCell.swift */,
 				C9288A4523EB383A00358759 /* RegisterAccountCollectionReusableView.swift */,
-				C9D90D1023EC62AC008C16C0 /* AccountnumberViewController.swift */,
+				C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */,
+				C9E90FE023F39C9D00F840DD /* AccountTableViewCell.swift */,
 			);
 			path = SharedAccountManage;
 			sourceTree = "<group>";
@@ -204,6 +218,7 @@
 		C9B0756F23DAD01900E68753 /* SharedSend */ = {
 			isa = PBXGroup;
 			children = (
+				C970C4EA23BF967F00D0A069 /* SceneDelegate.swift */,
 				C9B0757123DAD07C00E68753 /* SendViewController.swift */,
 			);
 			path = SharedSend;
@@ -217,12 +232,31 @@
 			path = SharedReceive;
 			sourceTree = "<group>";
 		};
+		C9D06D5C23F6631000214041 /* SharedDutch */ = {
+			isa = PBXGroup;
+			children = (
+				C9314B9623F6641C007A458A /* MakingGroupViewController.swift */,
+				C9314B9823F794CA007A458A /* DutchBalanceViewController.swift */,
+				C9314B9A23F84AFE007A458A /* DutchPayConfirmViewController.swift */,
+				C9314B9C23F85D89007A458A /* DutchInfoTableViewCell.swift */,
+			);
+			path = SharedDutch;
+			sourceTree = "<group>";
+		};
 		C9D90D1223EC7CF5008C16C0 /* Font */ = {
 			isa = PBXGroup;
 			children = (
 				C962523C23F2DFB6002265EB /* BMHANNA_11yrs_otf.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		C9E90FE323F3D43100F840DD /* SharedMoney */ = {
+			isa = PBXGroup;
+			children = (
+				C9E90FE423F3D47200F840DD /* chargeSharedMoneyViewController.swift */,
+			);
+			path = SharedMoney;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C970C4F523BF968000D0A069 /* LaunchScreen.storyboard in Resources */,
-				C962523B23F2DD80002265EB /* GoogleService-Info.plist in Resources */,
+				C962523E23F2F3AB002265EB /* GoogleService-Info.plist in Resources */,
 				C970C4F223BF968000D0A069 /* Assets.xcassets in Resources */,
 				C970C4F023BF967F00D0A069 /* Main.storyboard in Resources */,
 			);
@@ -347,22 +381,28 @@
 				C9AA1DFD23E81A3C00540DA7 /* MenuTableViewController.swift in Sources */,
 				C950832623C2666C0037BF46 /* ReConfirmViewController.swift in Sources */,
 				C950832423C264D40037BF46 /* ReAuthViewController.swift in Sources */,
+				C9314B9D23F85D89007A458A /* DutchInfoTableViewCell.swift in Sources */,
+				C9314B9923F794CA007A458A /* DutchBalanceViewController.swift in Sources */,
 				C9B0756923DA75DD00E68753 /* FriendListViewController.swift in Sources */,
 				C9B0756C23DA926F00E68753 /* RegisterAccountViewController.swift in Sources */,
 				C970C4FF23BFC75F00D0A069 /* extension.swift in Sources */,
+				C9314B9723F6641C007A458A /* MakingGroupViewController.swift in Sources */,
 				C950832223C2570F0037BF46 /* ConfirmViewController.swift in Sources */,
 				C970C4E923BF967E00D0A069 /* AppDelegate.swift in Sources */,
 				C9B0757423DAD10900E68753 /* ReceiveViewController.swift in Sources */,
+				C9314B9B23F84AFE007A458A /* DutchPayConfirmViewController.swift in Sources */,
 				C950835423C4FF140037BF46 /* HomeViewController.swift in Sources */,
 				C9B0756623DA6F2500E68753 /* UserInfoTableViewCell.swift in Sources */,
 				C970C50623BFD05900D0A069 /* UserAuthViewController.swift in Sources */,
 				C950835623C502770037BF46 /* SearchUserViewController.swift in Sources */,
+				C9E90FE523F3D47200F840DD /* chargeSharedMoneyViewController.swift in Sources */,
 				C970C4EB23BF967F00D0A069 /* SceneDelegate.swift in Sources */,
 				C9B0757223DAD07C00E68753 /* SendViewController.swift in Sources */,
 				C970C4FD23BFC3F600D0A069 /* NameInputViewController.swift in Sources */,
-				C9D90D1123EC62AC008C16C0 /* AccountnumberViewController.swift in Sources */,
+				C9D90D1123EC62AC008C16C0 /* AccountNumberViewController.swift in Sources */,
 				C9288A4623EB383A00358759 /* RegisterAccountCollectionReusableView.swift in Sources */,
 				C9288A4423EB2AAB00358759 /* RegisterAccountCollectionViewCell.swift in Sources */,
+				C9E90FE123F39C9D00F840DD /* AccountTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
