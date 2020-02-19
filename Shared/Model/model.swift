@@ -22,6 +22,6 @@ import Foundation
 
 public var myName : String?
 
-let banklist : [String] = ["NH농협", "KB국민", "신한", "외환", "우리", "하나", "IBK기업", "외한", "SC제일", "KDB산업", "SBI저축은행", "새마을", "대구", "광주", "우체국", "신협", "전북", "경남", "부산", "수협", "제주", "케이뱅크"]
+let banklist : [String] = ["NH농협", "KB국민", "신한", "외환", "우리", "하나", "IBK기업", "SC제일", "KDB산업", "SBI저축은행", "새마을", "대구", "광주", "우체국", "신협", "전북", "경남", "부산", "수협", "제주", "케이뱅크"]
 
-let bankimagelist : [String] = ["citi", "IBK", "KDB", "kookmin", "nonghyub", "shinhan", "whyhan", "woori", "zeil"]
+let bankimagelist : [String] = ["nh", "kb", "shinhan", "whyhan", "woori", "hana", "ibk", "sc", "kdb", "sbi", "newtown", "daegu", "gwangju", "uchekuk", "shinhyeop", "jeonbuk", "gyeongnam", "busan", "suhyeop", "jeju", "kbank"]
