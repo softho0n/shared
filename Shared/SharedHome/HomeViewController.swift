@@ -31,8 +31,19 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(forName: AccountListViewController.newSigCard, object: nil, queue: OperationQueue.main) { [weak self](noti) in
+            self?.loader.startAnimating()
+            self?.reloaddata()
+        }
         loader.backgroundColor = UIColor.white
-        
+        reloaddata()
+    }
+    
+    
+    
+}
+extension HomeViewController{
+    func reloaddata(){
         ref = Database.database().reference()
         
         DispatchQueue.global().sync {
