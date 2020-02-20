@@ -64,6 +64,21 @@ class DutchPayConfirmViewController: UIViewController {
             ref.child("Users/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
                 self.userMetaData = snapshot.value
             }
+            
+            ref.child("ReceiveBalance/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+                
+                if snapshot.value is NSNull{
+                    print("hello")
+                    self.ref.child("ReceiveBalance/\(uid)").setValue(self.dutchBalance)
+                }
+                else{
+                    let number = Int(snapshot.value as! String)!
+                    
+                    let totalMoney = number + (Int(self.dutchBalance)! - (Int(self.dutchBalance)! / (self.totalCount + 1)))
+
+                     self.ref.child("ReceiveBalance/\(uid)").setValue(totalMoney)
+                }
+            }
             if let uniquekey = self.ref.child("ReceiveMetaData").child(uid).childByAutoId().key {
                 
                 var groupdic : [String : String] = [:]
@@ -95,9 +110,9 @@ class DutchPayConfirmViewController: UIViewController {
                             memberdic.updateValue(index.value["userPhoneNumber"] as! String, forKey: "userPhoneNumber")
                             
                             self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)/Members/\(index.key)").setValue(memberdic)
-                            self.ref.child("AllReceiveBalance/\(uid)/\(uniquekey)").setValue(Int(self.dutchBalance)! / (self.totalCount + 1))
+//                            self.ref.child("AllReceiveBalance/\(uid)/\(uniquekey)").setValue(Int(self.dutchBalance)! / (self.totalCount + 1))
                             self.ref.child("SendMetaData/\(index.key)/\(uniquekey)/").setValue(uid)
-                            self.ref.child("AllSendBalance/\(index.key)/\(uniquekey)/").setValue(Int(self.dutchBalance)! / (self.totalCount + 1))
+                            self.ref.child("SendBalance/\(index.key)/\(uniquekey)/").setValue(Int(self.dutchBalance)! / (self.totalCount + 1))
                         }
                     }
                 }
