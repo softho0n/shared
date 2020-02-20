@@ -29,7 +29,7 @@ class DutchPayConfirmViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var dutchInfoLabel: UILabel!
-    
+    @IBOutlet var groupName: UITextField!
     @IBAction func dutchPayConfirmBtn(_ sender: Any) {
         alertWithConfirm()
     }
@@ -40,7 +40,8 @@ class DutchPayConfirmViewController: UIViewController {
         tableView.cellLayoutMarginsFollowReadableWidth = false
         tableView.tableFooterView = UIView()
         ref = Database.database().reference()
-        
+        print("hello")
+        print(receiveGroupInfo)
         dutchInfoLabel.text = "총 \(totalCount + 1)명 \(dutchBalance)원"
     }
     
@@ -51,6 +52,7 @@ class DutchPayConfirmViewController: UIViewController {
         if let intValueOfDutchBalance = Int(dutchBalance) {
             devidedBalance = DecimalWon(value: intValueOfDutchBalance)
         }
+        
     }
 
     func getCurrentDate() -> String {
@@ -62,20 +64,50 @@ class DutchPayConfirmViewController: UIViewController {
             ref.child("Users/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
                 self.userMetaData = snapshot.value
             }
+            if let uniquekey = self.ref.child("ReceiveMetaData").child(uid).childByAutoId().key {
+                
+                var groupdic : [String : String] = [:]
+                
+                if self.groupName.text == nil{
+                    groupdic.updateValue(myName!, forKey: "GroupBy")
+                    groupdic.updateValue(" ", forKey: "GroupName")
+                    groupdic.updateValue(self.dutchBalance, forKey: "TotalMoney")
+                }
+                else{
+                    groupdic.updateValue(myName!, forKey: "GroupBy")
+                    groupdic.updateValue(self.groupName.text!, forKey: "GroupName")
+                    groupdic.updateValue(self.dutchBalance, forKey: "TotalMoney")
+                }
+                
+                self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)").child("GroupInfo").setValue(groupdic)
+                
+                
+
+                
             ref.child("Friends/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
                 let dictionary = (snapshot.value) as! [String: [String:Any]]
-                let currentDate = self.getCurrentDate()
+                            
                 for index in dictionary {
                     for groupInfo in self.receiveGroupInfo {
                         if (index.value["userName"] as! String == groupInfo.userName) {
-                            self.ref.child("ReceiveMetaData/\(uid)/\(currentDate)/\(index.key)").setValue(index.value)
-                            self.ref.child("ReceiveBalance/\(uid)/\(currentDate)").setValue(Int(self.dutchBalance)! / (self.totalCount + 1))
-                            self.ref.child("SendMetaData/\(index.key)/\(currentDate)/\(uid)").setValue(self.userMetaData)
-                            self.ref.child("SendBalance/\(index.key)/\(currentDate)/").setValue(Int(self.dutchBalance)! / (self.totalCount + 1))
+                            var memberdic : [String : String] = [:]
+                            memberdic.updateValue(index.value["userName"] as! String, forKey: "userName")
+                            memberdic.updateValue(index.value["userPhoneNumber"] as! String, forKey: "userPhoneNumber")
+                            
+                            self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)/Members/\(index.key)").setValue(memberdic)
+                            self.ref.child("AllReceiveBalance/\(uid)/\(uniquekey)").setValue(Int(self.dutchBalance)! / (self.totalCount + 1))
+                            self.ref.child("SendMetaData/\(index.key)/\(uniquekey)/").setValue(uid)
+                            self.ref.child("AllSendBalance/\(index.key)/\(uniquekey)/").setValue(Int(self.dutchBalance)! / (self.totalCount + 1))
                         }
                     }
                 }
             }
+            
+                
+                
+            }
+            
+            
         }
     }
     

@@ -20,7 +20,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SHH-rf-eL0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="u0S-7a-1Kb">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -528,6 +528,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="그룹명을 입력해주세요." textAlignment="center" minimumFontSize="17" id="IDG-om-jCR">
+                                <rect key="frame" x="0.0" y="380" width="414" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -550,6 +556,7 @@
                     <navigationItem key="navigationItem" id="NXx-bb-tst"/>
                     <connections>
                         <outlet property="dutchInfoLabel" destination="9y1-Mx-OjY" id="U6R-5z-R8A"/>
+                        <outlet property="groupName" destination="IDG-om-jCR" id="zn2-DU-Cmb"/>
                         <outlet property="tableView" destination="fvh-LF-zr3" id="hKb-a4-IBf"/>
                     </connections>
                 </viewController>
@@ -1054,7 +1061,7 @@
             <objects>
                 <viewController id="1By-Uo-eV4" customClass="AccountListViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ex3-1Z-jgQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="28B-AA-XLN">
@@ -1889,8 +1896,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qHf-KK-Sw9"/>
-        <segue reference="KGQ-C1-chM"/>
-        <segue reference="pB3-8E-ucT"/>
+        <segue reference="AgY-s5-abc"/>
+        <segue reference="cUg-lT-Ej8"/>
         <segue reference="U24-RV-YRk"/>
         <segue reference="72Z-0G-wva"/>
     </inferredMetricsTieBreakers>
