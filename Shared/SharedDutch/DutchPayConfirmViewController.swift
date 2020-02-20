@@ -66,15 +66,12 @@ class DutchPayConfirmViewController: UIViewController {
             }
             
             ref.child("ReceiveBalance/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
-                
+                let totalMoney = (Int(self.dutchBalance)! - (Int(self.dutchBalance)! / (self.totalCount + 1)))
                 if snapshot.value is NSNull{
-                    print("hello")
-                    self.ref.child("ReceiveBalance/\(uid)").setValue(self.dutchBalance)
+                    self.ref.child("ReceiveBalance/\(uid)").setValue(totalMoney)
                 }
                 else{
-                    let number = Int(snapshot.value as! String)!
-                    
-                    let totalMoney = number + (Int(self.dutchBalance)! - (Int(self.dutchBalance)! / (self.totalCount + 1)))
+                    let totalMoney = Int(snapshot.value as! String)! + totalMoney
 
                      self.ref.child("ReceiveBalance/\(uid)").setValue(totalMoney)
                 }
