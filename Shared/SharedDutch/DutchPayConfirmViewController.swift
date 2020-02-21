@@ -109,7 +109,7 @@ class DutchPayConfirmViewController: UIViewController {
                             self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)/Members/\(index.key)").setValue(memberdic)
 //                            self.ref.child("AllReceiveBalance/\(uid)/\(uniquekey)").setValue(Int(self.dutchBalance)! / (self.totalCount + 1))
                             self.ref.child("SendMetaData/\(index.key)/\(uniquekey)/").setValue(uid)
-                            self.ref.child("SendBalance/\(index.key)/\(uniquekey)/").setValue(Int(self.dutchBalance)! / (self.totalCount + 1))
+                            self.ref.child("SendBalance/\(index.key)/\(uniquekey)/").setValue("\(Int(self.dutchBalance)! / (self.totalCount + 1))")
                         }
                     }
                 }
