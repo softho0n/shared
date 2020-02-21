@@ -7,12 +7,36 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class ReceiveViewController: UIViewController {
+    var ref = DatabaseReference()
+    @IBOutlet var tableView: UITableView!
+    
+    struct payLineInfoStruct {
+        var groupKey: String!
+        var groupName: String!
+        var totalMoney: String!
+        var membername : [String] = []
+        var memberuid : [String] = []
+    }
+    var receiveList = [payLineInfoStruct]()
+    
+    //임시코드
+    
+    
+    
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
+        ref = Database.database().reference()
+        //getFBData()
         // Do any additional setup after loading the view.
     }
     
@@ -20,15 +44,49 @@ class ReceiveViewController: UIViewController {
         super.viewWillAppear(true)
         self.alert(message: "Receive View Will Appear")
     }
+    
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    func getFBData(){
+//
+//            if let uid = Auth.auth().currentUser?.uid{
+//                DispatchQueue.global().sync {
+//                    ref.child("ReceiveMetaData/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+//
+//                    if snapshot.hasChildren() == false{
+//                        return
+//                    }
+//                    else{
+//                        for eachgroup in snapshot.children{
+//                            let new = eachgroup as! DataSnapshot
+//                            let values = new.value
+//                            let valueDictionary = values as! [String : [String : Any]]
+//                            let valuegroupinfo = valueDictionary["GroupInfo"]
+//
+//                            let valuememinfo = valueDictionary["Members"]
+//
+//                            let groupName = valuegroupinfo!["GroupName"] as! String
+//                            let totalMoney = valuegroupinfo!["TotalMoney"] as! String
+//
+//
+//                            var membername : [String] = []
+//                            var memberuid : [String] = [] // 나중에 알람 보낼때 쓸 각 uid
+//                            for eachgroupmembers in valuememinfo!
+//                            {
+//                                let eachmember = eachgroupmembers.value as! [String : Any]
+//                                membername.append(eachmember["userName"] as! String)
+//                                memberuid.append(eachgroupmembers.key)
+//
+//                            }
+//
+//                            self.sendList.append(payLineInfoStruct(groupKey: new.key ,groupName: groupName, totalMoney: totalMoney, membername: membername, memberuid: memberuid))
+//                        }
+//                        self.loader.stopAnimating()
+//                        self.tableView.reloadData()
+//                    }
+//                }
+//            }
+//        }
+//    }
 
 }

@@ -357,8 +357,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="groupBy" destination="XXq-C6-lXt" id="1Oh-pB-wdE"/>
                                             <outlet property="groupName" destination="Q5f-CZ-9E2" id="bMH-5b-5J7"/>
-                                            <outlet property="myName" destination="XXq-C6-lXt" id="kv1-K8-cyB"/>
                                             <outlet property="myPhoto" destination="I0U-Cg-tIv" id="xuS-x8-ag2"/>
                                             <outlet property="perMoney" destination="nrf-TR-tUg" id="DDi-N0-wvo"/>
                                             <outlet property="shopPhoto" destination="UcU-xE-TgK" id="Y1X-vE-Hhu"/>
@@ -375,6 +375,7 @@
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Dr1-2e-v6o">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="color" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1823,7 +1824,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zj0-6E-j8m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6044" y="1212.1439280359821"/>
+            <point key="canvasLocation" x="6043.4782608695659" y="1212.0535714285713"/>
         </scene>
         <!--Detail Person View Controller-->
         <scene sceneID="o3W-Xg-SjB">
