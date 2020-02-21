@@ -97,14 +97,13 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
         cell.shopPhoto.layer.cornerRadius = cell.shopPhoto.frame.height/2
         cell.myName.text = myName
         cell.groupName.text = sendList[indexPath.row].groupName
-        cell.totalMoney.text = sendList[indexPath.row].totalMoney
         
         
-        cell.perMoney.text = "\(Int(sendList[indexPath.row].totalMoney)!) / \(sendList[indexPath.row].membername.count+1)"
+        cell.totalMoney.text = "\(Int(sendList[indexPath.row].totalMoney)!) / \(sendList[indexPath.row].membername.count+1)"
         
         let permoney = (Int(sendList[indexPath.row].totalMoney)!) / (sendList[indexPath.row].membername.count+1)
         
-        cell.totalMoney.text = "\(permoney)"
+        cell.perMoney.text = "=\(permoney)"
         return cell
     }
     
