@@ -93,17 +93,25 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sendCell", for: indexPath) as! SendpayLineTableViewCell
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
         cell.myPhoto.layer.cornerRadius = cell.myPhoto.frame.height/2
         cell.shopPhoto.layer.cornerRadius = cell.shopPhoto.frame.height/2
         cell.myName.text = myName
         cell.groupName.text = sendList[indexPath.row].groupName
         
         
-        cell.totalMoney.text = "\(Int(sendList[indexPath.row].totalMoney)!) / \(sendList[indexPath.row].membername.count+1)"
+        cell.totalMoney.text = "\(numberFormatter.string(from: NSNumber(value:(Int(sendList[indexPath.row].totalMoney)!)))!)/ \(sendList[indexPath.row].membername.count+1)"
+        
+       
+        
+       
         
         let permoney = (Int(sendList[indexPath.row].totalMoney)!) / (sendList[indexPath.row].membername.count+1)
-        
-        cell.perMoney.text = "=\(permoney)"
+        let result = numberFormatter.string(from: NSNumber(value:permoney))!
+
+        cell.perMoney.text = "=\(result)"
         return cell
     }
     
