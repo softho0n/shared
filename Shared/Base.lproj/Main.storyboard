@@ -1823,6 +1823,21 @@
             </objects>
             <point key="canvasLocation" x="6044" y="1212.1439280359821"/>
         </scene>
+        <!--Detail Person View Controller-->
+        <scene sceneID="o3W-Xg-SjB">
+            <objects>
+                <viewController id="QHa-3l-MSg" customClass="DetailPersonViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dcy-ap-vZY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="knf-Be-vIB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dyx-4n-eTf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6955" y="1212"/>
+        </scene>
         <!--메뉴-->
         <scene sceneID="Vsb-W9-wKr">
             <objects>

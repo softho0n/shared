@@ -114,6 +114,9 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
         cell.perMoney.text = "=\(result)"
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
     
     
 }
