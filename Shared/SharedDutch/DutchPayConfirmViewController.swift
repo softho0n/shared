@@ -89,7 +89,7 @@ class DutchPayConfirmViewController: UIViewController {
                     groupdic.updateValue(myName!, forKey: "GroupBy")
                     groupdic.updateValue(self.groupName.text!, forKey: "GroupName")
                     groupdic.updateValue(self.dutchBalance, forKey: "TotalMoney")
-                    groupdic.updateValue("\(self.receiveGroupInfo.count + 1) ", forKey: "NumOfMembers")
+                    groupdic.updateValue("\(self.receiveGroupInfo.count + 1)", forKey: "NumOfMembers")
                 }
                 
                 self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)").child("GroupInfo").setValue(groupdic)
