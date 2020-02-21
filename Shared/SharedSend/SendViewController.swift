@@ -31,15 +31,17 @@ class SendViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         ref = Database.database().reference()
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-
         sendList.removeAll()
         getFBData()
+
+        
         
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
     }
     
     func getFBData(){
@@ -114,7 +116,18 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
         cell.perMoney.text = "=\(result)"
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let sendAction = UIContextualAction(style: .normal, title: "보내기", handler: { (ac:UIContextualAction, view : UIView, sucess:(Bool) -> Void) in
+            self.loader.startAnimating()
+            print("hello?")
+            self.sendList.remove(at: 0)
+            tableView.reloadData()
+            self.loader.stopAnimating()
+            sucess(true)
+        })
+        sendAction.backgroundColor = UIColor.systemBlue
+        return UISwipeActionsConfiguration(actions: [sendAction])
+    }
     
     
 }
