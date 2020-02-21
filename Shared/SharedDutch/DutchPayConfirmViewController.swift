@@ -89,6 +89,7 @@ class DutchPayConfirmViewController: UIViewController {
                     groupdic.updateValue(myName!, forKey: "GroupBy")
                     groupdic.updateValue(self.groupName.text!, forKey: "GroupName")
                     groupdic.updateValue(self.dutchBalance, forKey: "TotalMoney")
+                    groupdic.updateValue("\(self.receiveGroupInfo.count)", forKey: "NumOfMembers")
                 }
                 
                 self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)").child("GroupInfo").setValue(groupdic)
@@ -109,7 +110,7 @@ class DutchPayConfirmViewController: UIViewController {
                             self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)/Members/\(index.key)").setValue(memberdic)
 //                            self.ref.child("AllReceiveBalance/\(uid)/\(uniquekey)").setValue(Int(self.dutchBalance)! / (self.totalCount + 1))
                             self.ref.child("SendMetaData/\(index.key)/\(uniquekey)/").setValue(uid)
-                            self.ref.child("SendBalance/\(index.key)/\(uniquekey)/").setValue(Int(self.dutchBalance)! / (self.totalCount + 1))
+                            self.ref.child("SendBalance/\(index.key)/\(uniquekey)/").setValue("\(Int(self.dutchBalance)! / (self.totalCount + 1))")
                         }
                     }
                 }

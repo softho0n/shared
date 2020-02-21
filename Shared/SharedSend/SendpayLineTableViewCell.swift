@@ -11,7 +11,7 @@ import UIKit
 class SendpayLineTableViewCell: UITableViewCell {
     @IBOutlet var myPhoto: UIImageView!
     @IBOutlet var shopPhoto: UIImageView!
-    @IBOutlet var myName: UILabel!
+    @IBOutlet var groupBy: UILabel!
     @IBOutlet var groupName: UILabel!
     @IBOutlet var totalMoney: UILabel!
     @IBOutlet var perMoney: UILabel!
