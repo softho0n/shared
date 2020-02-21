@@ -19,7 +19,6 @@
 		C950832623C2666C0037BF46 /* ReConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950832523C2666C0037BF46 /* ReConfirmViewController.swift */; };
 		C950835423C4FF140037BF46 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950835323C4FF140037BF46 /* HomeViewController.swift */; };
 		C950835623C502770037BF46 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C950835523C502770037BF46 /* SearchUserViewController.swift */; };
-		C952249023FDB03F00B98E30 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C952248F23FDB03F00B98E30 /* GoogleService-Info.plist */; };
 		C970C4E923BF967E00D0A069 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C4E823BF967E00D0A069 /* AppDelegate.swift */; };
 		C970C4EB23BF967F00D0A069 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C4EA23BF967F00D0A069 /* SceneDelegate.swift */; };
 		C970C4F023BF967F00D0A069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C970C4EE23BF967F00D0A069 /* Main.storyboard */; };
@@ -38,6 +37,9 @@
 		C9B0757223DAD07C00E68753 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757123DAD07C00E68753 /* SendViewController.swift */; };
 		C9B0757423DAD10900E68753 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757323DAD10900E68753 /* ReceiveViewController.swift */; };
 		C9D90D1123EC62AC008C16C0 /* AccountNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */; };
+		C9D90D1B23FED6BA008C16C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9D90D1A23FED6BA008C16C0 /* GoogleService-Info.plist */; };
+		C9D90D1D23FFFF68008C16C0 /* SendpayLineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1C23FFFF68008C16C0 /* SendpayLineTableViewCell.swift */; };
+		C9D90D1F24001CC2008C16C0 /* DetailPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1E24001CC2008C16C0 /* DetailPersonViewController.swift */; };
 		C9E90FE123F39C9D00F840DD /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E90FE023F39C9D00F840DD /* AccountTableViewCell.swift */; };
 		C9E90FE523F3D47200F840DD /* chargeSharedMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E90FE423F3D47200F840DD /* chargeSharedMoneyViewController.swift */; };
 /* End PBXBuildFile section */
@@ -55,7 +57,6 @@
 		C950832523C2666C0037BF46 /* ReConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReConfirmViewController.swift; sourceTree = "<group>"; };
 		C950835323C4FF140037BF46 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C950835523C502770037BF46 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
-		C952248F23FDB03F00B98E30 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C962523C23F2DFB6002265EB /* BMHANNA_11yrs_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = BMHANNA_11yrs_otf.otf; path = ../../../../../Downloads/BMHANNA_11yrs_otf.otf; sourceTree = "<group>"; };
 		C970C4E523BF967E00D0A069 /* Shared.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shared.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C970C4E823BF967E00D0A069 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +78,9 @@
 		C9B0757123DAD07C00E68753 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		C9B0757323DAD10900E68753 /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
 		C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNumberViewController.swift; sourceTree = "<group>"; };
+		C9D90D1A23FED6BA008C16C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C9D90D1C23FFFF68008C16C0 /* SendpayLineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendpayLineTableViewCell.swift; sourceTree = "<group>"; };
+		C9D90D1E24001CC2008C16C0 /* DetailPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonViewController.swift; sourceTree = "<group>"; };
 		C9E90FE023F39C9D00F840DD /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		C9E90FE423F3D47200F840DD /* chargeSharedMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chargeSharedMoneyViewController.swift; sourceTree = "<group>"; };
 		D2A79BE81EB46556241264AC /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,8 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				C970C4F123BF968000D0A069 /* Assets.xcassets */,
+				C9D90D1A23FED6BA008C16C0 /* GoogleService-Info.plist */,
 				C970C4E823BF967E00D0A069 /* AppDelegate.swift */,
-				C952248F23FDB03F00B98E30 /* GoogleService-Info.plist */,
 				C970C4FE23BFC75F00D0A069 /* extension.swift */,
 				C9D06D5C23F6631000214041 /* SharedDutch */,
 				C9D90D1223EC7CF5008C16C0 /* Font */,
@@ -220,6 +224,8 @@
 			children = (
 				C970C4EA23BF967F00D0A069 /* SceneDelegate.swift */,
 				C9B0757123DAD07C00E68753 /* SendViewController.swift */,
+				C9D90D1C23FFFF68008C16C0 /* SendpayLineTableViewCell.swift */,
+				C9D90D1E24001CC2008C16C0 /* DetailPersonViewController.swift */,
 			);
 			path = SharedSend;
 			sourceTree = "<group>";
@@ -320,7 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C970C4F523BF968000D0A069 /* LaunchScreen.storyboard in Resources */,
-				C952249023FDB03F00B98E30 /* GoogleService-Info.plist in Resources */,
+				C9D90D1B23FED6BA008C16C0 /* GoogleService-Info.plist in Resources */,
 				C970C4F223BF968000D0A069 /* Assets.xcassets in Resources */,
 				C970C4F023BF967F00D0A069 /* Main.storyboard in Resources */,
 			);
@@ -378,6 +384,7 @@
 				C970C51023C10BEF00D0A069 /* MainUIViewController.swift in Sources */,
 				C970C50123BFC84600D0A069 /* model.swift in Sources */,
 				C9B0756E23DA9EFB00E68753 /* AccountListViewController.swift in Sources */,
+				C9D90D1D23FFFF68008C16C0 /* SendpayLineTableViewCell.swift in Sources */,
 				C9AA1DFD23E81A3C00540DA7 /* MenuTableViewController.swift in Sources */,
 				C950832623C2666C0037BF46 /* ReConfirmViewController.swift in Sources */,
 				C950832423C264D40037BF46 /* ReAuthViewController.swift in Sources */,
@@ -394,6 +401,7 @@
 				C950835423C4FF140037BF46 /* HomeViewController.swift in Sources */,
 				C9B0756623DA6F2500E68753 /* UserInfoTableViewCell.swift in Sources */,
 				C970C50623BFD05900D0A069 /* UserAuthViewController.swift in Sources */,
+				C9D90D1F24001CC2008C16C0 /* DetailPersonViewController.swift in Sources */,
 				C950835623C502770037BF46 /* SearchUserViewController.swift in Sources */,
 				C9E90FE523F3D47200F840DD /* chargeSharedMoneyViewController.swift in Sources */,
 				C970C4EB23BF967F00D0A069 /* SceneDelegate.swift in Sources */,
