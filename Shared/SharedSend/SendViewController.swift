@@ -45,14 +45,9 @@ class SendViewController: UIViewController {
         ref = Database.database().reference()
         isAdded()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-    }
-    
+
     func isAdded(){
-        if let uid = Auth.auth().currentUser?.uid{
-            
+        if let uid = Auth.auth().currentUser?.uid {
             ref.child("SendMetaData/\(uid)").observe(.childAdded) { (snap) in
                 if self.counter == false {
                     self.loader.startAnimating()
@@ -67,13 +62,10 @@ class SendViewController: UIViewController {
 
     func getFBData(){
          if let uid = Auth.auth().currentUser?.uid{
-            var count = 0
-            
+             var count = 0
              var searchingInfo = [searchingInfoStruct]()
              DispatchQueue.global().sync {
-                
-                 // Note: Sendmetadata에서 그룹장Id, 그룹hash값, 각 금액 가져오기. ,uid로 바꾸기
-                
+                // Note: Sendmetadata에서 그룹장Id, 그룹hash값, 각 금액 가져오기. ,uid로 바꾸기
                 ref.child("SendMetaData/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
                     if snapshot.hasChildren() == false {
                         self.loader.stopAnimating()
@@ -87,19 +79,18 @@ class SendViewController: UIViewController {
                             searchingInfo.append(searchingInfoStruct(groupKey: rawEachGroup.key, perMoney: eachGroupInfo["eachBalance"], madePersonKey: eachGroupInfo["groupBy"]))
                         }
                     }
-                }
+                 }
                  // Note: 최종적으로 그룹내용 가져오기.
                  ref.child("ReceiveMetaData").observeSingleEvent(of: .value) { (snapshot) in
-                    
                     for eachGroupInfo in searchingInfo {
                         let groupSnapshot = snapshot.childSnapshot(forPath: "\(eachGroupInfo.madePersonKey!)/\(eachGroupInfo.groupKey!)")
-                        if groupSnapshot.hasChildren() == false{
+                        if groupSnapshot.hasChildren() == false {
                             self.loader.stopAnimating()
                             self.tableView.reloadData()
                             //데이터가 비어있을때의 상황
                             return
                         }
-                        else{
+                        else {
                             let groupValue = groupSnapshot.value
                             let valueDictionary = groupValue as! [String : [String : Any]]
                             let valueGroupInfo = valueDictionary["GroupInfo"]
@@ -109,25 +100,21 @@ class SendViewController: UIViewController {
                             let groupBy = valueGroupInfo!["GroupBy"] as! String
                             
                             self.sendList.append(payLineInfoStruct(groupKey: searchingInfo[count].groupKey, groupName: groupName, totalMoney: totalMoney, numOfMembers: numofMembers, perMoney: searchingInfo[count].perMoney, groupBy: groupBy, madePersonKey: searchingInfo[count].madePersonKey))
-
                             count += 1
                         }
                      }
                      self.loader.stopAnimating()
                      self.tableView.reloadData()
-                    if self.counter == true{
+                     if self.counter == true {
                         self.counter.toggle()
                     }
                  }
              }
          }
-        
      }
 }
 
-
 extension SendViewController : UITableViewDelegate, UITableViewDataSource{
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sendList.count
     }
@@ -161,7 +148,6 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func removeGroupByKey(_ row: Int) {
-        
         var balanceHandler : [String : String] = [:]
         guard let madePersonKey = self.sendList[row].madePersonKey else {return}
         ref.child("ReceiveBalance/\(madePersonKey)").observeSingleEvent(of: .value) { (snapshot) in
@@ -196,12 +182,9 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
             guard let madePersonKey = self.sendList[row].madePersonKey else {return}
             let toggleSendStatusHandler = self.ref.child("ReceiveMetaData/\(madePersonKey)/\(key)/Members/\(uid)")
             let trueHandler : [String : String] = ["status" : "true"]
-
+            
             deleteSendMetaDataHandler.removeValue()
             toggleSendStatusHandler.updateChildValues(trueHandler)
-            
         }
     }
-
-    
 }
