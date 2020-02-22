@@ -11,7 +11,7 @@ import UIKit
 class SendpayLineTableViewCell: UITableViewCell {
     @IBOutlet var myPhoto: UIImageView!
     @IBOutlet var shopPhoto: UIImageView!
-    @IBOutlet var myName: UILabel!
+    @IBOutlet var groupBy: UILabel!
     @IBOutlet var groupName: UILabel!
     @IBOutlet var totalMoney: UILabel!
     @IBOutlet var perMoney: UILabel!
@@ -23,8 +23,6 @@ class SendpayLineTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
