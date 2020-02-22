@@ -33,7 +33,8 @@ class SendViewController: UIViewController {
     
     var sendList = [payLineInfoStruct]()
     var ref: DatabaseReference!
-    var count = 0
+    
+    var counter = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,12 +43,34 @@ class SendViewController: UIViewController {
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         ref = Database.database().reference()
-        sendList.removeAll()
-        getFBData()
+        isAdded()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+    }
+    
+    func isAdded(){
+        print(#function)
+        if let uid = Auth.auth().currentUser?.uid{
+            
+            ref.child("SendMetaData/\(uid)").observe(.childAdded) { (snap) in
+                if self.counter == false {
+                    self.loader.startAnimating()
+                    self.sendList.removeAll()
+                    self.getFBData()
+                }
+            }
+        }
+        self.loader.startAnimating()
+        self.getFBData()
     }
 
     func getFBData(){
+        print(#function)
          if let uid = Auth.auth().currentUser?.uid{
+            var count = 0
+            
              var searchingInfo = [searchingInfoStruct]()
              DispatchQueue.global().sync {
                 
@@ -69,7 +92,8 @@ class SendViewController: UIViewController {
                 }
                  // Note: 최종적으로 그룹내용 가져오기.
                  ref.child("ReceiveMetaData").observeSingleEvent(of: .value) { (snapshot) in
-                     for eachGroupInfo in searchingInfo {
+                    
+                    for eachGroupInfo in searchingInfo {
                         let groupSnapshot = snapshot.childSnapshot(forPath: "\(eachGroupInfo.madePersonKey!)/\(eachGroupInfo.groupKey!)")
                         if groupSnapshot.hasChildren() == false{
                             self.loader.stopAnimating()
@@ -81,22 +105,25 @@ class SendViewController: UIViewController {
                             let groupValue = groupSnapshot.value
                             let valueDictionary = groupValue as! [String : [String : Any]]
                             let valueGroupInfo = valueDictionary["GroupInfo"]
-
                             let groupName = valueGroupInfo!["GroupName"] as! String
                             let totalMoney = valueGroupInfo!["TotalMoney"] as! String
                             let numofMembers = valueGroupInfo!["NumOfMembers"] as! String
                             let groupBy = valueGroupInfo!["GroupBy"] as! String
                             
-                            self.sendList.append(payLineInfoStruct(groupKey: searchingInfo[self.count].groupKey, groupName: groupName, totalMoney: totalMoney, numOfMembers: numofMembers, perMoney: searchingInfo[self.count].perMoney, groupBy: groupBy, madePersonKey: searchingInfo[self.count].madePersonKey))
+                            self.sendList.append(payLineInfoStruct(groupKey: searchingInfo[count].groupKey, groupName: groupName, totalMoney: totalMoney, numOfMembers: numofMembers, perMoney: searchingInfo[count].perMoney, groupBy: groupBy, madePersonKey: searchingInfo[count].madePersonKey))
 
-                            self.count += 1
+                            count += 1
                         }
                      }
                      self.loader.stopAnimating()
                      self.tableView.reloadData()
+                    if self.counter == true{
+                        self.counter.toggle()
+                    }
                  }
              }
          }
+        
      }
 }
 
