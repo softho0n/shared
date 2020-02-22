@@ -56,6 +56,7 @@ class SendViewController: UIViewController {
             
             ref.child("SendMetaData/\(uid)").observe(.childAdded) { (snap) in
                 if self.counter == false {
+                    print("hello?")
                     self.loader.startAnimating()
                     self.sendList.removeAll()
                     self.getFBData()
@@ -67,7 +68,6 @@ class SendViewController: UIViewController {
     }
 
     func getFBData(){
-        print(#function)
          if let uid = Auth.auth().currentUser?.uid{
             var count = 0
             
@@ -152,7 +152,7 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let sendAction = UIContextualAction(style: .normal, title: "보내기", handler: { (ac:UIContextualAction, view : UIView, sucess:(Bool) -> Void) in
+        let sendAction = UIContextualAction(style: .normal, title: "쉐어머니로\n보내기", handler: { (ac:UIContextualAction, view : UIView, sucess:(Bool) -> Void) in
             self.loader.startAnimating()
             self.removeGroupByKey(indexPath.row)
             self.tableView.reloadData()
