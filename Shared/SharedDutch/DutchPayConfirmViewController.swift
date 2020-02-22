@@ -70,6 +70,7 @@ class DutchPayConfirmViewController: UIViewController {
                 }
             }
             
+            
             if let uniquekey = self.ref.child("ReceiveMetaData").child(uid).childByAutoId().key {
                 var groupDictionary : [String : String] = [:]
                 if self.groupName.text == nil {
@@ -92,10 +93,13 @@ class DutchPayConfirmViewController: UIViewController {
                                 var members: [String : String] = [:]
                                 members.updateValue(index.value["userName"] as! String, forKey: "userName")
                                 members.updateValue(index.value["userPhoneNumber"] as! String, forKey: "userPhoneNumber")
+                                members.updateValue("false", forKey: "status")
                                 self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)/Members/\(index.key)").setValue(members)
-                                self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)/Before/\(index.key)").setValue(members)
-                                self.ref.child("SendMetaData/\(index.key)/\(uniquekey)/").setValue(uid)
-                                self.ref.child("SendBalance/\(index.key)/\(uniquekey)/").setValue("\(Int(self.dutchBalance)! / (self.totalCount + 1))")
+                                
+                                var eachMemberInfo: [String : String] = [:]
+                                eachMemberInfo.updateValue("\(uid)", forKey: "groupBy")
+                                eachMemberInfo.updateValue("\(Int(self.dutchBalance)! / (self.totalCount + 1))", forKey: "eachBalance")
+                                self.ref.child("SendMetaData/\(index.key)/\(uniquekey)/").setValue(eachMemberInfo)
                             }
                         }
                     }
