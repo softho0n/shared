@@ -22,11 +22,13 @@ class SendViewController: UIViewController {
         var numOfMembers : String!
         var perMoney : String!
         var groupBy : String!
+        var madePersonKey : String!
     }
     
     struct searchingInfoStruct {
         var groupKey: String!
         var perMoney: String!
+        var madePersonKey : String!
     }
     
     var sendList = [payLineInfoStruct]()
@@ -47,53 +49,51 @@ class SendViewController: UIViewController {
     func getFBData(){
          if let uid = Auth.auth().currentUser?.uid{
              var searchingInfo = [searchingInfoStruct]()
-             var madePersonKey : [String] = []
              DispatchQueue.global().sync {
-                 // Note: SendBalance에서 내가 내야할 금액과, 그룹의 Key값 가져오기
-                 ref.child("SendBalance/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
-                    if snapshot.hasChildren() == false{
-                        return
-                    } else {
-                        for mySendData in snapshot.children {
-                            let eachGroup = mySendData as! DataSnapshot
-                            searchingInfo.append(searchingInfoStruct(groupKey: eachGroup.key , perMoney: eachGroup.value as? String))
-                        }
-                        print(searchingInfo)
-                    }
-                 }
                 
-                 // Note: Sendmetadata애소 가 그룹의 그룹장의 id를 가져오기.
-                 ref.child("SendMetaData/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+                 // Note: Sendmetadata에서 그룹장Id, 그룹hash값, 각 금액 가져오기. ,uid로 바꾸기
+                
+                ref.child("SendMetaData/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
                     if snapshot.hasChildren() == false {
+                        self.loader.stopAnimating()
+                        self.tableView.reloadData()
+                        //데이터가 비어있을때의 상황
                         return
                     } else {
                         for mySendData in snapshot.children {
-                            let eachgroup = mySendData as! DataSnapshot
-                            madePersonKey.append(eachgroup.value as! String)
+                            let rawEachGroup = mySendData as! DataSnapshot
+                            let eachGroupInfo = rawEachGroup.value as! [String: String]
+                            searchingInfo.append(searchingInfoStruct(groupKey: rawEachGroup.key, perMoney: eachGroupInfo["eachBalance"], madePersonKey: eachGroupInfo["groupBy"]))
                         }
                     }
                 }
-                
                  // Note: 최종적으로 그룹내용 가져오기.
                  ref.child("ReceiveMetaData").observeSingleEvent(of: .value) { (snapshot) in
-                     for byMemberUID in madePersonKey {
-                        let valueSnapshot = snapshot.childSnapshot(forPath: "\(byMemberUID)")
-                        let groupSapshot = valueSnapshot.childSnapshot(forPath: "\(searchingInfo[self.count].groupKey!)")
-                        let groupValue = groupSapshot.value
-                        let valueDictionary = groupValue as! [String : [String : Any]]
-                        let valueGroupInfo = valueDictionary["GroupInfo"]
+                     for eachGroupInfo in searchingInfo {
+                        let groupSnapshot = snapshot.childSnapshot(forPath: "\(eachGroupInfo.madePersonKey!)/\(eachGroupInfo.groupKey!)")
+                        if groupSnapshot.hasChildren() == false{
+                            self.loader.stopAnimating()
+                            self.tableView.reloadData()
+                            //데이터가 비어있을때의 상황
+                            return
+                        }
+                        else{
+                            let groupValue = groupSnapshot.value
+                            let valueDictionary = groupValue as! [String : [String : Any]]
+                            let valueGroupInfo = valueDictionary["GroupInfo"]
 
-                        let groupName = valueGroupInfo!["GroupName"] as! String
-                        let totalMoney = valueGroupInfo!["TotalMoney"] as! String
-                        let numofMembers = valueGroupInfo!["NumOfMembers"] as! String
-                        let groupBy = valueGroupInfo!["GroupBy"] as! String
-                        
-                        self.sendList.append(payLineInfoStruct(groupKey: searchingInfo[self.count].groupKey, groupName: groupName, totalMoney: totalMoney, numOfMembers: numofMembers, perMoney: searchingInfo[self.count].perMoney, groupBy: groupBy))
-                        self.count += 1
+                            let groupName = valueGroupInfo!["GroupName"] as! String
+                            let totalMoney = valueGroupInfo!["TotalMoney"] as! String
+                            let numofMembers = valueGroupInfo!["NumOfMembers"] as! String
+                            let groupBy = valueGroupInfo!["GroupBy"] as! String
+                            
+                            self.sendList.append(payLineInfoStruct(groupKey: searchingInfo[self.count].groupKey, groupName: groupName, totalMoney: totalMoney, numOfMembers: numofMembers, perMoney: searchingInfo[self.count].perMoney, groupBy: groupBy, madePersonKey: searchingInfo[self.count].madePersonKey))
+
+                            self.count += 1
+                        }
                      }
                      self.loader.stopAnimating()
                      self.tableView.reloadData()
-                    print(self.sendList)
                  }
              }
          }
@@ -139,11 +139,14 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
     func removeGroupByKey(_ row: Int) {
         guard let key = self.sendList[row].groupKey else { return }
         if let uid = Auth.auth().currentUser?.uid {
-            let deleteSendBalanceHandler = self.ref.child("SendBalance/\(uid)").child(key)
             let deleteSendMetaDataHandler = self.ref.child("SendMetaData/\(uid)").child(key)
-            
-            deleteSendBalanceHandler.removeValue()
+            guard let madePersonKey = self.sendList[row].madePersonKey else {return}
+            let toggleSendStatusHandler = self.ref.child("ReceiveMetaData/\(madePersonKey)/\(key)/Members/\(uid)")
+            let trueHandler : [String : String] = ["status" : "true"]
+
             deleteSendMetaDataHandler.removeValue()
+            toggleSendStatusHandler.updateChildValues(trueHandler)
+            
             self.sendList.remove(at: row)
         }
     }
