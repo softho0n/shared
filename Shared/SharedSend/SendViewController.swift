@@ -192,7 +192,7 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
                 let madePersonShardBalance = (Int(snapshot.value as! String)! + Int(self.sendList[row].perMoney)!)
                 balanceHandler.removeAll()
                 balanceHandler.updateValue("\(madePersonShardBalance)", forKey: "\(madePersonKey)")
-                self.ref.child("SharedMoney/\(madePersonKey)/balance").updateChildValues(balanceHandler)
+                self.ref.child("SharedMoney/\(madePersonKey)").updateChildValues(balanceHandler)
         }
         //자신의 돈 수정
         if let uid = Auth.auth().currentUser?.uid {
@@ -200,7 +200,7 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
                     let myShardBalance = (Int(snapshot.value as! String)! - Int(self.sendList[row].perMoney)!)
                 balanceHandler.removeAll()
                 balanceHandler.updateValue("\(myShardBalance)", forKey: "\(uid)")
-                    self.ref.child("SharedMoney/\(uid)/balance").updateChildValues(balanceHandler)
+                    self.ref.child("SharedMoney/\(uid)").updateChildValues(balanceHandler)
             }
         }
     }
