@@ -31,30 +31,30 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(forName: AccountListViewController.newSigCard, object: nil, queue: OperationQueue.main) { [weak self](noti) in
-            self?.loader.startAnimating()
+        self.setAccountView.isHidden = true
+        self.signitureInfoView.isHidden = true
+        self.loader.backgroundColor = UIColor.white
+        loader.startAnimating()
+        
+        NotificationCenter.default.addObserver(forName: AccountListViewController.newSigCard, object: nil, queue: OperationQueue.main) { [weak self] (noti) in
             self?.reloaddata()
         }
-        loader.backgroundColor = UIColor.white
         reloaddata()
     }
-    
-    
-    
 }
+
 extension HomeViewController{
     func reloaddata(){
         ref = Database.database().reference()
-        
         DispatchQueue.global().sync {
             loader.startAnimating()
             if let uid = Auth.auth().currentUser?.uid {
                 ref.child("Signiture/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
                     if(!snapshot.exists()) {
-                        self.signitureInfoView.isHidden = true
+                        self.setAccountView.isHidden = false
                     }
                     else {
-                        self.setAccountView.isHidden = true
+                        self.signitureInfoView.isHidden = false
                         for item in snapshot.children {
                             let value = (item as! DataSnapshot).value
                             let key = (item as! DataSnapshot).key
@@ -80,6 +80,7 @@ extension HomeViewController{
                     if let name = self.userInfo["userName"] as! String?{
                         self.userNameLabel.text = name + "님,"
                         myName = name
+                        
                         self.loader.stopAnimating()
                         self.loader.backgroundColor = UIColor.clear
                     }

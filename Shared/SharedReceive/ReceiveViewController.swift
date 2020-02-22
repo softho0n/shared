@@ -24,20 +24,11 @@ class ReceiveViewController: UIViewController {
     var receiveList = [payLineInfoStruct]()
     
     //임시코드
-    
-    
-    
-    
-    
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         ref = Database.database().reference()
         //getFBData()
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,8 +36,6 @@ class ReceiveViewController: UIViewController {
         self.alert(message: "Receive View Will Appear")
     }
     
-
-
 //    func getFBData(){
 //
 //            if let uid = Auth.auth().currentUser?.uid{

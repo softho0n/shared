@@ -52,13 +52,8 @@ class DutchPayConfirmViewController: UIViewController {
         if let intValueOfDutchBalance = Int(dutchBalance) {
             devidedBalance = DecimalWon(value: intValueOfDutchBalance)
         }
-        
     }
 
-    func getCurrentDate() -> String {
-        return formatter.string(from: date)
-    }
-    
     func setDutchPayData() {
         if let uid = Auth.auth().currentUser?.uid {
             ref.child("Users/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
@@ -67,59 +62,45 @@ class DutchPayConfirmViewController: UIViewController {
             
             ref.child("ReceiveBalance/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
                 let totalMoney = (Int(self.dutchBalance)! - (Int(self.dutchBalance)! / (self.totalCount + 1)))
-                if snapshot.value is NSNull{
+                if snapshot.value is NSNull {
+                    self.ref.child("ReceiveBalance/\(uid)").setValue("\(totalMoney)")
+                } else {
+                    let totalMoney = Int(snapshot.value as! String)! + totalMoney
                     self.ref.child("ReceiveBalance/\(uid)").setValue("\(totalMoney)")
                 }
-                else{
-                    let totalMoney = Int(snapshot.value as! String)! + totalMoney
-
-                     self.ref.child("ReceiveBalance/\(uid)").setValue("\(totalMoney)")
-                }
             }
+            
             if let uniquekey = self.ref.child("ReceiveMetaData").child(uid).childByAutoId().key {
-                
-                var groupdic : [String : String] = [:]
-                
-                if self.groupName.text == nil{
-                    groupdic.updateValue(myName!, forKey: "GroupBy")
-                    groupdic.updateValue(" ", forKey: "GroupName")
-                    groupdic.updateValue(self.dutchBalance, forKey: "TotalMoney")
+                var groupDictionary : [String : String] = [:]
+                if self.groupName.text == nil {
+                    groupDictionary.updateValue(myName!, forKey: "GroupBy")
+                    groupDictionary.updateValue(" ", forKey: "GroupName")
+                    groupDictionary.updateValue(self.dutchBalance, forKey: "TotalMoney")
+                } else {
+                    groupDictionary.updateValue(myName!, forKey: "GroupBy")
+                    groupDictionary.updateValue(self.groupName.text!, forKey: "GroupName")
+                    groupDictionary.updateValue(self.dutchBalance, forKey: "TotalMoney")
+                    groupDictionary.updateValue("\(self.receiveGroupInfo.count + 1) ", forKey: "NumOfMembers")
                 }
-                else{
-                    groupdic.updateValue(myName!, forKey: "GroupBy")
-                    groupdic.updateValue(self.groupName.text!, forKey: "GroupName")
-                    groupdic.updateValue(self.dutchBalance, forKey: "TotalMoney")
-                    groupdic.updateValue("\(self.receiveGroupInfo.count + 1) ", forKey: "NumOfMembers")
-                }
-                
-                self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)").child("GroupInfo").setValue(groupdic)
-                
-                
+                self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)").child("GroupInfo").setValue(groupDictionary)
 
-                
-            ref.child("Friends/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
-                let dictionary = (snapshot.value) as! [String: [String:Any]]
-                            
-                for index in dictionary {
-                    for groupInfo in self.receiveGroupInfo {
-                        if (index.value["userName"] as! String == groupInfo.userName) {
-                            var memberdic : [String : String] = [:]
-                            memberdic.updateValue(index.value["userName"] as! String, forKey: "userName")
-                            memberdic.updateValue(index.value["userPhoneNumber"] as! String, forKey: "userPhoneNumber")
-                            
-                            self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)/Members/\(index.key)").setValue(memberdic)
-                            self.ref.child("SendMetaData/\(index.key)/\(uniquekey)/").setValue(uid)
-                            self.ref.child("SendBalance/\(index.key)/\(uniquekey)/").setValue("\(Int(self.dutchBalance)! / (self.totalCount + 1))")
+                ref.child("Friends/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+                    let dictionary = (snapshot.value) as! [String: [String:Any]]
+                    for index in dictionary {
+                        for groupInfo in self.receiveGroupInfo {
+                            if (index.value["userName"] as! String == groupInfo.userName) {
+                                var members: [String : String] = [:]
+                                members.updateValue(index.value["userName"] as! String, forKey: "userName")
+                                members.updateValue(index.value["userPhoneNumber"] as! String, forKey: "userPhoneNumber")
+                                self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)/Members/\(index.key)").setValue(members)
+                                self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)/Before/\(index.key)").setValue(members)
+                                self.ref.child("SendMetaData/\(index.key)/\(uniquekey)/").setValue(uid)
+                                self.ref.child("SendBalance/\(index.key)/\(uniquekey)/").setValue("\(Int(self.dutchBalance)! / (self.totalCount + 1))")
+                            }
                         }
                     }
                 }
             }
-            
-                
-                
-            }
-            
-            
         }
     }
     
@@ -138,7 +119,6 @@ extension DutchPayConfirmViewController: UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InfoOfDutchPayCell", for: indexPath) as! DutchInfoTableViewCell
-        
         cell.dutchMoneyLabel.text = devidedBalance
         cell.userNameLabel.text = receiveGroupInfo[indexPath.row].userName
         cell.userPhoneNumberLabel.text = receiveGroupInfo[indexPath.row].userPhoneNum
