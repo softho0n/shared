@@ -81,7 +81,7 @@ class DutchPayConfirmViewController: UIViewController {
                     groupDictionary.updateValue(myName!, forKey: "GroupBy")
                     groupDictionary.updateValue(self.groupName.text!, forKey: "GroupName")
                     groupDictionary.updateValue(self.dutchBalance, forKey: "TotalMoney")
-                    groupDictionary.updateValue("\(self.receiveGroupInfo.count + 1) ", forKey: "NumOfMembers")
+                    groupDictionary.updateValue("\(self.receiveGroupInfo.count + 1)", forKey: "NumOfMembers")
                 }
                 self.ref.child("ReceiveMetaData/\(uid)/\(uniquekey)").child("GroupInfo").setValue(groupDictionary)
 
