@@ -33,7 +33,7 @@ class SendViewController: UIViewController {
     
     var sendList = [payLineInfoStruct]()
     var ref: DatabaseReference!
-    
+    var currentSharedMoney = 0
     var counter = true
     
     override func viewDidLoad() {
@@ -45,14 +45,9 @@ class SendViewController: UIViewController {
         ref = Database.database().reference()
         isAdded()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-    }
-    
+
     func isAdded(){
-        if let uid = Auth.auth().currentUser?.uid{
-            
+        if let uid = Auth.auth().currentUser?.uid {
             ref.child("SendMetaData/\(uid)").observe(.childAdded) { (snap) in
                 if self.counter == false {
                     self.loader.startAnimating()
@@ -64,16 +59,28 @@ class SendViewController: UIViewController {
         self.loader.startAnimating()
         self.getFBData()
     }
-
+    
+    func getSharedMoneyData() {
+        if let uid = Auth.auth().currentUser?.uid {
+            DispatchQueue.global().sync {
+                ref.child("SharedMoney/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+                    for item in snapshot.children {
+                        let value = (item as! DataSnapshot).value
+                        if let sM = value{
+                            self.currentSharedMoney = Int(sM as! String)!
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     func getFBData(){
-         if let uid = Auth.auth().currentUser?.uid{
-            var count = 0
-            
+         if let uid = Auth.auth().currentUser?.uid {
+             var count = 0
              var searchingInfo = [searchingInfoStruct]()
              DispatchQueue.global().sync {
-                
-                 // Note: Sendmetadata에서 그룹장Id, 그룹hash값, 각 금액 가져오기. ,uid로 바꾸기
-                
+                // Note: Sendmetadata에서 그룹장Id, 그룹hash값, 각 금액 가져오기. ,uid로 바꾸기
                 ref.child("SendMetaData/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
                     if snapshot.hasChildren() == false {
                         self.loader.stopAnimating()
@@ -87,19 +94,18 @@ class SendViewController: UIViewController {
                             searchingInfo.append(searchingInfoStruct(groupKey: rawEachGroup.key, perMoney: eachGroupInfo["eachBalance"], madePersonKey: eachGroupInfo["groupBy"]))
                         }
                     }
-                }
+                 }
                  // Note: 최종적으로 그룹내용 가져오기.
                  ref.child("ReceiveMetaData").observeSingleEvent(of: .value) { (snapshot) in
-                    
                     for eachGroupInfo in searchingInfo {
                         let groupSnapshot = snapshot.childSnapshot(forPath: "\(eachGroupInfo.madePersonKey!)/\(eachGroupInfo.groupKey!)")
-                        if groupSnapshot.hasChildren() == false{
+                        if groupSnapshot.hasChildren() == false {
                             self.loader.stopAnimating()
                             self.tableView.reloadData()
                             //데이터가 비어있을때의 상황
                             return
                         }
-                        else{
+                        else {
                             let groupValue = groupSnapshot.value
                             let valueDictionary = groupValue as! [String : [String : Any]]
                             let valueGroupInfo = valueDictionary["GroupInfo"]
@@ -109,25 +115,21 @@ class SendViewController: UIViewController {
                             let groupBy = valueGroupInfo!["GroupBy"] as! String
                             
                             self.sendList.append(payLineInfoStruct(groupKey: searchingInfo[count].groupKey, groupName: groupName, totalMoney: totalMoney, numOfMembers: numofMembers, perMoney: searchingInfo[count].perMoney, groupBy: groupBy, madePersonKey: searchingInfo[count].madePersonKey))
-
                             count += 1
                         }
                      }
                      self.loader.stopAnimating()
                      self.tableView.reloadData()
-                    if self.counter == true{
+                     if self.counter == true {
                         self.counter.toggle()
                     }
                  }
              }
          }
-        
      }
 }
 
-
 extension SendViewController : UITableViewDelegate, UITableViewDataSource{
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sendList.count
     }
@@ -151,7 +153,7 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let sendAction = UIContextualAction(style: .normal, title: "쉐어머니로\n보내기", handler: { (ac:UIContextualAction, view : UIView, sucess:(Bool) -> Void) in
+        let sendAction = UIContextualAction(style: .normal, title: "쉐어머니\n보내기", handler: { (ac:UIContextualAction, view : UIView, sucess:(Bool) -> Void) in
             self.loader.startAnimating()
             self.removeGroupByKey(indexPath.row)
             sucess(true)
@@ -161,47 +163,49 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func removeGroupByKey(_ row: Int) {
-        
         var balanceHandler : [String : String] = [:]
         guard let madePersonKey = self.sendList[row].madePersonKey else {return}
-        ref.child("ReceiveBalance/\(madePersonKey)").observeSingleEvent(of: .value) { (snapshot) in
-            let madePersonReceiveBalance = (Int(snapshot.value as! String)! - Int(self.sendList[row].perMoney)!)
-            balanceHandler.updateValue("\(madePersonReceiveBalance)", forKey: "\(madePersonKey)")
-            self.ref.child("ReceiveBalance").updateChildValues(balanceHandler)
-        }
-        //그룹장들의 share머니 수정
-            ref.child("SharedMoney/\(madePersonKey)/balance").observeSingleEvent(of: .value) { (snapshot) in
-                let madePersonShardBalance = (Int(snapshot.value as! String)! + Int(self.sendList[row].perMoney)!)
-                balanceHandler.removeAll()
-                balanceHandler.updateValue("\(madePersonShardBalance)", forKey: "balance")
-                self.ref.child("SharedMoney/\(madePersonKey)").updateChildValues(balanceHandler)
-        }
-        //자신의 돈 수정
         if let uid = Auth.auth().currentUser?.uid {
             ref.child("SharedMoney/\(uid)/balance").observeSingleEvent(of: .value) { (snapshot) in
-                    let myShardBalance = (Int(snapshot.value as! String)! - Int(self.sendList[row].perMoney)!)
-                balanceHandler.removeAll()
-                balanceHandler.updateValue("\(myShardBalance)", forKey: "balance")
-                self.ref.child("SharedMoney/\(uid)").updateChildValues(balanceHandler)
-                //비동기적으로 실행하기 위함.
-                self.sendList.remove(at: row)
-                self.tableView.reloadData()
-                self.loader.stopAnimating()
+                let myShardBalance = (Int(snapshot.value as! String)! - Int(self.sendList[row].perMoney)!)
+                if (myShardBalance >= 0) {
+                    balanceHandler.removeAll()
+                    balanceHandler.updateValue("\(myShardBalance)", forKey: "balance")
+                    self.ref.child("SharedMoney/\(uid)").updateChildValues(balanceHandler)
+                    //비동기적으로 실행하기 위함.
+                    
+                    self.ref.child("ReceiveBalance/\(madePersonKey)").observeSingleEvent(of: .value) { (snapshot) in
+                        let madePersonReceiveBalance = (Int(snapshot.value as! String)! - Int(self.sendList[row].perMoney)!)
+                        balanceHandler.updateValue("\(madePersonReceiveBalance)", forKey: "\(madePersonKey)")
+                        self.ref.child("ReceiveBalance").updateChildValues(balanceHandler)
+                    }
+                    
+                    self.ref.child("SharedMoney/\(madePersonKey)/balance").observeSingleEvent(of: .value) { (snapshot) in
+                        let madePersonShardBalance = (Int(snapshot.value as! String)! + Int(self.sendList[row].perMoney)!)
+                        balanceHandler.removeAll()
+                        balanceHandler.updateValue("\(madePersonShardBalance)", forKey: "balance")
+                        self.ref.child("SharedMoney/\(madePersonKey)").updateChildValues(balanceHandler)
+                        self.sendList.remove(at: row)
+                        self.tableView.reloadData()
+                        self.loader.stopAnimating()
+                    }
+                    
+                    guard let key = self.sendList[row].groupKey else { return }
+                    if let uid = Auth.auth().currentUser?.uid {
+                        let deleteSendMetaDataHandler = self.ref.child("SendMetaData/\(uid)").child(key)
+                        guard let madePersonKey = self.sendList[row].madePersonKey else {return}
+                        let toggleSendStatusHandler = self.ref.child("ReceiveMetaData/\(madePersonKey)/\(key)/Members/\(uid)")
+                        let trueHandler : [String : String] = ["status" : "true"]
+                        
+                        deleteSendMetaDataHandler.removeValue()
+                        toggleSendStatusHandler.updateChildValues(trueHandler)
+                    }
+                    
+                } else {
+                    self.alert(message: "쉐어머니 잔고가 부족해요 :(")
+                    self.loader.stopAnimating()
+                }
             }
         }
-        //remove 시작
-        guard let key = self.sendList[row].groupKey else { return }
-        if let uid = Auth.auth().currentUser?.uid {
-            let deleteSendMetaDataHandler = self.ref.child("SendMetaData/\(uid)").child(key)
-            guard let madePersonKey = self.sendList[row].madePersonKey else {return}
-            let toggleSendStatusHandler = self.ref.child("ReceiveMetaData/\(madePersonKey)/\(key)/Members/\(uid)")
-            let trueHandler : [String : String] = ["status" : "true"]
-
-            deleteSendMetaDataHandler.removeValue()
-            toggleSendStatusHandler.updateChildValues(trueHandler)
-            
-        }
     }
-
-    
 }

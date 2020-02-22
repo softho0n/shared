@@ -91,6 +91,7 @@ extension HomeViewController{
             }
         }
     }
+    
     func isAdded(){
         ref = Database.database().reference()
         if let uid = Auth.auth().currentUser?.uid {
