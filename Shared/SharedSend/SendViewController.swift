@@ -33,7 +33,7 @@ class SendViewController: UIViewController {
     
     var sendList = [payLineInfoStruct]()
     var ref: DatabaseReference!
-    
+    var currentSharedMoney = 0
     var counter = true
     
     override func viewDidLoad() {
@@ -55,13 +55,34 @@ class SendViewController: UIViewController {
                     self.getFBData()
                 }
             }
+            ref.child("SharedMoney/\(uid)").observe(.childChanged) { (snap) in
+                if self.counter == false {
+                    self.getSharedMoneyData()
+                }
+            }
         }
         self.loader.startAnimating()
         self.getFBData()
+        self.getSharedMoneyData()
     }
-
+    
+    func getSharedMoneyData() {
+        if let uid = Auth.auth().currentUser?.uid {
+            DispatchQueue.global().sync {
+                ref.child("SharedMoney/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+                    for item in snapshot.children {
+                        let value = (item as! DataSnapshot).value
+                        if let sM = value{
+                            self.currentSharedMoney = Int(sM as! String)!
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     func getFBData(){
-         if let uid = Auth.auth().currentUser?.uid{
+         if let uid = Auth.auth().currentUser?.uid {
              var count = 0
              var searchingInfo = [searchingInfoStruct]()
              DispatchQueue.global().sync {
@@ -156,16 +177,16 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
             self.ref.child("ReceiveBalance").updateChildValues(balanceHandler)
         }
         //그룹장들의 share머니 수정
-            ref.child("SharedMoney/\(madePersonKey)/balance").observeSingleEvent(of: .value) { (snapshot) in
-                let madePersonShardBalance = (Int(snapshot.value as! String)! + Int(self.sendList[row].perMoney)!)
-                balanceHandler.removeAll()
-                balanceHandler.updateValue("\(madePersonShardBalance)", forKey: "balance")
-                self.ref.child("SharedMoney/\(madePersonKey)").updateChildValues(balanceHandler)
+        ref.child("SharedMoney/\(madePersonKey)/balance").observeSingleEvent(of: .value) { (snapshot) in
+            let madePersonShardBalance = (Int(snapshot.value as! String)! + Int(self.sendList[row].perMoney)!)
+            balanceHandler.removeAll()
+            balanceHandler.updateValue("\(madePersonShardBalance)", forKey: "balance")
+            self.ref.child("SharedMoney/\(madePersonKey)").updateChildValues(balanceHandler)
         }
         //자신의 돈 수정
         if let uid = Auth.auth().currentUser?.uid {
             ref.child("SharedMoney/\(uid)/balance").observeSingleEvent(of: .value) { (snapshot) in
-                    let myShardBalance = (Int(snapshot.value as! String)! - Int(self.sendList[row].perMoney)!)
+                let myShardBalance = (Int(snapshot.value as! String)! - Int(self.sendList[row].perMoney)!)
                 balanceHandler.removeAll()
                 balanceHandler.updateValue("\(myShardBalance)", forKey: "balance")
                 self.ref.child("SharedMoney/\(uid)").updateChildValues(balanceHandler)
