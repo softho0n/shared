@@ -47,19 +47,22 @@ class chargeSharedMoneyViewController: UIViewController {
     
     @objc func done() {
         chargeMoney()
+        
         self.view.endEditing(true)
     }
     
     func chargeMoney() {
         DispatchQueue.global().sync {
                 if let uid = Auth.auth().currentUser?.uid {
+                    print(uid)
                     ref.child("SharedMoney/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
                         for item in snapshot.children {
                             let value = (item as! DataSnapshot).value
-                            self.currentMoney = value as? Int
+                            self.currentMoney = Int(value as! String)!
                             let modifiedString = self.chargeMoneyField.text?.replacingOccurrences(of: ",", with: "")
                             if let mS = modifiedString {
                                 if let intValueOfmS = Int(mS), let cM = self.currentMoney {
+                                    print("hello?")
                                     self.setData(intValueOfmS + cM)
                                 }
                             }
@@ -71,9 +74,12 @@ class chargeSharedMoneyViewController: UIViewController {
     }
     
     func setData(_ newData: Int!) {
+        print("hello?")
         if let uid = Auth.auth().currentUser?.uid {
-            let sharedMoney = ["balance" : newData] as [String : Int]
-            ref.child("SharedMoney/\(uid)").setValue("\(sharedMoney)")
+            let sharedMoney = ["balance" : "\(newData!)"] as [String : String]
+            print("hello?")
+            ref.child("SharedMoney/\(uid)").updateChildValues(sharedMoney)
+            print("hello?")
             alertWithConfirm()
         } else {
             fatalError()
