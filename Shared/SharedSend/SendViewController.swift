@@ -51,12 +51,10 @@ class SendViewController: UIViewController {
     }
     
     func isAdded(){
-        print(#function)
         if let uid = Auth.auth().currentUser?.uid{
             
             ref.child("SendMetaData/\(uid)").observe(.childAdded) { (snap) in
                 if self.counter == false {
-                    print("hello?")
                     self.loader.startAnimating()
                     self.sendList.removeAll()
                     self.getFBData()

@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
     @IBOutlet var signitureInfoView: UIView!
     @IBOutlet var setAccountView: UIView!
     
+    var counter = false
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -34,12 +35,12 @@ class HomeViewController: UIViewController {
         self.setAccountView.isHidden = true
         self.signitureInfoView.isHidden = true
         self.loader.backgroundColor = UIColor.white
-        loader.startAnimating()
         
         NotificationCenter.default.addObserver(forName: AccountListViewController.newSigCard, object: nil, queue: OperationQueue.main) { [weak self] (noti) in
             self?.reloaddata()
         }
         reloaddata()
+        isAdded()
     }
 }
 
@@ -82,7 +83,29 @@ extension HomeViewController{
                         myName = name
                         
                         self.loader.stopAnimating()
-                        self.loader.backgroundColor = UIColor.clear
+                        if self.counter == false{
+                            self.counter.toggle()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    func isAdded(){
+        ref = Database.database().reference()
+        if let uid = Auth.auth().currentUser?.uid {
+            ref.child("SharedMoney/\(uid)").observe(.childChanged) { (snap) in
+                if self.counter == true{
+                    self.loader.startAnimating()
+                    self.ref.child("SharedMoney/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+                        for item in snapshot.children {
+                            let value = (item as! DataSnapshot).value
+                            if let sM = value{
+                                let intValueofSm = Int(sM as! String)!
+                                self.sharedMoney.text = "\(intValueofSm.withComma)원"
+                            }
+                            self.loader.stopAnimating()
+                        }
                     }
                 }
             }
