@@ -70,7 +70,7 @@ extension HomeViewController{
                     for item in snapshot.children {
                         let value = (item as! DataSnapshot).value
                         if let sM = value{
-                            let intValueofSm = sM as! Int
+                            let intValueofSm = Int(sM as! String)!
                             self.sharedMoney.text = "\(intValueofSm.withComma)원"
                         }
                     }

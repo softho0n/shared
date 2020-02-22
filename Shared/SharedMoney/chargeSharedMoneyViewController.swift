@@ -73,7 +73,7 @@ class chargeSharedMoneyViewController: UIViewController {
     func setData(_ newData: Int!) {
         if let uid = Auth.auth().currentUser?.uid {
             let sharedMoney = ["balance" : newData] as [String : Int]
-            ref.child("SharedMoney/\(uid)").setValue(sharedMoney)
+            ref.child("SharedMoney/\(uid)").setValue("\(sharedMoney)")
             alertWithConfirm()
         } else {
             fatalError()

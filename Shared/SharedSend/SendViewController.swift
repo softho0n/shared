@@ -155,6 +155,7 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
         let sendAction = UIContextualAction(style: .normal, title: "쉐어머니로\n보내기", handler: { (ac:UIContextualAction, view : UIView, sucess:(Bool) -> Void) in
             self.loader.startAnimating()
             self.removeGroupByKey(indexPath.row)
+            self.adjustBalance(indexPath.row)
             self.tableView.reloadData()
             self.loader.stopAnimating()
             sucess(true)
@@ -175,6 +176,32 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
             toggleSendStatusHandler.updateChildValues(trueHandler)
             
             self.sendList.remove(at: row)
+        }
+    }
+    func adjustBalance(_ row: Int){
+        // 그룹장들이 받아야할 전체 돈 수정
+        var balanceHandler : [String : String] = [:]
+        guard let madePersonKey = self.sendList[row].madePersonKey else {return}
+        ref.child("ReceiveBalance/\(madePersonKey)").observeSingleEvent(of: .value) { (snapshot) in
+            let madePersonReceiveBalance = (Int(snapshot.value as! String)! - Int(self.sendList[row].perMoney)!)
+            balanceHandler.updateValue("\(madePersonReceiveBalance)", forKey: "\(madePersonKey)")
+            self.ref.child("ReceiveBalance").updateChildValues(balanceHandler)
+        }
+        //그룹장들의 share머니 수정
+            ref.child("SharedMoney/\(madePersonKey)/balance").observeSingleEvent(of: .value) { (snapshot) in
+                let madePersonShardBalance = (Int(snapshot.value as! String)! + Int(self.sendList[row].perMoney)!)
+                balanceHandler.removeAll()
+                balanceHandler.updateValue("\(madePersonShardBalance)", forKey: "\(madePersonKey)")
+                self.ref.child("SharedMoney/\(madePersonKey)/balance").updateChildValues(balanceHandler)
+        }
+        //자신의 돈 수정
+        if let uid = Auth.auth().currentUser?.uid {
+            ref.child("SharedMoney/\(uid)/balance").observeSingleEvent(of: .value) { (snapshot) in
+                    let myShardBalance = (Int(snapshot.value as! String)! - Int(self.sendList[row].perMoney)!)
+                balanceHandler.removeAll()
+                balanceHandler.updateValue("\(myShardBalance)", forKey: "\(uid)")
+                    self.ref.child("SharedMoney/\(uid)/balance").updateChildValues(balanceHandler)
+            }
         }
     }
     
