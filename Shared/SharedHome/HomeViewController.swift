@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     var ref: DatabaseReference!
     var userInfo: [String : Any]! = nil
     
+    
     @IBOutlet var bank: UILabel!
     @IBOutlet var account: UILabel!
     @IBOutlet var balance: UILabel!
@@ -41,6 +42,14 @@ class HomeViewController: UIViewController {
         }
         reloaddata()
         isAdded()
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "firstAccount"{
+            print("hello?")
+            if let vc = segue.destination as? RegisterAccountViewController{
+                vc.firstAccount = true
+            }
+        }
     }
 }
 
