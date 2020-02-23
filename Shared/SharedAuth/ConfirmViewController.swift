@@ -46,7 +46,7 @@ class ConfirmViewController: UIViewController {
         
         if let uid = Auth.auth().currentUser?.uid {
             let metaData = ["userName" : name ?? "Novalue", "userPhoneNumber" : phoneNumber ?? "Novalue", "signInDate" : formatter.string(from: date!) ] as [String : Any]
-            let sharedMoney = ["balance" : 0] as [String : Int]
+            let sharedMoney = ["balance" : "0"] as [String : String]
             
             ref?.child("Users").child(uid).setValue(metaData)
             ref?.child("SharedMoney").child(uid).setValue(sharedMoney)
