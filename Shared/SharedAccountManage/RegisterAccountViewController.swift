@@ -10,11 +10,14 @@ import UIKit
 
 class RegisterAccountViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
+    var firstAccount = false
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell){
             if let vc = segue.destination as? AccountNumberViewController{
                 vc.bankName = banklist[indexPath.item]
+                print("RegisterView : ", self.firstAccount)
+                vc.firstAccount = self.firstAccount
             }
         }
     }

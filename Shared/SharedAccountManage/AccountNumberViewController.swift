@@ -16,6 +16,7 @@ class AccountNumberViewController: UIViewController {
     @IBOutlet var clickButton: UIButton!
     var ref: DatabaseReference!
     var bankName : String?
+    var firstAccount = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,10 @@ class AccountNumberViewController: UIViewController {
     @IBAction func interlocking(_ sender: Any) {
         if let uid = Auth.auth().currentUser?.uid, let bankName = bankLabel.text, let account = AccNumberField.text {
             ref?.child("Accounts/\(uid)").updateChildValues([bankName: account])
+            if firstAccount == true{
+                print("AccountNumberView", self.firstAccount)
+                self.ref?.child("Signiture/\(uid)").setValue([bankName: account])
+            }
         }
         AccNumberField.text = ""
         alertWithHome(message: "계좌가 정상적으로 연동 되었습니다.")
