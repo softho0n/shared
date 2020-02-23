@@ -12,16 +12,41 @@ import FirebaseDatabase
 
 class chargeSharedMoneyViewController: UIViewController {
 
+    @IBOutlet var greetingLabel: UILabel!
+    @IBOutlet var wonLabel: UILabel!
     @IBOutlet var chargeMoneyField: UITextField!
+    @IBOutlet var thereIsNoSigniture: UIView!
     var ref: DatabaseReference!
     var currentMoney: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        greetingLabel.isHidden = true
+        wonLabel.isHidden = true
+        chargeMoneyField.isHidden = true
+        
         ref = Database.database().reference()
         chargeMoneyField.adjustsFontSizeToFitWidth = false
         addToolbarToCharge(chargeMoneyField, "충전하기")
+        checkSignitureAccount()
         // Do any additional setup after loading the view.
+    }
+    
+    func checkSignitureAccount() {
+        if let uid = Auth.auth().currentUser?.uid {
+            DispatchQueue.global().sync {
+                ref.child("Signiture/\(uid)").observeSingleEvent(of: .value, with: {(snapshot) in
+                    if (!snapshot.exists()) {
+                        self.thereIsNoSigniture.isHidden = false
+                    } else {
+                        self.thereIsNoSigniture.isHidden = true
+                        self.greetingLabel.isHidden = false
+                        self.wonLabel.isHidden = false
+                        self.chargeMoneyField.isHidden = false
+                    }
+                })
+            }
+        }
     }
     
     func addToolbarToCharge(_ textField: Any?, _ message: String?) {
