@@ -14,7 +14,9 @@ class SendViewController: UIViewController {
     
     @IBOutlet var loader: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
-
+    @IBOutlet var thereIsNoSendDataView: UIView!
+    
+    
     struct payLineInfoStruct {
         var groupKey: String!
         var groupName: String!
@@ -52,6 +54,7 @@ class SendViewController: UIViewController {
                 if self.counter == false {
                     self.loader.startAnimating()
                     self.sendList.removeAll()
+                    self.thereIsNoSendDataView.isHidden = true
                     self.getFBData()
                 }
             }
@@ -59,22 +62,7 @@ class SendViewController: UIViewController {
         self.loader.startAnimating()
         self.getFBData()
     }
-    
-    func getSharedMoneyData() {
-        if let uid = Auth.auth().currentUser?.uid {
-            DispatchQueue.global().sync {
-                ref.child("SharedMoney/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
-                    for item in snapshot.children {
-                        let value = (item as! DataSnapshot).value
-                        if let sM = value{
-                            self.currentSharedMoney = Int(sM as! String)!
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
+        
     func getFBData(){
          if let uid = Auth.auth().currentUser?.uid {
              var count = 0
@@ -83,6 +71,7 @@ class SendViewController: UIViewController {
                 // Note: Sendmetadata에서 그룹장Id, 그룹hash값, 각 금액 가져오기. ,uid로 바꾸기
                 ref.child("SendMetaData/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
                     if snapshot.hasChildren() == false {
+                        self.thereIsNoSendDataView.isHidden = false
                         self.loader.stopAnimating()
                         self.tableView.reloadData()
                         //데이터가 비어있을때의 상황
@@ -186,6 +175,9 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
                         balanceHandler.updateValue("\(madePersonShardBalance)", forKey: "balance")
                         self.ref.child("SharedMoney/\(madePersonKey)").updateChildValues(balanceHandler)
                         self.sendList.remove(at: row)
+                        if(self.sendList.isEmpty) {
+                            self.thereIsNoSendDataView.isHidden = false
+                        }
                         self.tableView.reloadData()
                         self.loader.stopAnimating()
                     }
