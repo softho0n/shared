@@ -15,6 +15,7 @@ class AccountListViewController: UIViewController {
     var ref: DatabaseReference!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var loader: UIActivityIndicatorView!
+    @IBOutlet var thereIsNoAccountView: UIView!
     
     struct accountInfoStruct {
         var bank: String!
@@ -36,15 +37,21 @@ class AccountListViewController: UIViewController {
             DispatchQueue.global().sync {
                 self.loader.startAnimating()
                 ref.child("Accounts/\(uid)").observeSingleEvent(of: .value, with: {(snapshot) in
-                    for item in snapshot.children {
-                        let value = (item as! DataSnapshot).value
-                        let key = (item as! DataSnapshot).key
-                        if let account = value {
-                            self.accountList.append(accountInfoStruct(bank: key, accountNumber: account as! String))
+                    if (snapshot.exists()) {
+                        for item in snapshot.children {
+                            let value = (item as! DataSnapshot).value
+                            let key = (item as! DataSnapshot).key
+                            if let account = value {
+                                self.accountList.append(accountInfoStruct(bank: key, accountNumber: account as! String))
+                            }
                         }
+                        self.loader.stopAnimating()
+                        self.tableView.reloadData()
                     }
-                    self.loader.stopAnimating()
-                    self.tableView.reloadData()
+                    else {
+                        self.thereIsNoAccountView.isHidden = false
+                        self.loader.stopAnimating()
+                    }
                 })
             }
         }
