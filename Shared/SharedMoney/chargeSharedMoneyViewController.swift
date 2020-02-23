@@ -19,6 +19,7 @@ class chargeSharedMoneyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        chargeMoneyField.adjustsFontSizeToFitWidth = false
         addToolbarToCharge(chargeMoneyField, "충전하기")
         // Do any additional setup after loading the view.
     }
