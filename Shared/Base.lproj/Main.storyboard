@@ -377,6 +377,32 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="color" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1EC-HB-81a">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="더치페이 그룹이 존재하지 않습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYb-v3-joa">
+                                        <rect key="frame" x="54" y="349" width="306" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thereisnosenddata" translatesAutoresizingMaskIntoConstraints="NO" id="cBp-Pi-OuW">
+                                        <rect key="frame" x="87" y="198" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="Rx1-jA-8rK"/>
+                                            <constraint firstAttribute="width" constant="240" id="lw7-rG-I7C"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="cBp-Pi-OuW" firstAttribute="leading" secondItem="1EC-HB-81a" secondAttribute="leading" constant="87" id="PYo-r3-gRH"/>
+                                    <constraint firstItem="fYb-v3-joa" firstAttribute="centerX" secondItem="1EC-HB-81a" secondAttribute="centerX" id="Q4z-Ba-RwH"/>
+                                    <constraint firstItem="fYb-v3-joa" firstAttribute="top" secondItem="cBp-Pi-OuW" secondAttribute="bottom" constant="23" id="iv7-qK-jXr"/>
+                                    <constraint firstAttribute="trailing" secondItem="cBp-Pi-OuW" secondAttribute="trailing" constant="87" id="sHD-VF-j5t"/>
+                                    <constraint firstItem="fYb-v3-joa" firstAttribute="centerY" secondItem="1EC-HB-81a" secondAttribute="centerY" id="xWX-NF-tUc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -385,8 +411,12 @@
                             <constraint firstItem="uZP-l1-xfg" firstAttribute="leading" secondItem="Plz-hh-9oJ" secondAttribute="leading" id="JQP-9h-GgY"/>
                             <constraint firstItem="Dr1-2e-v6o" firstAttribute="trailing" secondItem="Plz-hh-9oJ" secondAttribute="trailing" id="OFh-0I-HRL"/>
                             <constraint firstItem="Plz-hh-9oJ" firstAttribute="trailing" secondItem="uZP-l1-xfg" secondAttribute="trailing" id="Vd3-bF-lm7"/>
+                            <constraint firstItem="Plz-hh-9oJ" firstAttribute="bottom" secondItem="1EC-HB-81a" secondAttribute="bottom" id="hL0-9o-DoO"/>
+                            <constraint firstItem="Plz-hh-9oJ" firstAttribute="trailing" secondItem="1EC-HB-81a" secondAttribute="trailing" id="k0b-jz-hjS"/>
                             <constraint firstItem="Dr1-2e-v6o" firstAttribute="bottom" secondItem="Plz-hh-9oJ" secondAttribute="bottom" id="m5t-0r-XQB"/>
+                            <constraint firstItem="1EC-HB-81a" firstAttribute="leading" secondItem="Plz-hh-9oJ" secondAttribute="leading" id="mZW-bQ-oBT"/>
                             <constraint firstItem="Plz-hh-9oJ" firstAttribute="bottom" secondItem="uZP-l1-xfg" secondAttribute="bottom" id="o30-Br-aOu"/>
+                            <constraint firstItem="1EC-HB-81a" firstAttribute="top" secondItem="Plz-hh-9oJ" secondAttribute="top" id="qHm-gK-v06"/>
                             <constraint firstItem="Dr1-2e-v6o" firstAttribute="top" secondItem="Plz-hh-9oJ" secondAttribute="top" id="uTY-k6-m7Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Plz-hh-9oJ"/>
@@ -395,6 +425,7 @@
                     <connections>
                         <outlet property="loader" destination="Dr1-2e-v6o" id="wfp-14-3Kk"/>
                         <outlet property="tableView" destination="uZP-l1-xfg" id="JeD-ht-RK6"/>
+                        <outlet property="thereIsNoSendDataView" destination="1EC-HB-81a" id="rfT-i3-s64"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nyN-cR-aX8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1061,8 +1092,8 @@
                                                     <segue destination="1By-Uo-eV4" kind="presentation" id="fMi-Ca-W9P"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="출금 계좌가 등록되지 않았어요 :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2he-CZ-ApW">
-                                                <rect key="frame" x="59" y="115" width="257" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="출금 계좌가 등록되지 않았어요 :(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2he-CZ-ApW">
+                                                <rect key="frame" x="20" y="115" width="334" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1073,8 +1104,8 @@
                                             <constraint firstItem="4ys-Wk-mGb" firstAttribute="centerX" secondItem="VWt-Dl-Zn3" secondAttribute="centerX" id="FHs-e8-DLt"/>
                                             <constraint firstItem="4ys-Wk-mGb" firstAttribute="top" secondItem="2he-CZ-ApW" secondAttribute="bottom" constant="8" id="Xmh-pt-M4L"/>
                                             <constraint firstItem="4ys-Wk-mGb" firstAttribute="centerY" secondItem="VWt-Dl-Zn3" secondAttribute="centerY" id="aEc-6Q-BSk"/>
-                                            <constraint firstAttribute="trailing" secondItem="2he-CZ-ApW" secondAttribute="trailing" constant="58" id="hNH-mX-NUI"/>
-                                            <constraint firstItem="2he-CZ-ApW" firstAttribute="leading" secondItem="VWt-Dl-Zn3" secondAttribute="leading" constant="59" id="yl3-JN-GnK"/>
+                                            <constraint firstAttribute="trailing" secondItem="2he-CZ-ApW" secondAttribute="trailing" constant="20" symbolic="YES" id="fVV-uZ-GSD"/>
+                                            <constraint firstItem="2he-CZ-ApW" firstAttribute="leading" secondItem="VWt-Dl-Zn3" secondAttribute="leading" constant="20" symbolic="YES" id="tmO-ww-3PL"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1349,17 +1380,17 @@
             <objects>
                 <viewController id="qWB-3Q-Vja" customClass="RegisterAccountViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oLe-4V-8VB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연결할 은행을 선택해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIF-F8-Ppt">
-                                <rect key="frame" x="20" y="40" width="374" height="30"/>
+                                <rect key="frame" x="20" y="128" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="v8J-XV-Bhr">
-                                <rect key="frame" x="31" y="112" width="351" height="676"/>
+                                <rect key="frame" x="31" y="200" width="351" height="642"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Qip-6X-h8s">
                                     <size key="itemSize" width="103" height="75"/>
@@ -1479,17 +1510,17 @@
             <objects>
                 <viewController title="계좌번호입력" id="XOX-AH-BAB" customClass="AccountNumberViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YKw-2R-io9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gup-zG-i0t">
-                                <rect key="frame" x="20" y="40" width="374" height="30"/>
+                                <rect key="frame" x="20" y="128" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xn9-Le-fr3">
-                                <rect key="frame" x="0.0" y="758" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ss8-dw-mxp"/>
@@ -1504,13 +1535,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계좌 번호를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hQ-bo-Hfa">
-                                <rect key="frame" x="20" y="78" width="374" height="30"/>
+                                <rect key="frame" x="20" y="166" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="1234-567-123456" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FHB-2p-yt3">
-                                <rect key="frame" x="20" y="153" width="374" height="24"/>
+                                <rect key="frame" x="20" y="241" width="374" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -2121,10 +2152,11 @@
         <image name="send bubble" width="12" height="8.5"/>
         <image name="starbucks" width="100" height="101.5"/>
         <image name="text.justify" catalog="system" width="64" height="50"/>
+        <image name="thereisnosenddata" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qHf-KK-Sw9"/>
-        <segue reference="KGQ-C1-chM"/>
+        <segue reference="AgY-s5-abc"/>
         <segue reference="fMi-Ca-W9P"/>
         <segue reference="r75-I7-fFZ"/>
     </inferredMetricsTieBreakers>
