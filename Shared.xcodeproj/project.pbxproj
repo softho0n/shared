@@ -37,9 +37,11 @@
 		C9B0756E23DA9EFB00E68753 /* AccountListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756D23DA9EFB00E68753 /* AccountListViewController.swift */; };
 		C9B0757223DAD07C00E68753 /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757123DAD07C00E68753 /* SendViewController.swift */; };
 		C9B0757423DAD10900E68753 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0757323DAD10900E68753 /* ReceiveViewController.swift */; };
+		C9C3B1A12403D09B007E9685 /* ReceivePayLineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B1A02403D09B007E9685 /* ReceivePayLineTableViewCell.swift */; };
+		C9C3B1A32403FB09007E9685 /* DetailPersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B1A22403FB09007E9685 /* DetailPersonTableViewCell.swift */; };
+		C9C3B1A52403FBDC007E9685 /* DetailPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B1A42403FBDC007E9685 /* DetailPersonViewController.swift */; };
 		C9D90D1123EC62AC008C16C0 /* AccountNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */; };
 		C9D90D1D23FFFF68008C16C0 /* SendpayLineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1C23FFFF68008C16C0 /* SendpayLineTableViewCell.swift */; };
-		C9D90D1F24001CC2008C16C0 /* DetailPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1E24001CC2008C16C0 /* DetailPersonViewController.swift */; };
 		C9E90FE123F39C9D00F840DD /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E90FE023F39C9D00F840DD /* AccountTableViewCell.swift */; };
 		C9E90FE523F3D47200F840DD /* chargeSharedMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E90FE423F3D47200F840DD /* chargeSharedMoneyViewController.swift */; };
 /* End PBXBuildFile section */
@@ -78,9 +80,11 @@
 		C9B0756D23DA9EFB00E68753 /* AccountListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListViewController.swift; sourceTree = "<group>"; };
 		C9B0757123DAD07C00E68753 /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
 		C9B0757323DAD10900E68753 /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
+		C9C3B1A02403D09B007E9685 /* ReceivePayLineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivePayLineTableViewCell.swift; sourceTree = "<group>"; };
+		C9C3B1A22403FB09007E9685 /* DetailPersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonTableViewCell.swift; sourceTree = "<group>"; };
+		C9C3B1A42403FBDC007E9685 /* DetailPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonViewController.swift; sourceTree = "<group>"; };
 		C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNumberViewController.swift; sourceTree = "<group>"; };
 		C9D90D1C23FFFF68008C16C0 /* SendpayLineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendpayLineTableViewCell.swift; sourceTree = "<group>"; };
-		C9D90D1E24001CC2008C16C0 /* DetailPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonViewController.swift; sourceTree = "<group>"; };
 		C9E90FE023F39C9D00F840DD /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		C9E90FE423F3D47200F840DD /* chargeSharedMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chargeSharedMoneyViewController.swift; sourceTree = "<group>"; };
 		D2A79BE81EB46556241264AC /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
@@ -225,7 +229,6 @@
 				C970C4EA23BF967F00D0A069 /* SceneDelegate.swift */,
 				C9B0757123DAD07C00E68753 /* SendViewController.swift */,
 				C9D90D1C23FFFF68008C16C0 /* SendpayLineTableViewCell.swift */,
-				C9D90D1E24001CC2008C16C0 /* DetailPersonViewController.swift */,
 			);
 			path = SharedSend;
 			sourceTree = "<group>";
@@ -234,6 +237,9 @@
 			isa = PBXGroup;
 			children = (
 				C9B0757323DAD10900E68753 /* ReceiveViewController.swift */,
+				C9C3B1A02403D09B007E9685 /* ReceivePayLineTableViewCell.swift */,
+				C9C3B1A22403FB09007E9685 /* DetailPersonTableViewCell.swift */,
+				C9C3B1A42403FBDC007E9685 /* DetailPersonViewController.swift */,
 			);
 			path = SharedReceive;
 			sourceTree = "<group>";
@@ -382,11 +388,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C970C51023C10BEF00D0A069 /* MainUIViewController.swift in Sources */,
+				C9C3B1A12403D09B007E9685 /* ReceivePayLineTableViewCell.swift in Sources */,
 				C970C50123BFC84600D0A069 /* model.swift in Sources */,
 				C9B0756E23DA9EFB00E68753 /* AccountListViewController.swift in Sources */,
 				C9D90D1D23FFFF68008C16C0 /* SendpayLineTableViewCell.swift in Sources */,
 				C9AA1DFD23E81A3C00540DA7 /* MenuTableViewController.swift in Sources */,
 				C950832623C2666C0037BF46 /* ReConfirmViewController.swift in Sources */,
+				C9C3B1A32403FB09007E9685 /* DetailPersonTableViewCell.swift in Sources */,
+				C9C3B1A52403FBDC007E9685 /* DetailPersonViewController.swift in Sources */,
 				C950832423C264D40037BF46 /* ReAuthViewController.swift in Sources */,
 				C9314B9D23F85D89007A458A /* DutchInfoTableViewCell.swift in Sources */,
 				C9314B9923F794CA007A458A /* DutchBalanceViewController.swift in Sources */,
@@ -401,7 +410,6 @@
 				C950835423C4FF140037BF46 /* HomeViewController.swift in Sources */,
 				C9B0756623DA6F2500E68753 /* UserInfoTableViewCell.swift in Sources */,
 				C970C50623BFD05900D0A069 /* UserAuthViewController.swift in Sources */,
-				C9D90D1F24001CC2008C16C0 /* DetailPersonViewController.swift in Sources */,
 				C950835623C502770037BF46 /* SearchUserViewController.swift in Sources */,
 				C9E90FE523F3D47200F840DD /* chargeSharedMoneyViewController.swift in Sources */,
 				C970C4EB23BF967F00D0A069 /* SceneDelegate.swift in Sources */,
