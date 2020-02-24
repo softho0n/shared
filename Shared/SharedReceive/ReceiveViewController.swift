@@ -19,6 +19,7 @@ class ReceiveViewController: UIViewController {
     
 
     struct memberInfoStruct {
+        var status : String!
         var memberName : String!
         var memberUid : String!
         var memberPhoneNum : String!
@@ -28,9 +29,9 @@ class ReceiveViewController: UIViewController {
         var groupName: String!
         var numOfMembers: String!
         var totalMoney: String!
+        var allMembersInfo: [memberInfoStruct]
     }
     var receiveList = [receivePayLineInfoStruct]()
-    var memberList = [memberInfoStruct]()
     var counter = true
     
     //임시코드
@@ -46,12 +47,26 @@ class ReceiveViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("hello?")
+        if let cell = sender as? UITableViewCell, let indexpath = tableView.indexPath(for: cell){
+            let target = receiveList[indexpath.row].allMembersInfo
+            print(target)
+            if segue.identifier == "detailMember"{
+                if let vc = segue.destination as? DetailPersonViewController{
+                    vc.detailMemberList = target
+                }
+            }
+        }
+        
+    }
+    
     func isAdded(){
         if let uid = Auth.auth().currentUser?.uid {
             ref.child("ReceiveMetaData/\(uid)").observe(.childChanged) { (snap) in
                 if self.counter == false {
                     self.loader.startAnimating()
-                    self.memberList.removeAll()
                     self.receiveList.removeAll()
                     self.noDataView.isHidden = true
                     self.getFBData()
@@ -74,6 +89,8 @@ class ReceiveViewController: UIViewController {
                     }
                     else{
                         for eachgroup in snapshot.children{
+                            var memberList = [memberInfoStruct]()
+                            
                             let new = eachgroup as! DataSnapshot
                             let values = new.value
                             let valueDictionary = values as! [String : [String : Any]]
@@ -88,22 +105,21 @@ class ReceiveViewController: UIViewController {
                             {
                                 let eachmember = eachGroupMember.value as! [String : Any]
                                 let status = eachmember["status"] as! String
-                                if status == "false"{
-                                    let userName = eachmember["userName"] as! String
-                                    let userPhoneNumber = eachmember["userPhoneNumber"] as! String
-                                    self.memberList.append(memberInfoStruct(memberName: userName, memberUid: eachGroupMember.key, memberPhoneNum: userPhoneNumber))
-                                }
+                                let userName = eachmember["userName"] as! String
+                                let userPhoneNumber = eachmember["userPhoneNumber"] as! String
+                                memberList.append(memberInfoStruct(memberName: userName, memberUid: eachGroupMember.key, memberPhoneNum: userPhoneNumber))
                             }
-                            print(self.memberList)
-                            if self.memberList.isEmpty == false{
-                                self.receiveList.append(receivePayLineInfoStruct(groupName: groupName, numOfMembers: numOfMembers, totalMoney: totalMoney))
+                            let finishedGroup = memberList.allSatisfy{$0.status == "true"}
+                            if finishedGroup == true{
+                                self.ref.child("ReceiveMetaData/\(uid)/\(new.key)").removeValue()
                             }
                             else{
-                                self.ref.child("ReceiveMetaData/\(uid)/\(new.key)").removeValue()
-                                self.noDataView.isHidden = false
+                                self.receiveList.append(receivePayLineInfoStruct(groupName: groupName, numOfMembers: numOfMembers, totalMoney: totalMoney,allMembersInfo: memberList))
                             }
-
                             
+                            
+                           
+  
                         }
                         self.loader.stopAnimating()
                         self.tableView.reloadData()
@@ -138,6 +154,7 @@ extension ReceiveViewController : UITableViewDelegate, UITableViewDataSource{
         cell.totalMoney.text = "\(numberFormatter.string(from: NSNumber(value:(Int(receiveList[indexPath.row].totalMoney)!)))!)/ \(Int(receiveList[indexPath.row].numOfMembers)!)"
         return cell
     }
+
     
     
 }

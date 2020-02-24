@@ -363,7 +363,6 @@
                                             <outlet property="perMoney" destination="nrf-TR-tUg" id="DDi-N0-wvo"/>
                                             <outlet property="shopPhoto" destination="UcU-xE-TgK" id="Y1X-vE-Hhu"/>
                                             <outlet property="totalMoney" destination="wUb-Mk-PCO" id="Fqp-5H-VDV"/>
-                                            <segue destination="QHa-3l-MSg" kind="modal" id="NSd-2c-UCS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1380,17 +1379,17 @@
             <objects>
                 <viewController id="qWB-3Q-Vja" customClass="RegisterAccountViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oLe-4V-8VB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연결할 은행을 선택해주세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIF-F8-Ppt">
-                                <rect key="frame" x="20" y="128" width="374" height="30"/>
+                                <rect key="frame" x="20" y="40" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="v8J-XV-Bhr">
-                                <rect key="frame" x="31" y="200" width="351" height="642"/>
+                                <rect key="frame" x="31" y="112" width="351" height="676"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Qip-6X-h8s">
                                     <size key="itemSize" width="103" height="75"/>
@@ -1510,17 +1509,17 @@
             <objects>
                 <viewController title="계좌번호입력" id="XOX-AH-BAB" customClass="AccountNumberViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YKw-2R-io9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gup-zG-i0t">
-                                <rect key="frame" x="20" y="128" width="374" height="30"/>
+                                <rect key="frame" x="20" y="40" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xn9-Le-fr3">
-                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="758" width="414" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ss8-dw-mxp"/>
@@ -1535,13 +1534,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계좌 번호를 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hQ-bo-Hfa">
-                                <rect key="frame" x="20" y="166" width="374" height="30"/>
+                                <rect key="frame" x="20" y="78" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="1234-567-123456" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FHB-2p-yt3">
-                                <rect key="frame" x="20" y="241" width="374" height="24"/>
+                                <rect key="frame" x="20" y="153" width="374" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -2019,6 +2018,7 @@
                                             <outlet property="receivePersonPhoto" destination="HlK-b5-zig" id="S0e-2B-wIq"/>
                                             <outlet property="shopPhoto" destination="5H3-mP-xTt" id="pnC-S6-mIp"/>
                                             <outlet property="totalMoney" destination="Kdo-31-znd" id="SbI-MD-dzW"/>
+                                            <segue destination="QHa-3l-MSg" kind="presentation" identifier="detailMember" id="aFg-2t-LvT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2086,7 +2086,7 @@
             </objects>
             <point key="canvasLocation" x="6043.4782608695659" y="1212.0535714285713"/>
         </scene>
-        <!--Detail Person View Controller-->
+        <!--더치페이 멤버-->
         <scene sceneID="o3W-Xg-SjB">
             <objects>
                 <viewController id="QHa-3l-MSg" customClass="DetailPersonViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
@@ -2094,21 +2094,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hello!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgv-se-c9X">
-                                <rect key="frame" x="186" y="411" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U3W-RW-B1j">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailMember" rowHeight="80" id="EYN-hq-3Zt" customClass="DetailPersonTableViewCell" customModule="Shared" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EYN-hq-3Zt" id="zsV-y9-Jbb">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngy-cH-L1f">
+                                                    <rect key="frame" x="20" y="29.5" width="50.5" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Opl-Rb-Qug"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="Xew-D7-XQa"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSC-wr-5Mq">
+                                                    <rect key="frame" x="110" y="30.5" width="300" height="19.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="19.5" id="ppy-HH-vFa"/>
+                                                        <constraint firstAttribute="width" constant="300" id="sOo-d4-sZj"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="TSC-wr-5Mq" firstAttribute="centerY" secondItem="zsV-y9-Jbb" secondAttribute="centerY" id="Cta-i1-TDw"/>
+                                                <constraint firstItem="ngy-cH-L1f" firstAttribute="leading" secondItem="zsV-y9-Jbb" secondAttribute="leadingMargin" id="dXh-Hb-QcH"/>
+                                                <constraint firstItem="ngy-cH-L1f" firstAttribute="centerY" secondItem="zsV-y9-Jbb" secondAttribute="centerY" id="edv-zX-efi"/>
+                                                <constraint firstItem="TSC-wr-5Mq" firstAttribute="leading" secondItem="ngy-cH-L1f" secondAttribute="trailing" constant="39.5" id="kcI-2b-h8r"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="memberName" destination="ngy-cH-L1f" id="j3l-iC-bXP"/>
+                                            <outlet property="memberPhoneNum" destination="TSC-wr-5Mq" id="LDj-Sm-UeA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="QHa-3l-MSg" id="qV7-f1-oUA"/>
+                                    <outlet property="delegate" destination="QHa-3l-MSg" id="Dfl-B3-9A6"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="U3W-RW-B1j" firstAttribute="top" secondItem="knf-Be-vIB" secondAttribute="top" id="43G-9S-ro3"/>
+                            <constraint firstItem="U3W-RW-B1j" firstAttribute="leading" secondItem="knf-Be-vIB" secondAttribute="leading" id="Loy-ja-PWp"/>
+                            <constraint firstItem="U3W-RW-B1j" firstAttribute="trailing" secondItem="knf-Be-vIB" secondAttribute="trailing" id="YNd-vs-uCe"/>
+                            <constraint firstItem="U3W-RW-B1j" firstAttribute="bottom" secondItem="knf-Be-vIB" secondAttribute="bottom" id="uMW-a8-MCM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="knf-Be-vIB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="더치페이 멤버" id="aVO-Au-bPp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyx-4n-eTf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6955" y="1212"/>
+            <point key="canvasLocation" x="6953.6231884057979" y="1211.3839285714284"/>
         </scene>
         <!--메뉴-->
         <scene sceneID="Vsb-W9-wKr">
@@ -2316,7 +2366,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qHf-KK-Sw9"/>
-        <segue reference="43L-ow-xLC"/>
+        <segue reference="KGQ-C1-chM"/>
         <segue reference="cUg-lT-Ej8"/>
         <segue reference="r75-I7-fFZ"/>
     </inferredMetricsTieBreakers>
