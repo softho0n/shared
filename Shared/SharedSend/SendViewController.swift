@@ -166,7 +166,9 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
                     
                     self.ref.child("ReceiveBalance/\(madePersonKey)").observeSingleEvent(of: .value) { (snapshot) in
                         let madePersonReceiveBalance = (Int(snapshot.value as! String)! - Int(self.sendList[row].perMoney)!)
+                        balanceHandler.removeAll()
                         balanceHandler.updateValue("\(madePersonReceiveBalance)", forKey: "\(madePersonKey)")
+                        print(balanceHandler)
                         self.ref.child("ReceiveBalance").updateChildValues(balanceHandler)
                     }
                     
