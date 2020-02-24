@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 class RegisterAccountViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
@@ -28,6 +31,18 @@ class RegisterAccountViewController: UIViewController {
         collectionView.allowsSelection = true
         collectionView.allowsMultipleSelection = false
         collectionView.showsVerticalScrollIndicator = false
+        getdata()
+    }
+    
+    func getdata(){
+        let ref = Database.database().reference()
+        if let uid = Auth.auth().currentUser?.uid{
+            ref.child("Accounts/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+                if snapshot.hasChildren() == false{
+                    self.firstAccount.toggle()
+                }
+            }
+        }
     }
 }
 
