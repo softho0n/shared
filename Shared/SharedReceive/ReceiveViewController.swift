@@ -49,7 +49,6 @@ class ReceiveViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("hello?")
         if let cell = sender as? UITableViewCell, let indexpath = tableView.indexPath(for: cell){
             let target = receiveList[indexpath.row].allMembersInfo
             if segue.identifier == "detailMember"{

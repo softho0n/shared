@@ -75,7 +75,6 @@ extension AccountListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(accountList[indexPath.row])
         alertWithConfirm(bank: accountList[indexPath.row].bank, account: accountList[indexPath.row].accountNumber)
     }
     
