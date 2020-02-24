@@ -52,7 +52,6 @@ class ReceiveViewController: UIViewController {
         print("hello?")
         if let cell = sender as? UITableViewCell, let indexpath = tableView.indexPath(for: cell){
             let target = receiveList[indexpath.row].allMembersInfo
-            print(target)
             if segue.identifier == "detailMember"{
                 if let vc = segue.destination as? DetailPersonViewController{
                     vc.detailMemberList = target
@@ -107,7 +106,7 @@ class ReceiveViewController: UIViewController {
                                 let status = eachmember["status"] as! String
                                 let userName = eachmember["userName"] as! String
                                 let userPhoneNumber = eachmember["userPhoneNumber"] as! String
-                                memberList.append(memberInfoStruct(memberName: userName, memberUid: eachGroupMember.key, memberPhoneNum: userPhoneNumber))
+                                memberList.append(memberInfoStruct(status: status,memberName: userName, memberUid: eachGroupMember.key, memberPhoneNum: userPhoneNumber))
                             }
                             let finishedGroup = memberList.allSatisfy{$0.status == "true"}
                             if finishedGroup == true{

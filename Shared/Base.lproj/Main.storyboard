@@ -2155,6 +2155,9 @@
                         <viewLayoutGuide key="safeArea" id="knf-Be-vIB"/>
                     </view>
                     <navigationItem key="navigationItem" title="더치페이 멤버" id="aVO-Au-bPp"/>
+                    <connections>
+                        <outlet property="tableView" destination="U3W-RW-B1j" id="CD1-pD-yLC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyx-4n-eTf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
