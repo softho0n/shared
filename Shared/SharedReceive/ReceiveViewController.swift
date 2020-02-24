@@ -31,6 +31,7 @@ class ReceiveViewController: UIViewController {
     }
     var receiveList = [receivePayLineInfoStruct]()
     var memberList = [memberInfoStruct]()
+    var counter = true
     
     //임시코드
     override func viewDidLoad() {
@@ -39,11 +40,26 @@ class ReceiveViewController: UIViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         ref = Database.database().reference()
-        getFBData()
+        isAdded()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+    }
+    func isAdded(){
+        if let uid = Auth.auth().currentUser?.uid {
+            ref.child("ReceiveMetaData/\(uid)").observe(.childChanged) { (snap) in
+                if self.counter == false {
+                    self.loader.startAnimating()
+                    self.memberList.removeAll()
+                    self.receiveList.removeAll()
+                    self.noDataView.isHidden = true
+                    self.getFBData()
+                }
+            }
+        }
+        self.loader.startAnimating()
+        self.getFBData()
     }
     
     func getFBData(){
@@ -78,11 +94,22 @@ class ReceiveViewController: UIViewController {
                                     self.memberList.append(memberInfoStruct(memberName: userName, memberUid: eachGroupMember.key, memberPhoneNum: userPhoneNumber))
                                 }
                             }
+                            print(self.memberList)
+                            if self.memberList.isEmpty == false{
+                                self.receiveList.append(receivePayLineInfoStruct(groupName: groupName, numOfMembers: numOfMembers, totalMoney: totalMoney))
+                            }
+                            else{
+                                self.ref.child("ReceiveMetaData/\(uid)/\(new.key)").removeValue()
+                                self.noDataView.isHidden = false
+                            }
 
-                            self.receiveList.append(receivePayLineInfoStruct(groupName: groupName, numOfMembers: numOfMembers, totalMoney: totalMoney))
+                            
                         }
                         self.loader.stopAnimating()
                         self.tableView.reloadData()
+                         if self.counter == true {
+                            self.counter.toggle()
+                        }
                     }
                 }
             }
