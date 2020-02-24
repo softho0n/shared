@@ -137,7 +137,8 @@ extension SendViewController : UITableViewDelegate, UITableViewDataSource{
         cell.groupBy.text = sendList[indexPath.row].groupBy
         cell.groupName.text = sendList[indexPath.row].groupName
         cell.totalMoney.text = "\(numberFormatter.string(from: NSNumber(value:(Int(sendList[indexPath.row].totalMoney)!)))!)/ \(Int(sendList[indexPath.row].numOfMembers)!)"
-        cell.perMoney.text = "=\(result)"
+        
+        cell.perMoney.text = " =\(result) 원"
         return cell
     }
     

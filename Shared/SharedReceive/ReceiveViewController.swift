@@ -12,70 +12,103 @@ import FirebaseDatabase
 
 class ReceiveViewController: UIViewController {
     var ref = DatabaseReference()
+
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var loader: UIActivityIndicatorView!
     
-    struct payLineInfoStruct {
-        var groupKey: String!
-        var groupName: String!
-        var totalMoney: String!
-        var membername : [String] = []
-        var memberuid : [String] = []
+
+    struct memberInfoStruct {
+        var memberName : String!
+        var memberUid : String!
+        var memberPhoneNum : String!
     }
-    var receiveList = [payLineInfoStruct]()
+    
+    struct receivePayLineInfoStruct {
+        var groupName: String!
+        var numOfMembers: String!
+        var totalMoney: String!
+    }
+    var receiveList = [receivePayLineInfoStruct]()
+    var memberList = [memberInfoStruct]()
     
     //임시코드
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         ref = Database.database().reference()
-        //getFBData()
+        getFBData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.alert(message: "Receive View Will Appear")
     }
     
-//    func getFBData(){
-//
-//            if let uid = Auth.auth().currentUser?.uid{
-//                DispatchQueue.global().sync {
-//                    ref.child("ReceiveMetaData/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
-//
-//                    if snapshot.hasChildren() == false{
-//                        return
-//                    }
-//                    else{
-//                        for eachgroup in snapshot.children{
-//                            let new = eachgroup as! DataSnapshot
-//                            let values = new.value
-//                            let valueDictionary = values as! [String : [String : Any]]
-//                            let valuegroupinfo = valueDictionary["GroupInfo"]
-//
-//                            let valuememinfo = valueDictionary["Members"]
-//
-//                            let groupName = valuegroupinfo!["GroupName"] as! String
-//                            let totalMoney = valuegroupinfo!["TotalMoney"] as! String
-//
-//
-//                            var membername : [String] = []
-//                            var memberuid : [String] = [] // 나중에 알람 보낼때 쓸 각 uid
-//                            for eachgroupmembers in valuememinfo!
-//                            {
-//                                let eachmember = eachgroupmembers.value as! [String : Any]
-//                                membername.append(eachmember["userName"] as! String)
-//                                memberuid.append(eachgroupmembers.key)
-//
-//                            }
-//
-//                            self.sendList.append(payLineInfoStruct(groupKey: new.key ,groupName: groupName, totalMoney: totalMoney, membername: membername, memberuid: memberuid))
-//                        }
-//                        self.loader.stopAnimating()
-//                        self.tableView.reloadData()
-//                    }
-//                }
-//            }
-//        }
-//    }
+    func getFBData(){
 
+            if let uid = Auth.auth().currentUser?.uid{
+                DispatchQueue.global().sync {
+                    ref.child("ReceiveMetaData/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+
+                    if snapshot.hasChildren() == false{
+                        return
+                    }
+                    else{
+                        for eachgroup in snapshot.children{
+                            let new = eachgroup as! DataSnapshot
+                            let values = new.value
+                            let valueDictionary = values as! [String : [String : Any]]
+                            let valuegroupinfo = valueDictionary["GroupInfo"]
+                            let groupName = valuegroupinfo!["GroupName"] as! String
+                            let totalMoney = valuegroupinfo!["TotalMoney"] as! String
+                            let numOfMembers = valuegroupinfo!["NumOfMembers"] as! String
+
+                            let valueMemInfo = valueDictionary["Members"]
+
+                            for eachGroupMember in valueMemInfo!
+                            {
+                                let eachmember = eachGroupMember.value as! [String : Any]
+                                let status = eachmember["status"] as! String
+                                if status == "false"{
+                                    let userName = eachmember["userName"] as! String
+                                    let userPhoneNumber = eachmember["userPhoneNumber"] as! String
+                                    self.memberList.append(memberInfoStruct(memberName: userName, memberUid: eachGroupMember.key, memberPhoneNum: userPhoneNumber))
+                                }
+                            }
+
+                            self.receiveList.append(receivePayLineInfoStruct(groupName: groupName, numOfMembers: numOfMembers, totalMoney: totalMoney))
+                        }
+                        self.loader.stopAnimating()
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+
+}
+extension ReceiveViewController : UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return receiveList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "receiveCell", for: indexPath) as! ReceivePayLineTableViewCell
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let perMoney = (Int(receiveList[indexPath.row].totalMoney)! / (Int(receiveList[indexPath.row].numOfMembers)!))
+        let result = numberFormatter.string(from: NSNumber(value:perMoney))!
+        
+        cell.receivePersonPhoto.layer.cornerRadius = cell.receivePersonPhoto.frame.height/2
+        cell.shopPhoto.layer.cornerRadius = cell.shopPhoto.frame.height/2
+        cell.receivePerson.text = myName
+        cell.groupName.text = receiveList[indexPath.row].groupName
+        cell.perMoney.text = "= \(result) 원"
+        cell.totalMoney.text = "\(numberFormatter.string(from: NSNumber(value:(Int(receiveList[indexPath.row].totalMoney)!)))!)/ \(Int(receiveList[indexPath.row].numOfMembers)!)"
+        return cell
+    }
+    
+    
 }
