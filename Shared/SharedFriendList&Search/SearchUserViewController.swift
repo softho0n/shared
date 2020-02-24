@@ -72,7 +72,7 @@ class SearchUserViewController: UIViewController {
                     
                     for index in userDictionary {
                         if index.value["userPhoneNumber"] as! String == userPhoneNumber {
-                            self.storedData = ["userName" : index.value["userName"] ?? "Novalue", "userPhoneNumber" : userPhoneNumber ?? "Novalue", "signInDate" : index.value["signInDate"]]
+                            self.storedData = ["userName" : index.value["userName"] ?? "Novalue", "userPhoneNumber" : userPhoneNumber ?? "Novalue", "signInDate" : index.value["signInDate"], "uid": index.key]
                             self.key = index.key
                             
                             let userName = index.value["userName"] as! String
