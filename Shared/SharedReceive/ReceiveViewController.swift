@@ -15,6 +15,7 @@ class ReceiveViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var loader: UIActivityIndicatorView!
+    @IBOutlet var noDataView: UIView!
     
 
     struct memberInfoStruct {
@@ -52,6 +53,7 @@ class ReceiveViewController: UIViewController {
                     ref.child("ReceiveMetaData/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
 
                     if snapshot.hasChildren() == false{
+                        self.noDataView.isHidden = false
                         return
                     }
                     else{
