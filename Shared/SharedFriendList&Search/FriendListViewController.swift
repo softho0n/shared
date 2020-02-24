@@ -49,13 +49,17 @@ class FriendListViewController: UIViewController {
                         for item in snapshot.children {
                             let value = (item as! DataSnapshot).value
                             let dictionary = value as! [String : Any]
-                            if let userName = dictionary["userName"] as? String, let userPhoneNumber = dictionary["userPhoneNumber"] as? String, let signInDate = dictionary["signInDate"] as? String, let key = dictionary["uid"] as? String {
+                            print(dictionary)
+                            if let userName = dictionary["userName"] as? String, let userPhoneNumber = dictionary["userPhoneNumber"] as? String, let signInDate = dictionary["signInDate"] as? String {
+                                let key = (item as! DataSnapshot).key
                                 self.myFiendList.append(myFriendInfoStruct(uid: key, userName: userName, userPhoneNum: userPhoneNumber , userDate: signInDate))
+                                print(self.myFiendList)
                             }
                         }
-                        self.loader.stopAnimating()
-                        self.tableView.reloadData()
+                        
                     }
+                    self.loader.stopAnimating()
+                    self.tableView.reloadData()
                 })
             }
         }
