@@ -143,7 +143,10 @@ extension ReceiveViewController : UITableViewDelegate, UITableViewDataSource{
         numberFormatter.numberStyle = .decimal
         let perMoney = (Int(receiveList[indexPath.row].totalMoney)! / (Int(receiveList[indexPath.row].numOfMembers)!))
         let result = numberFormatter.string(from: NSNumber(value:perMoney))!
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
         
+        cell.selectedBackgroundView = bgColorView
         cell.receivePersonPhoto.layer.cornerRadius = cell.receivePersonPhoto.frame.height/2
         cell.shopPhoto.layer.cornerRadius = cell.shopPhoto.frame.height/2
         cell.receivePerson.text = myName
