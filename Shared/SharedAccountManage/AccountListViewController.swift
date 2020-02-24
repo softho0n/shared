@@ -13,6 +13,9 @@ import FirebaseDatabase
 class AccountListViewController: UIViewController {
 
     var ref: DatabaseReference!
+    var signitureAccountKey: String!
+    var signitureAccountValue: String!
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var loader: UIActivityIndicatorView!
     @IBOutlet var thereIsNoAccountView: UIView!
@@ -36,6 +39,16 @@ class AccountListViewController: UIViewController {
         if let uid = Auth.auth().currentUser?.uid {
             DispatchQueue.global().sync {
                 self.loader.startAnimating()
+                ref.child("Signiture/\(uid)").observeSingleEvent(of: .value) { (snapshot) in
+                    for item in snapshot.children {
+                        let value = (item as! DataSnapshot).value
+                        let key = (item as! DataSnapshot).key
+                        if let accountNumber = value {
+                            self.signitureAccountKey = key
+                            self.signitureAccountValue = accountNumber as! String
+                        }
+                    }
+                }
                 ref.child("Accounts/\(uid)").observeSingleEvent(of: .value, with: {(snapshot) in
                     if (snapshot.exists()) {
                         for item in snapshot.children {
@@ -69,6 +82,9 @@ extension AccountListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) as! AccountTableViewCell
+        if(self.signitureAccountValue == accountList[indexPath.row].accountNumber && self.signitureAccountKey == accountList[indexPath.row].bank) {
+            cell.accessoryType = .checkmark
+        }
         cell.bankName.text = accountList[indexPath.row].bank
         cell.accountNumber.text = accountList[indexPath.row].accountNumber
         return cell
@@ -76,7 +92,11 @@ extension AccountListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(accountList[indexPath.row])
-        alertWithConfirm(bank: accountList[indexPath.row].bank, account: accountList[indexPath.row].accountNumber)
+        if(self.signitureAccountValue == accountList[indexPath.row].accountNumber && self.signitureAccountKey == accountList[indexPath.row].bank) {
+            self.alert(message: "이미 출금계좌로 등록된 계좌입니다.")
+        } else {
+            alertWithConfirm(bank: accountList[indexPath.row].bank, account: accountList[indexPath.row].accountNumber)
+        }
     }
     
 }
