@@ -790,6 +790,32 @@
                                     <outlet property="delegate" destination="KwD-F8-lc5" id="eBd-S1-cA9"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QS3-Ke-mLF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록된 친구목록이 존재하지 않습니다 :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqc-jC-fA7">
+                                        <rect key="frame" x="38.5" y="373.5" width="337" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addfriends" translatesAutoresizingMaskIntoConstraints="NO" id="Uyf-c3-ZCI">
+                                        <rect key="frame" x="87" y="222.5" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="JEu-Qx-7Sx"/>
+                                            <constraint firstAttribute="width" constant="240" id="pCe-3t-Nu1"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Uyf-c3-ZCI" secondAttribute="trailing" constant="87" id="D3n-fv-EBc"/>
+                                    <constraint firstItem="fqc-jC-fA7" firstAttribute="top" secondItem="Uyf-c3-ZCI" secondAttribute="bottom" constant="23" id="JP1-7v-GKE"/>
+                                    <constraint firstItem="fqc-jC-fA7" firstAttribute="centerX" secondItem="QS3-Ke-mLF" secondAttribute="centerX" id="gOa-ov-EbR"/>
+                                    <constraint firstItem="fqc-jC-fA7" firstAttribute="centerY" secondItem="QS3-Ke-mLF" secondAttribute="centerY" id="gnI-xS-A8j"/>
+                                    <constraint firstItem="Uyf-c3-ZCI" firstAttribute="leading" secondItem="QS3-Ke-mLF" secondAttribute="leading" constant="87" id="ljR-6T-uiX"/>
+                                </constraints>
+                            </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="bw3-xs-nQ2">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="color" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -802,9 +828,13 @@
                             <constraint firstItem="NE6-Ne-gNL" firstAttribute="trailing" secondItem="Avl-5d-DOU" secondAttribute="trailing" id="Kxm-ir-UAs"/>
                             <constraint firstItem="bw3-xs-nQ2" firstAttribute="top" secondItem="Avl-5d-DOU" secondAttribute="top" id="feW-2I-I4f"/>
                             <constraint firstItem="Avl-5d-DOU" firstAttribute="bottom" secondItem="bw3-xs-nQ2" secondAttribute="bottom" id="iPf-pa-40d"/>
+                            <constraint firstItem="Avl-5d-DOU" firstAttribute="trailing" secondItem="QS3-Ke-mLF" secondAttribute="trailing" id="jgg-sd-QCr"/>
                             <constraint firstItem="NE6-Ne-gNL" firstAttribute="top" secondItem="9mk-cU-Rsw" secondAttribute="top" constant="20" symbolic="YES" id="kzX-Zk-Ieu"/>
+                            <constraint firstItem="QS3-Ke-mLF" firstAttribute="leading" secondItem="Avl-5d-DOU" secondAttribute="leading" id="nJW-In-60t"/>
+                            <constraint firstItem="Avl-5d-DOU" firstAttribute="bottom" secondItem="QS3-Ke-mLF" secondAttribute="bottom" id="r0f-Et-36p"/>
                             <constraint firstItem="bw3-xs-nQ2" firstAttribute="leading" secondItem="Avl-5d-DOU" secondAttribute="leading" id="stn-Dn-eNa"/>
                             <constraint firstItem="bw3-xs-nQ2" firstAttribute="trailing" secondItem="Avl-5d-DOU" secondAttribute="trailing" id="sw8-Wa-f42"/>
+                            <constraint firstItem="QS3-Ke-mLF" firstAttribute="top" secondItem="Avl-5d-DOU" secondAttribute="top" id="yuY-9w-Z1r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Avl-5d-DOU"/>
                     </view>
@@ -812,6 +842,7 @@
                     <connections>
                         <outlet property="loader" destination="bw3-xs-nQ2" id="arJ-nA-XYc"/>
                         <outlet property="tableView" destination="NE6-Ne-gNL" id="J6n-Ve-M0P"/>
+                        <outlet property="thereIsNoFriendsView" destination="QS3-Ke-mLF" id="EAj-5w-lgG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r49-2F-Hw4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1269,11 +1300,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="accountCell" rowHeight="80" id="dI0-H7-0Wv" customClass="AccountTableViewCell" customModule="Shared" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="accountCell" rowHeight="80" id="dI0-H7-0Wv" customClass="AccountTableViewCell" customModule="Shared" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dI0-H7-0Wv" id="pzH-ly-qMs">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYF-yW-aZI">
@@ -1317,7 +1348,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록된 계좌가 존재하지 않습니다 :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWe-1u-j2F">
-                                        <rect key="frame" x="50.5" y="390" width="313" height="28"/>
+                                        <rect key="frame" x="51" y="390" width="312.5" height="28"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -2347,6 +2378,7 @@
     <resources>
         <image name="BurgerKing" width="200" height="200"/>
         <image name="add" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="addfriends" width="512" height="512"/>
         <image name="arrow.left" catalog="system" width="64" height="48"/>
         <image name="arrow.right" catalog="system" width="64" height="48"/>
         <image name="arrow.right.square.fill" catalog="system" width="64" height="56"/>
