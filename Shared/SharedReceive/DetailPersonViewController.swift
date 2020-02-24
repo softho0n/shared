@@ -18,9 +18,8 @@ class DetailPersonViewController: UIViewController {
         tableView.cellLayoutMarginsFollowReadableWidth = false
         
     }
-    
-
 }
+
 extension DetailPersonViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return detailMemberList.count
