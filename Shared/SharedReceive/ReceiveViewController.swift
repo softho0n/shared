@@ -155,6 +155,14 @@ extension ReceiveViewController : UITableViewDelegate, UITableViewDataSource{
         cell.totalMoney.text = "\(numberFormatter.string(from: NSNumber(value:(Int(receiveList[indexPath.row].totalMoney)!)))!)/ \(Int(receiveList[indexPath.row].numOfMembers)!)"
         return cell
     }
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let alertAction = UIContextualAction(style: .destructive, title: "알림\n보내기", handler: {
+            (ac : UIContextualAction, view : UIView, sucess: (Bool) -> Void) in
+            sucess(true)
+            self.alert(title: "알림", message: "알림을 보냈습니다.")
+        })
+        return UISwipeActionsConfiguration(actions: [alertAction])
+    }
 
     
     

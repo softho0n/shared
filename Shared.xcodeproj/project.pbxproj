@@ -29,7 +29,6 @@
 		C970C50123BFC84600D0A069 /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C50023BFC84600D0A069 /* model.swift */; };
 		C970C50623BFD05900D0A069 /* UserAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C50523BFD05900D0A069 /* UserAuthViewController.swift */; };
 		C970C51023C10BEF00D0A069 /* MainUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C970C50F23C10BEF00D0A069 /* MainUIViewController.swift */; };
-		C97D72F92404399000E257EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C97D72F82404399000E257EE /* GoogleService-Info.plist */; };
 		C9AA1DFD23E81A3C00540DA7 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AA1DFC23E81A3C00540DA7 /* MenuTableViewController.swift */; };
 		C9B0756623DA6F2500E68753 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756523DA6F2500E68753 /* UserInfoTableViewCell.swift */; };
 		C9B0756923DA75DD00E68753 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0756823DA75DD00E68753 /* FriendListViewController.swift */; };
@@ -40,6 +39,7 @@
 		C9C3B1A12403D09B007E9685 /* ReceivePayLineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B1A02403D09B007E9685 /* ReceivePayLineTableViewCell.swift */; };
 		C9C3B1A32403FB09007E9685 /* DetailPersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B1A22403FB09007E9685 /* DetailPersonTableViewCell.swift */; };
 		C9C3B1A52403FBDC007E9685 /* DetailPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B1A42403FBDC007E9685 /* DetailPersonViewController.swift */; };
+		C9CA543524050903009BEE42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9CA543424050903009BEE42 /* GoogleService-Info.plist */; };
 		C9D90D1123EC62AC008C16C0 /* AccountNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */; };
 		C9D90D1D23FFFF68008C16C0 /* SendpayLineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1C23FFFF68008C16C0 /* SendpayLineTableViewCell.swift */; };
 		C9E90FE123F39C9D00F840DD /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E90FE023F39C9D00F840DD /* AccountTableViewCell.swift */; };
@@ -72,7 +72,6 @@
 		C970C50023BFC84600D0A069 /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 		C970C50523BFD05900D0A069 /* UserAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthViewController.swift; sourceTree = "<group>"; };
 		C970C50F23C10BEF00D0A069 /* MainUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUIViewController.swift; sourceTree = "<group>"; };
-		C97D72F82404399000E257EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9AA1DFC23E81A3C00540DA7 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		C9B0756523DA6F2500E68753 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		C9B0756823DA75DD00E68753 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +82,7 @@
 		C9C3B1A02403D09B007E9685 /* ReceivePayLineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivePayLineTableViewCell.swift; sourceTree = "<group>"; };
 		C9C3B1A22403FB09007E9685 /* DetailPersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonTableViewCell.swift; sourceTree = "<group>"; };
 		C9C3B1A42403FBDC007E9685 /* DetailPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonViewController.swift; sourceTree = "<group>"; };
+		C9CA543424050903009BEE42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNumberViewController.swift; sourceTree = "<group>"; };
 		C9D90D1C23FFFF68008C16C0 /* SendpayLineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendpayLineTableViewCell.swift; sourceTree = "<group>"; };
 		C9E90FE023F39C9D00F840DD /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 			children = (
 				C970C4F123BF968000D0A069 /* Assets.xcassets */,
 				C970C4E823BF967E00D0A069 /* AppDelegate.swift */,
-				C97D72F82404399000E257EE /* GoogleService-Info.plist */,
+				C9CA543424050903009BEE42 /* GoogleService-Info.plist */,
 				C970C4FE23BFC75F00D0A069 /* extension.swift */,
 				C9D06D5C23F6631000214041 /* SharedDutch */,
 				C9D90D1223EC7CF5008C16C0 /* Font */,
@@ -332,7 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C970C4F523BF968000D0A069 /* LaunchScreen.storyboard in Resources */,
-				C97D72F92404399000E257EE /* GoogleService-Info.plist in Resources */,
+				C9CA543524050903009BEE42 /* GoogleService-Info.plist in Resources */,
 				C970C4F223BF968000D0A069 /* Assets.xcassets in Resources */,
 				C970C4F023BF967F00D0A069 /* Main.storyboard in Resources */,
 			);
@@ -564,7 +564,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 753Y2V2VLZ;
+				DEVELOPMENT_TEAM = 72W38W8KG4;
 				INFOPLIST_FILE = Shared/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -584,7 +584,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 753Y2V2VLZ;
+				DEVELOPMENT_TEAM = 72W38W8KG4;
 				INFOPLIST_FILE = Shared/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
