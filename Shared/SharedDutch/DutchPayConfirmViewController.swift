@@ -30,7 +30,10 @@ class DutchPayConfirmViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var dutchInfoLabel: UILabel!
     @IBOutlet var groupName: UITextField!
-    @IBAction func dutchPayConfirmBtn(_ sender: Any) {
+
+    
+    @objc
+    func dutchPayConfirm() {
         alertWithConfirm()
     }
     
@@ -43,6 +46,7 @@ class DutchPayConfirmViewController: UIViewController {
         print("hello")
         print(receiveGroupInfo)
         dutchInfoLabel.text = "총 \(totalCount + 1)명 \(dutchBalance)원"
+        addToolbarToVerifyAuthCode(groupName, "더치페이 만들기")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +57,32 @@ class DutchPayConfirmViewController: UIViewController {
             devidedBalance = DecimalWon(value: intValueOfDutchBalance)
         }
     }
+    
+    // 텍스트 필드에 입력할때 키보드 위에 버튼 생성 시키는 코드
+    func addToolbarToVerifyAuthCode(_ textField : Any?, _ message : String?){
+        guard let field = textField as? UITextField else {
+            fatalError()
+        }
+        
+        guard let msg = message else {
+            fatalError()
+        }
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        toolbar.clipsToBounds = true
+        toolbar.barTintColor = UIColor(white: 1, alpha: 0.5)
+        
+        // 버튼에 액션 넣을건데 #selector(yourFUnction)
+        // yourFunction 은 실행시킬 함수내용
+        let doneButton = UIBarButtonItem(title: msg, style: .done, target: nil, action: #selector(dutchPayConfirm))
+        doneButton.tintColor = .systemBlue
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        toolbar.setItems([flexibleSpace,doneButton,flexibleSpace], animated: false)
+        field.inputAccessoryView = toolbar
+    }
+    
 
     func setDutchPayData() {
         if let uid = Auth.auth().currentUser?.uid {

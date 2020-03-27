@@ -31,6 +31,7 @@ class RegisterAccountViewController: UIViewController {
         collectionView.allowsSelection = true
         collectionView.allowsMultipleSelection = false
         collectionView.showsVerticalScrollIndicator = false
+        
         getdata()
     }
     

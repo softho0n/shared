@@ -20,8 +20,8 @@ class DutchBalanceViewController: UIViewController {
         setupBackButton()
         moneyField.adjustsFontSizeToFitWidth = false
         addToolbarToConfirm(moneyField, "다음으로")
-        print(groupInfoList)
-        print(totalCount)
+//        print(groupInfoList)
+//        print(totalCount)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
