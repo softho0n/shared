@@ -85,13 +85,16 @@ extension AccountListViewController: UITableViewDelegate, UITableViewDataSource 
         if(self.signitureAccountValue == accountList[indexPath.row].accountNumber && self.signitureAccountKey == accountList[indexPath.row].bank) {
             cell.accessoryType = .checkmark
         }
+        else
+        {
+            cell.accessoryType = .none
+        }
         cell.bankName.text = accountList[indexPath.row].bank
         cell.accountNumber.text = accountList[indexPath.row].accountNumber
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(accountList[indexPath.row])
         if(self.signitureAccountValue == accountList[indexPath.row].accountNumber && self.signitureAccountKey == accountList[indexPath.row].bank) {
             self.alert(message: "이미 출금계좌로 등록된 계좌입니다.")
         } else {
@@ -114,10 +117,15 @@ extension AccountListViewController {
                     
                     NotificationCenter.default.post(name: AccountListViewController.newSigCard, object: nil)
                     self.dismiss(animated: true, completion: nil)
+                    self.signitureAccountValue = account
+                    self.signitureAccountKey = bank
+                    self.tableView.reloadData()
+
                 } else {
                     fatalError()
                 }
             }
+            
         }
         let cancel = UIAlertAction(title: "취소", style: .destructive, handler: nil)
         alert.addAction(action)
