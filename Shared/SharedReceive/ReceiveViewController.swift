@@ -64,9 +64,10 @@ class ReceiveViewController: UIViewController {
         if let uid = Auth.auth().currentUser?.uid {
             ref.child("ReceiveMetaData/\(uid)").observe(.childChanged) { (snap) in
                 if self.counter == false {
+                    self.noDataView.isHidden = true
                     self.loader.startAnimating()
                     self.receiveList.removeAll()
-                    self.noDataView.isHidden = true
+                    
                     self.getFBData()
                 }
             }
@@ -83,6 +84,8 @@ class ReceiveViewController: UIViewController {
 
                     if snapshot.hasChildren() == false{
                         self.noDataView.isHidden = false
+                        self.loader.stopAnimating()
+                        self.tableView.reloadData()
                         return
                     }
                     else{
@@ -110,6 +113,7 @@ class ReceiveViewController: UIViewController {
                             let finishedGroup = memberList.allSatisfy{$0.status == "true"}
                             if finishedGroup == true{
                                 self.ref.child("ReceiveMetaData/\(uid)/\(new.key)").removeValue()
+                                self.noDataView.isHidden = false
                             }
                             else{
                                 self.receiveList.append(receivePayLineInfoStruct(groupName: groupName, numOfMembers: numOfMembers, totalMoney: totalMoney,allMembersInfo: memberList))
