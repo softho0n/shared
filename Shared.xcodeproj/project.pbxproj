@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20341B1450F3DBDF5029F103 /* libPods-Shared.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93995C3587E3F33BC4A618F3 /* libPods-Shared.a */; };
 		C9288A4423EB2AAB00358759 /* RegisterAccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9288A4323EB2AAB00358759 /* RegisterAccountCollectionViewCell.swift */; };
 		C9288A4623EB383A00358759 /* RegisterAccountCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9288A4523EB383A00358759 /* RegisterAccountCollectionReusableView.swift */; };
 		C9314B9723F6641C007A458A /* MakingGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9314B9623F6641C007A458A /* MakingGroupViewController.swift */; };
@@ -43,12 +44,12 @@
 		C9D90D1D23FFFF68008C16C0 /* SendpayLineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1C23FFFF68008C16C0 /* SendpayLineTableViewCell.swift */; };
 		C9E90FE123F39C9D00F840DD /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E90FE023F39C9D00F840DD /* AccountTableViewCell.swift */; };
 		C9E90FE523F3D47200F840DD /* chargeSharedMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E90FE423F3D47200F840DD /* chargeSharedMoneyViewController.swift */; };
-		D18793D169D1E3B533A3E1FA /* libPods-Shared.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD0FC2030195D4D27F4712E /* libPods-Shared.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3FCAA029958D7C816222D6CF /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
-		6FD0FC2030195D4D27F4712E /* libPods-Shared.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Shared.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		638092D979905374989C3CE8 /* Pods-Shared.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.debug.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.debug.xcconfig"; sourceTree = "<group>"; };
+		93995C3587E3F33BC4A618F3 /* libPods-Shared.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Shared.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B83E4DFC0285C9BDBBBC213A /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 		C9288A4323EB2AAB00358759 /* RegisterAccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9288A4523EB383A00358759 /* RegisterAccountCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAccountCollectionReusableView.swift; sourceTree = "<group>"; };
 		C9314B9623F6641C007A458A /* MakingGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakingGroupViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +89,6 @@
 		C9D90D1C23FFFF68008C16C0 /* SendpayLineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendpayLineTableViewCell.swift; sourceTree = "<group>"; };
 		C9E90FE023F39C9D00F840DD /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		C9E90FE423F3D47200F840DD /* chargeSharedMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chargeSharedMoneyViewController.swift; sourceTree = "<group>"; };
-		E570C80D333F5E68AEE6F50C /* Pods-Shared.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shared.release.xcconfig"; path = "Target Support Files/Pods-Shared/Pods-Shared.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D18793D169D1E3B533A3E1FA /* libPods-Shared.a in Frameworks */,
+				20341B1450F3DBDF5029F103 /* libPods-Shared.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,16 +106,16 @@
 		23D29484E423F67C3AE83467 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3FCAA029958D7C816222D6CF /* Pods-Shared.debug.xcconfig */,
-				E570C80D333F5E68AEE6F50C /* Pods-Shared.release.xcconfig */,
+				638092D979905374989C3CE8 /* Pods-Shared.debug.xcconfig */,
+				B83E4DFC0285C9BDBBBC213A /* Pods-Shared.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		A350457356314B304A8D83CA /* Frameworks */ = {
+		4C41EDA21043DCEC090F4AFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6FD0FC2030195D4D27F4712E /* libPods-Shared.a */,
+				93995C3587E3F33BC4A618F3 /* libPods-Shared.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -126,7 +126,7 @@
 				C970C4E723BF967E00D0A069 /* Shared */,
 				C970C4E623BF967E00D0A069 /* Products */,
 				23D29484E423F67C3AE83467 /* Pods */,
-				A350457356314B304A8D83CA /* Frameworks */,
+				4C41EDA21043DCEC090F4AFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,7 +278,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C970C4F923BF968000D0A069 /* Build configuration list for PBXNativeTarget "Shared" */;
 			buildPhases = (
-				61CC5C3E60CA09DC95BC85D9 /* [CP] Check Pods Manifest.lock */,
+				D80BA33C852E888519E5A7D3 /* [CP] Check Pods Manifest.lock */,
 				C970C4E123BF967E00D0A069 /* Sources */,
 				C970C4E223BF967E00D0A069 /* Frameworks */,
 				C970C4E323BF967E00D0A069 /* Resources */,
@@ -340,7 +340,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		61CC5C3E60CA09DC95BC85D9 /* [CP] Check Pods Manifest.lock */ = {
+		D80BA33C852E888519E5A7D3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -542,11 +542,11 @@
 		};
 		C970C4FA23BF968000D0A069 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3FCAA029958D7C816222D6CF /* Pods-Shared.debug.xcconfig */;
+			baseConfigurationReference = 638092D979905374989C3CE8 /* Pods-Shared.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 753Y2V2VLZ;
+				DEVELOPMENT_TEAM = 72W38W8KG4;
 				INFOPLIST_FILE = Shared/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -562,11 +562,11 @@
 		};
 		C970C4FB23BF968000D0A069 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E570C80D333F5E68AEE6F50C /* Pods-Shared.release.xcconfig */;
+			baseConfigurationReference = B83E4DFC0285C9BDBBBC213A /* Pods-Shared.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 753Y2V2VLZ;
+				DEVELOPMENT_TEAM = 72W38W8KG4;
 				INFOPLIST_FILE = Shared/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
