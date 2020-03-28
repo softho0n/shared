@@ -22,41 +22,11 @@ class AccountNumberViewController: UIViewController {
         super.viewDidLoad()
         self.bankLabel.text = "\(bankName!)은행"
         AccNumberField.keyboardType = .numberPad
-//        clickButton.isHidden = true
         ref = Database.database().reference()
-        addToolbarToVerifyAuthCode(AccNumberField, "계좌 연동하기")
+        addToolbarToRegisterAccount(AccNumberField, "계좌 연동하기")
     }
     
-    @IBAction func editingStart(_ sender: Any) {
-        
-    }
-    
-//    @IBAction func interlocking(_ sender: Any) {
-//        if let uid = Auth.auth().currentUser?.uid, let bankName = bankLabel.text, let account = AccNumberField.text {
-//            ref?.child("Accounts/\(uid)").updateChildValues([bankName: account])
-//            if firstAccount == true{
-//                print("AccountNumberView", self.firstAccount)
-//                self.ref?.child("Signiture/\(uid)").setValue([bankName: account])
-//            }
-//        }
-//        AccNumberField.text = ""
-//        alertWithHome(message: "계좌가 정상적으로 연동 되었습니다.")
-//    }
-    
-    @objc
-    func interlocking() {
-        if let uid = Auth.auth().currentUser?.uid, let bankName = bankLabel.text, let account = AccNumberField.text {
-            ref?.child("Accounts/\(uid)").updateChildValues([bankName: account])
-            if firstAccount == true{
-                print("AccountNumberView", self.firstAccount)
-                self.ref?.child("Signiture/\(uid)").setValue([bankName: account])
-            }
-        }
-        AccNumberField.text = ""
-        alertWithHome(message: "계좌가 정상적으로 연동 되었습니다.")
-    }
-    
-    func addToolbarToVerifyAuthCode(_ textField : Any?, _ message : String?){
+    func addToolbarToRegisterAccount(_ textField : Any?, _ message : String?){
         guard let field = textField as? UITextField else {
             fatalError()
         }
@@ -76,6 +46,19 @@ class AccountNumberViewController: UIViewController {
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         toolbar.setItems([flexibleSpace,doneButton,flexibleSpace], animated: false)
         field.inputAccessoryView = toolbar
+    }
+    
+    @objc
+    func interlocking() {
+        if let uid = Auth.auth().currentUser?.uid, let bankName = bankLabel.text, let account = AccNumberField.text {
+            ref?.child("Accounts/\(uid)").updateChildValues([bankName: account])
+            if firstAccount == true{
+                print("AccountNumberView", self.firstAccount)
+                self.ref?.child("Signiture/\(uid)").setValue([bankName: account])
+            }
+        }
+        AccNumberField.text = ""
+        alertWithHome(message: "계좌가 정상적으로 연동 되었습니다.")
     }
 }
 

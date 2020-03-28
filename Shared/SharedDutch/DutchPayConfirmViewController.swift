@@ -26,27 +26,23 @@ class DutchPayConfirmViewController: UIViewController {
     var devidedBalance: String = ""
     var ref: DatabaseReference!
     var userMetaData: Any?
+    var groupName: String?
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var dutchInfoLabel: UILabel!
-    @IBOutlet var groupName: UITextField!
-
-    
-    @objc
-    func dutchPayConfirm() {
-        alertWithConfirm()
-    }
+    @IBOutlet var createDutchPayGroupButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
+        self.navigationItem.title = "더치페이 생성"
+        
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
         tableView.cellLayoutMarginsFollowReadableWidth = false
         tableView.tableFooterView = UIView()
-        ref = Database.database().reference()
-        print("hello")
-        print(receiveGroupInfo)
+        
         dutchInfoLabel.text = "총 \(totalCount + 1)명 \(dutchBalance)원"
-        addToolbarToVerifyAuthCode(groupName, "더치페이 만들기")
+        createDutchPayGroupButton.addTarget(self, action: #selector(dutchPayConfirm), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,31 +54,10 @@ class DutchPayConfirmViewController: UIViewController {
         }
     }
     
-    // 텍스트 필드에 입력할때 키보드 위에 버튼 생성 시키는 코드
-    func addToolbarToVerifyAuthCode(_ textField : Any?, _ message : String?){
-        guard let field = textField as? UITextField else {
-            fatalError()
-        }
-        
-        guard let msg = message else {
-            fatalError()
-        }
-        
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        toolbar.clipsToBounds = true
-        toolbar.barTintColor = UIColor(white: 1, alpha: 0.5)
-        
-        // 버튼에 액션 넣을건데 #selector(yourFUnction)
-        // yourFunction 은 실행시킬 함수내용
-        let doneButton = UIBarButtonItem(title: msg, style: .done, target: nil, action: #selector(dutchPayConfirm))
-        doneButton.tintColor = .systemBlue
-        
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        toolbar.setItems([flexibleSpace,doneButton,flexibleSpace], animated: false)
-        field.inputAccessoryView = toolbar
+    @objc
+    func dutchPayConfirm() {
+        alertWithConfirm()
     }
-    
 
     func setDutchPayData() {
         if let uid = Auth.auth().currentUser?.uid {
@@ -103,13 +78,13 @@ class DutchPayConfirmViewController: UIViewController {
             
             if let uniquekey = self.ref.child("ReceiveMetaData").child(uid).childByAutoId().key {
                 var groupDictionary : [String : String] = [:]
-                if self.groupName.text == nil {
+                if self.groupName == nil {
                     groupDictionary.updateValue(myName!, forKey: "GroupBy")
                     groupDictionary.updateValue(" ", forKey: "GroupName")
                     groupDictionary.updateValue(self.dutchBalance, forKey: "TotalMoney")
                 } else {
                     groupDictionary.updateValue(myName!, forKey: "GroupBy")
-                    groupDictionary.updateValue(self.groupName.text!, forKey: "GroupName")
+                    groupDictionary.updateValue(self.groupName!, forKey: "GroupName")
                     groupDictionary.updateValue(self.dutchBalance, forKey: "TotalMoney")
                     groupDictionary.updateValue("\(self.receiveGroupInfo.count + 1)", forKey: "NumOfMembers")
                 }

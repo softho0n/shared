@@ -541,7 +541,7 @@
             </objects>
             <point key="canvasLocation" x="6815.9420289855079" y="235.71428571428569"/>
         </scene>
-        <!--금액 입력-->
+        <!--더치페이 정보-->
         <scene sceneID="B8g-0n-FeN">
             <objects>
                 <viewController storyboardIdentifier="DutchBalanceViewController" id="S40-Bh-cPB" customClass="DutchBalanceViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
@@ -550,18 +550,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="더치페이 금액을 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNn-4t-cOF">
-                                <rect key="frame" x="20" y="142" width="374" height="30"/>
+                                <rect key="frame" x="20" y="304" width="374" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="FBt-ph-K8F"/>
+                                    <constraint firstAttribute="height" constant="30" id="8y0-Ol-FDC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="10,000" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="67x-Tr-DQT">
-                                <rect key="frame" x="20" y="193" width="86" height="30"/>
+                                <rect key="frame" x="20" y="349" width="80" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="w2F-uc-MfY"/>
+                                    <constraint firstAttribute="height" constant="30" id="sli-NP-RMB"/>
                                 </constraints>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -571,38 +571,71 @@
                                     <outlet property="delegate" destination="S40-Bh-cPB" id="5Jx-yY-cTO"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yP-fw-3yv">
-                                <rect key="frame" x="108" y="193" width="22" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="더치페이 그룹명을 입력해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvz-bW-KLS">
+                                <rect key="frame" x="20" y="123" width="374" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="qzD-jH-1zz"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="dAx-nN-V32"/>
+                                    <constraint firstAttribute="height" constant="30" id="jzh-yj-cr9"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="그룹명" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wnp-2M-Qz7">
+                                <rect key="frame" x="20" y="168" width="374" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="3CW-48-QUG"/>
+                                    <constraint firstAttribute="height" constant="30" id="NuB-a5-Nrc"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editingStart:" destination="XOX-AH-BAB" eventType="editingDidBegin" id="jVr-Da-oiC"/>
+                                    <outlet property="delegate" destination="S40-Bh-cPB" id="thz-EQ-Nf8"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yP-fw-3yv">
+                                <rect key="frame" x="101" y="353" width="18" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="VM8-Ic-Lat"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="77B-L2-Cm8" firstAttribute="trailing" secondItem="uNn-4t-cOF" secondAttribute="trailing" constant="20" id="1YT-5C-CeB"/>
-                            <constraint firstItem="6yP-fw-3yv" firstAttribute="leading" secondItem="67x-Tr-DQT" secondAttribute="trailing" constant="2" id="5Hy-jq-MVq"/>
-                            <constraint firstItem="uNn-4t-cOF" firstAttribute="top" secondItem="77B-L2-Cm8" secondAttribute="top" constant="54" id="HuI-oe-5TM"/>
-                            <constraint firstItem="77B-L2-Cm8" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6yP-fw-3yv" secondAttribute="trailing" constant="284" id="bfT-hk-ntn"/>
-                            <constraint firstItem="6yP-fw-3yv" firstAttribute="top" secondItem="uNn-4t-cOF" secondAttribute="bottom" constant="21" id="dNk-Mf-FCI"/>
-                            <constraint firstItem="67x-Tr-DQT" firstAttribute="top" secondItem="uNn-4t-cOF" secondAttribute="bottom" constant="21" id="fAV-1B-zEs"/>
-                            <constraint firstItem="uNn-4t-cOF" firstAttribute="leading" secondItem="77B-L2-Cm8" secondAttribute="leading" constant="20" id="iFo-S7-QZD"/>
-                            <constraint firstItem="67x-Tr-DQT" firstAttribute="leading" secondItem="77B-L2-Cm8" secondAttribute="leading" constant="20" id="y6A-0H-ixB"/>
+                            <constraint firstItem="67x-Tr-DQT" firstAttribute="leading" secondItem="77B-L2-Cm8" secondAttribute="leading" constant="20" id="0SM-AM-cjd"/>
+                            <constraint firstItem="uNn-4t-cOF" firstAttribute="top" secondItem="wnp-2M-Qz7" secondAttribute="bottom" constant="106" id="HLP-L6-Jca"/>
+                            <constraint firstItem="Zvz-bW-KLS" firstAttribute="top" secondItem="77B-L2-Cm8" secondAttribute="top" constant="35" id="Hcw-ha-3f0"/>
+                            <constraint firstItem="wnp-2M-Qz7" firstAttribute="top" secondItem="Zvz-bW-KLS" secondAttribute="bottom" constant="15" id="L7j-se-I7G"/>
+                            <constraint firstItem="Zvz-bW-KLS" firstAttribute="leading" secondItem="77B-L2-Cm8" secondAttribute="leading" constant="20" id="P5S-5q-jfM"/>
+                            <constraint firstItem="6yP-fw-3yv" firstAttribute="leading" secondItem="67x-Tr-DQT" secondAttribute="trailing" constant="1" id="Q3B-8p-vzr"/>
+                            <constraint firstItem="wnp-2M-Qz7" firstAttribute="leading" secondItem="77B-L2-Cm8" secondAttribute="leading" constant="20" id="QjU-D2-Gmr"/>
+                            <constraint firstItem="uNn-4t-cOF" firstAttribute="leading" secondItem="77B-L2-Cm8" secondAttribute="leading" constant="20" id="UlW-Cz-7iL"/>
+                            <constraint firstItem="77B-L2-Cm8" firstAttribute="trailing" secondItem="Zvz-bW-KLS" secondAttribute="trailing" constant="20" id="Y3S-HR-01k"/>
+                            <constraint firstItem="77B-L2-Cm8" firstAttribute="trailing" secondItem="uNn-4t-cOF" secondAttribute="trailing" constant="20" id="dcj-CP-T4z"/>
+                            <constraint firstItem="77B-L2-Cm8" firstAttribute="trailing" secondItem="wnp-2M-Qz7" secondAttribute="trailing" constant="20" id="dn9-qm-5B9"/>
+                            <constraint firstItem="77B-L2-Cm8" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6yP-fw-3yv" secondAttribute="trailing" constant="295" id="joj-n3-dLV"/>
+                            <constraint firstItem="67x-Tr-DQT" firstAttribute="top" secondItem="uNn-4t-cOF" secondAttribute="bottom" constant="15" id="qIe-tZ-vXf"/>
+                            <constraint firstItem="6yP-fw-3yv" firstAttribute="top" secondItem="uNn-4t-cOF" secondAttribute="bottom" constant="19" id="qQa-JS-3C2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="77B-L2-Cm8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="금액 입력" id="pgq-h8-VK6"/>
+                    <navigationItem key="navigationItem" title="더치페이 정보" id="pgq-h8-VK6"/>
                     <connections>
+                        <outlet property="groupField" destination="wnp-2M-Qz7" id="vfB-fI-z5O"/>
                         <outlet property="moneyField" destination="67x-Tr-DQT" id="fpV-5R-Un0"/>
+                        <outlet property="moneyInfoLabel" destination="uNn-4t-cOF" id="MPX-5w-SZW"/>
+                        <outlet property="wonLabel" destination="6yP-fw-3yv" id="RT1-uB-VIx"/>
                         <segue destination="tM4-qf-t5u" kind="push" identifier="segueForConfirm" id="1kK-n8-eku"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfH-as-o5W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7694" y="250"/>
+            <point key="canvasLocation" x="7692.753623188406" y="249.77678571428569"/>
         </scene>
         <!--Dutch Pay Confirm View Controller-->
         <scene sceneID="pxb-ux-CaZ">
@@ -619,7 +652,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fvh-LF-zr3">
-                                <rect key="frame" x="0.0" y="201" width="414" height="661"/>
+                                <rect key="frame" x="0.0" y="201" width="414" height="624"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InfoOfDutchPayCell" rowHeight="80" id="F0w-94-R5b" customClass="DutchInfoTableViewCell" customModule="Shared" customModuleProvider="target">
@@ -679,33 +712,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="그룹명을 입력해주세요." textAlignment="center" minimumFontSize="17" id="IDG-om-jCR">
-                                <rect key="frame" x="0.0" y="380" width="414" height="69"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNW-3Z-Djp">
+                                <rect key="frame" x="0.0" y="825" width="414" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="71" id="LQO-6G-rwI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="더치페이 생성하기"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="qbU-4R-mVe" firstAttribute="trailing" secondItem="fvh-LF-zr3" secondAttribute="trailing" id="2Qc-5L-eqh"/>
                             <constraint firstItem="9y1-Mx-OjY" firstAttribute="top" secondItem="qbU-4R-mVe" secondAttribute="top" constant="30" id="51Z-8K-yhB"/>
+                            <constraint firstItem="JNW-3Z-Djp" firstAttribute="top" secondItem="fvh-LF-zr3" secondAttribute="bottom" id="7XV-vL-Na3"/>
                             <constraint firstItem="9y1-Mx-OjY" firstAttribute="leading" secondItem="qbU-4R-mVe" secondAttribute="leading" constant="20" id="A8A-zg-DCE"/>
+                            <constraint firstItem="JNW-3Z-Djp" firstAttribute="trailing" secondItem="qbU-4R-mVe" secondAttribute="trailing" id="HjO-np-0Eg"/>
                             <constraint firstItem="lsW-lm-VKe" firstAttribute="top" secondItem="9y1-Mx-OjY" secondAttribute="bottom" constant="8" id="RRK-Gv-oC4"/>
+                            <constraint firstItem="fvh-LF-zr3" firstAttribute="trailing" secondItem="qbU-4R-mVe" secondAttribute="trailing" id="UVF-kN-SOs"/>
+                            <constraint firstItem="JNW-3Z-Djp" firstAttribute="leading" secondItem="qbU-4R-mVe" secondAttribute="leading" id="VXv-6U-DnV"/>
                             <constraint firstItem="lsW-lm-VKe" firstAttribute="leading" secondItem="qbU-4R-mVe" secondAttribute="leading" constant="20" id="XkR-7u-7zW"/>
                             <constraint firstItem="qbU-4R-mVe" firstAttribute="trailing" secondItem="lsW-lm-VKe" secondAttribute="trailing" constant="20" id="dR2-Vj-Enc"/>
-                            <constraint firstItem="fvh-LF-zr3" firstAttribute="leading" secondItem="qbU-4R-mVe" secondAttribute="leading" id="eJH-nc-e5A"/>
-                            <constraint firstItem="IDG-om-jCR" firstAttribute="top" secondItem="lsW-lm-VKe" secondAttribute="bottom" constant="194" id="gIK-Iy-nIF"/>
-                            <constraint firstItem="fvh-LF-zr3" firstAttribute="top" secondItem="lsW-lm-VKe" secondAttribute="bottom" constant="15" id="lGF-T4-CVP"/>
-                            <constraint firstItem="qbU-4R-mVe" firstAttribute="bottom" secondItem="fvh-LF-zr3" secondAttribute="bottom" id="pan-eo-uRA"/>
+                            <constraint firstAttribute="bottom" secondItem="JNW-3Z-Djp" secondAttribute="bottom" id="fMO-Jq-37i"/>
+                            <constraint firstItem="fvh-LF-zr3" firstAttribute="leading" secondItem="qbU-4R-mVe" secondAttribute="leading" id="kMG-Vt-3wq"/>
                             <constraint firstItem="qbU-4R-mVe" firstAttribute="trailing" secondItem="9y1-Mx-OjY" secondAttribute="trailing" constant="20" id="qNK-3P-1s9"/>
+                            <constraint firstItem="fvh-LF-zr3" firstAttribute="top" secondItem="lsW-lm-VKe" secondAttribute="bottom" constant="15" id="w0u-oP-MWG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qbU-4R-mVe"/>
                     </view>
                     <navigationItem key="navigationItem" id="NXx-bb-tst"/>
                     <connections>
+                        <outlet property="createDutchPayGroupButton" destination="JNW-3Z-Djp" id="pgv-2Y-WtM"/>
                         <outlet property="dutchInfoLabel" destination="9y1-Mx-OjY" id="U6R-5z-R8A"/>
-                        <outlet property="groupName" destination="IDG-om-jCR" id="zn2-DU-Cmb"/>
                         <outlet property="tableView" destination="fvh-LF-zr3" id="hKb-a4-IBf"/>
                     </connections>
                 </viewController>
