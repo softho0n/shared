@@ -15,8 +15,7 @@ class SearchUserViewController: UIViewController {
     var ref: DatabaseReference!
     var key: String!
     var alreadyExists: Bool = false
-    var storedData: [String : Any]!
-    var userInfo: [String : Any]! = nil
+    var storedData: [String : Any] = [:]
     
     @IBOutlet var firstView: UIView!
     @IBOutlet var secondView: UIView!
@@ -65,6 +64,9 @@ class SearchUserViewController: UIViewController {
         
         DispatchQueue.global().sync {
             loader.startAnimating()
+            if self.storedData.isEmpty == false{
+                self.storedData.removeAll()
+            }
             if let userPhoneNumber = self.userPhoneNumberField.text {
                 ref.child("Users").observeSingleEvent(of: .value) { (snapshot) in
                     let values = snapshot.value
@@ -87,7 +89,7 @@ class SearchUserViewController: UIViewController {
                     self.loader.stopAnimating()
                     self.loader.backgroundColor = UIColor.clear
                     
-                    if self.storedData == nil {
+                    if self.storedData.isEmpty == true {
                         self.notFoundView.isHidden = false
                     }
                     else {
