@@ -24,6 +24,8 @@ class MakingGroupViewController: UIViewController {
     
     @IBOutlet var loader: UIActivityIndicatorView!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var thereIsNoFriendView: UIView!
+    @IBOutlet var addFriendButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,7 @@ class MakingGroupViewController: UIViewController {
         tableView.cellLayoutMarginsFollowReadableWidth = false
         tableView.tableFooterView = UIView()
         ref = Database.database().reference()
+        addFriendButton.addTarget(self, action: #selector(moveToAddFriend), for: .touchUpInside)
         getDate()
     }
     
@@ -61,7 +64,7 @@ class MakingGroupViewController: UIViewController {
         if let uid = Auth.auth().currentUser?.uid {
             DispatchQueue.global().sync {
                 self.loader.startAnimating()
-                ref.child("Friends").child(uid).observeSingleEvent(of: .value, with: {(snapshot) in
+                ref.child("Friends").child(uid).observe(.value, with: {(snapshot) in
                     for item in snapshot.children {
                         let value = (item as! DataSnapshot).value
                         let dictionary = value as! [String : Any]
@@ -70,7 +73,9 @@ class MakingGroupViewController: UIViewController {
                         }
                     }
                     self.loader.stopAnimating()
-                    print(self.myFiendList)
+                    if self.myFiendList.isEmpty == true{
+                        self.thereIsNoFriendView.isHidden = false
+                    }
                     self.tableView.reloadData()
                 })
             }
@@ -95,6 +100,12 @@ class MakingGroupViewController: UIViewController {
                     self.filteredList.append(self.myFiendList[i])
                 }
             }
+        }
+    }
+    @objc func moveToAddFriend(){
+        let v = self.storyboard?.instantiateViewController(withIdentifier: "SearchUserViewController") as! SearchUserViewController
+        self.present(v, animated: true) {
+            
         }
     }
     
