@@ -34,7 +34,12 @@ class DutchBalanceViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
+        self.groupField.text = ""
         self.moneyField.text = ""
+        
+        moneyInfoLabel.isHidden = true
+        moneyField.isHidden = true
+        wonLabel.isHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

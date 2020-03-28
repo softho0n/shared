@@ -13,6 +13,8 @@ import FirebaseAuth
 
 class RegisterAccountViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var loading: UIActivityIndicatorView!
+    
     var firstAccount = false
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,6 +33,8 @@ class RegisterAccountViewController: UIViewController {
         collectionView.allowsSelection = true
         collectionView.allowsMultipleSelection = false
         collectionView.showsVerticalScrollIndicator = false
+        loading.backgroundColor = UIColor.white
+        loading.startAnimating()
         
         getdata()
     }
@@ -42,6 +46,7 @@ class RegisterAccountViewController: UIViewController {
                 if snapshot.hasChildren() == false{
                     self.firstAccount.toggle()
                 }
+                self.loading.stopAnimating()
             }
         }
     }
