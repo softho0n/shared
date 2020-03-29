@@ -16,8 +16,8 @@ class ReceiveViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var loader: UIActivityIndicatorView!
     @IBOutlet var noDataView: UIView!
+    @IBOutlet var makingGroupButton: UIButton!
     
-
     struct memberInfoStruct {
         var status : String!
         var memberName : String!
@@ -41,6 +41,7 @@ class ReceiveViewController: UIViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         ref = Database.database().reference()
+        makingGroupButton.addTarget(self, action: #selector(moveToMakingGroup), for: .touchUpInside)
         isAdded()
     }
     
@@ -132,6 +133,12 @@ class ReceiveViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc func moveToMakingGroup(){
+        let v = self.storyboard?.instantiateViewController(withIdentifier: "MakingGroupViewController") as! MakingGroupViewController
+        
+        self.navigationController?.pushViewController(v, animated: true)
     }
 
 }
