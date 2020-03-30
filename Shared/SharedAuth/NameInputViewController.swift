@@ -8,10 +8,13 @@
 
 import UIKit
 import FirebaseAuth
+import SwiftyGif
 
-class NameInputViewController: UIViewController {
+class NameInputViewController: UIViewController{
 
     @IBOutlet var nameInputField: UITextField!
+    
+    let logoAnimationView = LogoAnimationView()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // let backItem = UIBarButtonItem()
@@ -27,23 +30,25 @@ class NameInputViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(logoAnimationView)
+        logoAnimationView.pinEdgesToSuperView()
+        logoAnimationView.logoGifImageView.delegate = self
         nameInputField.underlined()
         nameInputField.returnKeyType = .next
         
-        if Auth.auth().currentUser != nil {
-            if #available(iOS 13.0, *) {
-                let rvc = self.storyboard?.instantiateViewController(identifier: "mainUI")
-                self.navigationController?.pushViewController(rvc!, animated: false)
-            } else {
-                fatalError()
-            }
-        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+        logoAnimationView.logoGifImageView.startAnimatingGif()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         nameInputField.text = ""
     }
+    
     
     @IBAction func reAuthentication(_ sender: Any) {
         setupBackButton()
@@ -64,6 +69,23 @@ extension NameInputViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         performSegue(withIdentifier: "toAuth", sender: nil)
         return true
+    }
+}
+extension NameInputViewController: SwiftyGifDelegate {
+    func gifDidStop(sender: UIImageView) {
+        logoAnimationView.isHidden = true
+        
+        if Auth.auth().currentUser != nil {
+            if #available(iOS 13.0, *) {
+                print("hello?")
+                let rvc = self.storyboard?.instantiateViewController(identifier: "mainUI")
+                self.navigationController?.pushViewController(rvc!, animated: false)
+            } else {
+                fatalError()
+            }
+        }
+        
+        self.navigationController?.isNavigationBarHidden = false
     }
 }
 

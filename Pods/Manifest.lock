@@ -85,12 +85,14 @@ PODS:
   - nanopb/encode (0.3.9011)
   - PromisesObjC (1.2.8)
   - SideMenu (6.4.8)
+  - SwiftyGif (5.2.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Database
   - SideMenu
+  - SwiftyGif
 
 SPEC REPOS:
   trunk:
@@ -112,6 +114,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SideMenu
+    - SwiftyGif
 
 SPEC CHECKSUMS:
   Firebase: f378c80340dd41c0ad0914af740c021eb282a04b
@@ -132,7 +135,8 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   SideMenu: 4a891be552d30bb6fa87ad404d62e485f8450c34
+  SwiftyGif: b85c6b33a9411859d9e1db998b6a8214aea942df
 
-PODFILE CHECKSUM: 03947dd29e79d88981d011408fae6a1fd93fabb9
+PODFILE CHECKSUM: 1299e818e06b4252c8ee7cd00808f75cbb83f4a7
 
 COCOAPODS: 1.8.4

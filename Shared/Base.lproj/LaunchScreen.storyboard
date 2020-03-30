@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,59 +12,11 @@
         <scene sceneID="EHf-IW-A2E">
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="vVF-l8-4yb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="CJm-oM-2vO">
-                                <rect key="frame" x="67" y="183" width="240" height="50"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paypal" translatesAutoresizingMaskIntoConstraints="NO" id="cXx-PC-tYh">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="LtV-Md-Eyt"/>
-                                            <constraint firstAttribute="height" constant="50" id="d3w-bv-FkP"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visa" translatesAutoresizingMaskIntoConstraints="NO" id="wv2-he-8iT">
-                                        <rect key="frame" x="95" y="0.0" width="50" height="50"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mastercard" translatesAutoresizingMaskIntoConstraints="NO" id="nBm-hc-IoW">
-                                        <rect key="frame" x="190" y="0.0" width="50" height="50"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="wv2-he-8iT" firstAttribute="height" secondItem="nBm-hc-IoW" secondAttribute="height" id="7wD-bV-eeA"/>
-                                    <constraint firstItem="cXx-PC-tYh" firstAttribute="height" secondItem="wv2-he-8iT" secondAttribute="height" id="Eek-06-phs"/>
-                                    <constraint firstItem="cXx-PC-tYh" firstAttribute="width" secondItem="wv2-he-8iT" secondAttribute="width" id="Lef-FD-a8k"/>
-                                    <constraint firstItem="wv2-he-8iT" firstAttribute="width" secondItem="nBm-hc-IoW" secondAttribute="width" id="TYZ-IC-ZFk"/>
-                                </constraints>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shared" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Gn-ee-CrU">
-                                <rect key="frame" x="118" y="306.5" width="139.5" height="54"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="45"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright for SHIN SEUNGHUN all rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NT3-9i-qdV">
-                                <rect key="frame" x="34" y="597" width="307" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.071093821499197268" green="0.079111268015072636" blue="0.24750158629441621" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NT3-9i-qdV" secondAttribute="trailing" constant="34" id="6qa-Xn-Ozo"/>
-                            <constraint firstItem="CJm-oM-2vO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="183" id="B2M-7D-O4z"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CJm-oM-2vO" secondAttribute="trailing" constant="68" id="Dgv-7C-q3I"/>
-                            <constraint firstItem="NT3-9i-qdV" firstAttribute="top" secondItem="0Gn-ee-CrU" secondAttribute="bottom" constant="236.5" id="Xzf-LV-Z90"/>
-                            <constraint firstItem="0Gn-ee-CrU" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="YOR-8u-zub"/>
-                            <constraint firstItem="NT3-9i-qdV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="34" id="i8n-1n-jka"/>
-                            <constraint firstItem="CJm-oM-2vO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="oAG-fI-o8b"/>
-                            <constraint firstItem="0Gn-ee-CrU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="r90-GN-wnA"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="JEt-a5-5Ao"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -72,9 +24,4 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="mastercard" width="256" height="256"/>
-        <image name="paypal" width="256" height="256"/>
-        <image name="visa" width="256" height="256"/>
-    </resources>
 </document>
