@@ -9,21 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="6Pm-5H-Avv">
-            <objects>
-                <viewController id="fdg-qK-756" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QlP-fF-rxg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="1AZ-pI-WLh"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1hk-Km-MfX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1176" y="-252"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="6R3-sr-c3i">
             <objects>
@@ -444,7 +429,7 @@
         <!--그룹 생성하기-->
         <scene sceneID="wgg-Fd-Szc">
             <objects>
-                <viewController id="5aU-0b-5MM" customClass="MakingGroupViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MakingGroupViewController" id="5aU-0b-5MM" customClass="MakingGroupViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fEl-af-1Xb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -597,23 +582,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fs9-s4-Lvo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6815.9420289855079" y="235.71428571428569"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="JH2-2S-nhV">
-            <objects>
-                <navigationController storyboardIdentifier="MakingGroupViewController" id="f8w-vN-I33" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="cxl-Ia-Qh5"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="I41-JU-llk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="5aU-0b-5MM" kind="relationship" relationship="rootViewController" id="glu-8Z-cbf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cER-9X-gRd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6816" y="-403"/>
         </scene>
         <!--더치페이 정보-->
         <scene sceneID="B8g-0n-FeN">
@@ -1405,11 +1373,11 @@
             <objects>
                 <viewController id="1By-Uo-eV4" customClass="AccountListViewController" customModule="Shared" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ex3-1Z-jgQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="28B-AA-XLN">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="accountCell" rowHeight="80" id="dI0-H7-0Wv" customClass="AccountTableViewCell" customModule="Shared" customModuleProvider="target">
@@ -1454,19 +1422,19 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="iIX-up-F2c">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </activityIndicatorView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kze-ac-TBS">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록된 계좌가 존재하지 않습니다 :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWe-1u-j2F">
-                                        <rect key="frame" x="51" y="390" width="312.5" height="28"/>
+                                        <rect key="frame" x="51" y="395" width="312.5" height="28"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_account" translatesAutoresizingMaskIntoConstraints="NO" id="QaF-Sg-S6I">
-                                        <rect key="frame" x="125" y="202" width="164" height="165"/>
+                                        <rect key="frame" x="125" y="207" width="164" height="165"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="164" id="GQt-Uq-7hJ"/>
                                             <constraint firstAttribute="height" constant="165" id="bMa-ui-ff4"/>
@@ -2181,9 +2149,6 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="그룹 생성하기"/>
-                                        <connections>
-                                            <segue destination="f8w-vN-I33" kind="show" animates="NO" id="ZAv-Bn-94P"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -2219,6 +2184,7 @@
                     <navigationItem key="navigationItem" id="bxZ-tL-DJe"/>
                     <connections>
                         <outlet property="loader" destination="Tg2-MK-USo" id="OLH-VV-RhF"/>
+                        <outlet property="makingGroupButton" destination="W4D-ZU-iqa" id="E1c-dZ-Pur"/>
                         <outlet property="noDataView" destination="Cup-pQ-o8G" id="g8g-xP-X54"/>
                         <outlet property="tableView" destination="ALC-pG-Tma" id="Gr9-Oh-Cwa"/>
                     </connections>
@@ -2358,7 +2324,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjt-8W-8Ia">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjt-8W-8Ia">
                                                     <rect key="frame" x="53" y="11" width="110" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="Z6l-N2-qgM"/>
@@ -2376,7 +2342,7 @@
                                             <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <constraints>
                                                 <constraint firstItem="wjt-8W-8Ia" firstAttribute="bottom" secondItem="XG5-YP-c2I" secondAttribute="bottomMargin" id="8vz-32-8pc"/>
-                                                <constraint firstItem="wjt-8W-8Ia" firstAttribute="leading" secondItem="XG5-YP-c2I" secondAttribute="leadingMargin" constant="47" id="K9F-Mp-0T3"/>
+                                                <constraint firstItem="wjt-8W-8Ia" firstAttribute="leading" secondItem="XG5-YP-c2I" secondAttribute="leadingMargin" constant="33" id="K9F-Mp-0T3"/>
                                                 <constraint firstItem="wjt-8W-8Ia" firstAttribute="top" secondItem="XG5-YP-c2I" secondAttribute="topMargin" id="rmI-k1-FSc"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -2390,7 +2356,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzB-lG-c0z">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzB-lG-c0z">
                                                     <rect key="frame" x="53" y="11" width="80" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28" id="xWy-5f-4SS"/>
@@ -2401,7 +2367,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="logOutButton:" destination="q1X-HV-esg" eventType="touchUpInside" id="r3c-Wu-5Qb"/>
-                                                        <segue destination="57i-ib-vnf" kind="push" id="r75-I7-fFZ"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -2409,7 +2374,7 @@
                                             <constraints>
                                                 <constraint firstItem="yzB-lG-c0z" firstAttribute="bottom" secondItem="zoj-Ya-N6i" secondAttribute="bottomMargin" id="0e9-5l-W4X"/>
                                                 <constraint firstItem="yzB-lG-c0z" firstAttribute="top" secondItem="zoj-Ya-N6i" secondAttribute="topMargin" id="E52-Z2-kVf"/>
-                                                <constraint firstItem="yzB-lG-c0z" firstAttribute="leading" secondItem="zoj-Ya-N6i" secondAttribute="leadingMargin" constant="47" id="taj-4U-ymi"/>
+                                                <constraint firstItem="yzB-lG-c0z" firstAttribute="leading" secondItem="zoj-Ya-N6i" secondAttribute="leadingMargin" constant="33" id="taj-4U-ymi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2489,9 +2454,7 @@
         <segue reference="qHf-KK-Sw9"/>
         <segue reference="fuE-nW-Hds"/>
         <segue reference="43L-ow-xLC"/>
-        <segue reference="cUg-lT-Ej8"/>
-        <segue reference="iPL-QE-zqZ"/>
-        <segue reference="U3N-wz-U0m"/>
+        <segue reference="pB3-8E-ucT"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BurgerKing" width="200" height="200"/>
