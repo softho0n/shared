@@ -109,7 +109,8 @@ class MakingGroupViewController: UIViewController {
     @objc func moveToAddFriend(){
         let v = self.storyboard?.instantiateViewController(withIdentifier: "SearchUserViewController") as! SearchUserViewController
         
-        self.navigationController?.pushViewController(v, animated: true)
+        self.present(v, animated: true) {
+        }
     }
     
     @IBAction func makeGroupBtn(_ sender: Any) {

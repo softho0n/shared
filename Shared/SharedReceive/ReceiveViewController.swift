@@ -139,7 +139,9 @@ class ReceiveViewController: UIViewController {
         let v = self.storyboard?.instantiateViewController(withIdentifier: "MakingGroupViewController") as! MakingGroupViewController
         
         self.navigationController?.pushViewController(v, animated: true)
+        self.tabBarController?.tabBar.isHidden = true
     }
+    
 
 }
 extension ReceiveViewController : UITableViewDelegate, UITableViewDataSource{

@@ -41,6 +41,9 @@
 		C9C3B1A52403FBDC007E9685 /* DetailPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C3B1A42403FBDC007E9685 /* DetailPersonViewController.swift */; };
 		C9D90D1123EC62AC008C16C0 /* AccountNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */; };
 		C9D90D1D23FFFF68008C16C0 /* SendpayLineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D90D1C23FFFF68008C16C0 /* SendpayLineTableViewCell.swift */; };
+		C9DF1D192432244100437791 /* logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = C9DF1D182432244100437791 /* logo.gif */; };
+		C9DF1D1C24326C5100437791 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF1D1B24326C5100437791 /* LogoAnimationView.swift */; };
+		C9DF1D22243277F700437791 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DF1D21243277F700437791 /* UIView+Constraints.swift */; };
 		C9E90FE123F39C9D00F840DD /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E90FE023F39C9D00F840DD /* AccountTableViewCell.swift */; };
 		C9E90FE523F3D47200F840DD /* chargeSharedMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E90FE423F3D47200F840DD /* chargeSharedMoneyViewController.swift */; };
 		D938646FB6994F09F3781C22 /* libPods-Shared.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 270B2390A8F8C5FCEFD73363 /* libPods-Shared.a */; };
@@ -87,6 +90,9 @@
 		C9C3B1A42403FBDC007E9685 /* DetailPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPersonViewController.swift; sourceTree = "<group>"; };
 		C9D90D1023EC62AC008C16C0 /* AccountNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNumberViewController.swift; sourceTree = "<group>"; };
 		C9D90D1C23FFFF68008C16C0 /* SendpayLineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendpayLineTableViewCell.swift; sourceTree = "<group>"; };
+		C9DF1D182432244100437791 /* logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = logo.gif; path = ../../../../../Downloads/logo.gif; sourceTree = "<group>"; };
+		C9DF1D1B24326C5100437791 /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
+		C9DF1D21243277F700437791 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		C9E90FE023F39C9D00F840DD /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		C9E90FE423F3D47200F840DD /* chargeSharedMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chargeSharedMoneyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +147,8 @@
 		C970C4E723BF967E00D0A069 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				C9DF1D1A24326C2D00437791 /* LogoView */,
+				C9DF1D14243221BA00437791 /* GifFile */,
 				C970C4F123BF968000D0A069 /* Assets.xcassets */,
 				C970C4E823BF967E00D0A069 /* AppDelegate.swift */,
 				C9BAFD36242EF93B0082BB8C /* GoogleService-Info.plist */,
@@ -263,6 +271,23 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		C9DF1D14243221BA00437791 /* GifFile */ = {
+			isa = PBXGroup;
+			children = (
+				C9DF1D182432244100437791 /* logo.gif */,
+			);
+			path = GifFile;
+			sourceTree = "<group>";
+		};
+		C9DF1D1A24326C2D00437791 /* LogoView */ = {
+			isa = PBXGroup;
+			children = (
+				C9DF1D1B24326C5100437791 /* LogoAnimationView.swift */,
+				C9DF1D21243277F700437791 /* UIView+Constraints.swift */,
+			);
+			path = LogoView;
+			sourceTree = "<group>";
+		};
 		C9E90FE323F3D43100F840DD /* SharedMoney */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C970C4F523BF968000D0A069 /* LaunchScreen.storyboard in Resources */,
+				C9DF1D192432244100437791 /* logo.gif in Resources */,
 				C9BAFD37242EF93B0082BB8C /* GoogleService-Info.plist in Resources */,
 				C970C4F223BF968000D0A069 /* Assets.xcassets in Resources */,
 				C970C4F023BF967F00D0A069 /* Main.storyboard in Resources */,
@@ -380,6 +406,7 @@
 				C9C3B1A52403FBDC007E9685 /* DetailPersonViewController.swift in Sources */,
 				C950832423C264D40037BF46 /* ReAuthViewController.swift in Sources */,
 				C9314B9D23F85D89007A458A /* DutchInfoTableViewCell.swift in Sources */,
+				C9DF1D1C24326C5100437791 /* LogoAnimationView.swift in Sources */,
 				C9314B9923F794CA007A458A /* DutchBalanceViewController.swift in Sources */,
 				C9B0756923DA75DD00E68753 /* FriendListViewController.swift in Sources */,
 				C9B0756C23DA926F00E68753 /* RegisterAccountViewController.swift in Sources */,
@@ -391,6 +418,7 @@
 				C9314B9B23F84AFE007A458A /* DutchPayConfirmViewController.swift in Sources */,
 				C950835423C4FF140037BF46 /* HomeViewController.swift in Sources */,
 				C9B0756623DA6F2500E68753 /* UserInfoTableViewCell.swift in Sources */,
+				C9DF1D22243277F700437791 /* UIView+Constraints.swift in Sources */,
 				C970C50623BFD05900D0A069 /* UserAuthViewController.swift in Sources */,
 				C950835623C502770037BF46 /* SearchUserViewController.swift in Sources */,
 				C9E90FE523F3D47200F840DD /* chargeSharedMoneyViewController.swift in Sources */,

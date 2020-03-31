@@ -8,6 +8,7 @@ target 'Shared' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'SideMenu'
+  pod 'SwiftyGif'
   # Pods for Shared
 
 end
