@@ -13,9 +13,14 @@ import FirebaseAuth
 class MenuTableViewController: UITableViewController {
     @IBOutlet var myPhoto: UIImageView!
     @IBOutlet var nameLabel: UILabel!
+    static let logOut = Notification.Name("logOut")
     @IBAction func logOutButton(_ sender: Any) {
             do{
+                NotificationCenter.default.post(name: MenuTableViewController.logOut, object: nil)
+                self.navigationItem.setHidesBackButton(true, animated: true)
                 try Auth.auth().signOut()
+                
+                
             }
             catch let error as NSError
             {

@@ -17,12 +17,19 @@ class ReAuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         userPhoneNumberField.keyboardType = .phonePad
         userAuthField.keyboardType = .numberPad
         addToolbarToVerifyPhoneNumber(userPhoneNumberField, "보내기")
-        
         Auth.auth().languageCode = "ko"
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        NotificationCenter.default.addObserver(forName: MenuTableViewController.logOut, object: nil, queue: OperationQueue.main) { (Notification) in
+            self.navigationController.poptoroot
+        }
     }
     
     func confirmUserPhoneNumber(_ phoneNumber : String?) {

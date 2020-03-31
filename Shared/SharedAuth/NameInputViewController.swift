@@ -34,13 +34,13 @@ class NameInputViewController: UIViewController{
         logoAnimationView.pinEdgesToSuperView()
         logoAnimationView.logoGifImageView.delegate = self
         nameInputField.underlined()
+        self.navigationController?.isNavigationBarHidden = true
         nameInputField.returnKeyType = .next
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
         logoAnimationView.logoGifImageView.startAnimatingGif()
     }
     
